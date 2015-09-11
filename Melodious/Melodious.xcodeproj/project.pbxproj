@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */; };
-		BA8482AE1BA338EF00A3CE99 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AD1BA338EF00A3CE99 /* FirstViewController.swift */; };
-		BA8482B01BA338EF00A3CE99 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AF1BA338EF00A3CE99 /* SecondViewController.swift */; };
+		BA8482AE1BA338EF00A3CE99 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AD1BA338EF00A3CE99 /* Home.swift */; };
+		BA8482B01BA338EF00A3CE99 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AF1BA338EF00A3CE99 /* Profile.swift */; };
 		BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B11BA338EF00A3CE99 /* Main.storyboard */; };
 		BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B41BA338EF00A3CE99 /* Images.xcassets */; };
 		BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B61BA338EF00A3CE99 /* LaunchScreen.xib */; };
@@ -28,6 +28,7 @@
 		BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482E31BA33BFA00A3CE99 /* Social.framework */; };
 		BA8482EC1BA33F3D00A3CE99 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */; };
 		BA8482ED1BA33F3D00A3CE99 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EB1BA33F3D00A3CE99 /* Parse.framework */; };
+		BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* NewGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,8 @@
 		BA8482A61BA338EF00A3CE99 /* Melodious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melodious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8482AA1BA338EF00A3CE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA8482AD1BA338EF00A3CE99 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BA8482AF1BA338EF00A3CE99 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BA8482AD1BA338EF00A3CE99 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		BA8482AF1BA338EF00A3CE99 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		BA8482B21BA338EF00A3CE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA8482B41BA338EF00A3CE99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA8482B71BA338EF00A3CE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		BA8482E31BA33BFA00A3CE99 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		BA8482EB1BA33F3D00A3CE99 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		BA8482F51BA34F2100A3CE99 /* NewGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,11 +125,12 @@
 			isa = PBXGroup;
 			children = (
 				BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */,
-				BA8482AD1BA338EF00A3CE99 /* FirstViewController.swift */,
-				BA8482AF1BA338EF00A3CE99 /* SecondViewController.swift */,
+				BA8482AD1BA338EF00A3CE99 /* Home.swift */,
+				BA8482AF1BA338EF00A3CE99 /* Profile.swift */,
+				BA8482F51BA34F2100A3CE99 /* NewGame.swift */,
 				BA8482B11BA338EF00A3CE99 /* Main.storyboard */,
-				BA8482B41BA338EF00A3CE99 /* Images.xcassets */,
 				BA8482B61BA338EF00A3CE99 /* LaunchScreen.xib */,
+				BA8482B41BA338EF00A3CE99 /* Images.xcassets */,
 				BA8482A91BA338EF00A3CE99 /* Supporting Files */,
 			);
 			path = Melodious;
@@ -280,9 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8482B01BA338EF00A3CE99 /* SecondViewController.swift in Sources */,
+				BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */,
+				BA8482B01BA338EF00A3CE99 /* Profile.swift in Sources */,
 				BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */,
-				BA8482AE1BA338EF00A3CE99 /* FirstViewController.swift in Sources */,
+				BA8482AE1BA338EF00A3CE99 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
