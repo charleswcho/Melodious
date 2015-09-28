@@ -12,6 +12,9 @@ class theirTurnCell: UITableViewCell {
 
     @IBOutlet var friendProfilePic: UIImageView!
     @IBOutlet weak var theirTurnNameLabel: UILabel!
+    @IBOutlet weak var winNumber: UILabel!
+    @IBOutlet weak var lossNumber: UILabel!
+    @IBOutlet weak var tieNumber: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
