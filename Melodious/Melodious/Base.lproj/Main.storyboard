@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="258" width="600" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yourTurnSectionHeader" id="MGj-LI-ekf" customClass="yourTurnSectionHeaderCell" customModule="Melodious" customModuleProvider="target">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yourTurnSectionHeader" id="MGj-LI-ekf" customClass="yourTurnSectionHeaderCell" customModule="Melodious" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGj-LI-ekf" id="bH4-C4-viL">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -155,7 +155,7 @@
                                             <outlet property="yourTurnNameLabel" destination="qbc-WY-W7w" id="avY-EM-MfP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="theirTurnSectionHeader" id="SZo-TC-g68" customClass="theirTurnSectionHeaderCell" customModule="Melodious" customModuleProvider="target">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="theirTurnSectionHeader" id="SZo-TC-g68" customClass="theirTurnSectionHeaderCell" customModule="Melodious" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZo-TC-g68" id="9GM-jo-D9n">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -181,7 +181,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="theirTurn" rowHeight="75" id="S3S-yb-nlF" customClass="theirTurnCell" customModule="Melodious" customModuleProvider="target">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="theirTurn" rowHeight="75" id="S3S-yb-nlF" customClass="theirTurnCell" customModule="Melodious" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3S-yb-nlF" id="fYU-LK-tqz">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -306,10 +306,10 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-320"/>
         </scene>
-        <!--View Controller-->
+        <!--New Game-->
         <scene sceneID="9Ro-Vw-pAS">
             <objects>
-                <viewController id="Kii-HF-TFo" sceneMemberID="viewController">
+                <viewController id="Kii-HF-TFo" customClass="NewGame" customModule="Melodious" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nuo-o6-iNF"/>
                         <viewControllerLayoutGuide type="bottom" id="33o-Qo-QdN"/>
@@ -319,7 +319,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.38482042664019744" blue="0.39152043486475985" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="Kca-FW-dCE"/>
+                    <tabBarItem key="tabBarItem" image="plus_math" id="Kca-FW-dCE">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQo-RB-IS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,7 +361,9 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -389,7 +393,8 @@
         <scene sceneID="FcP-67-DBK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SQr-vb-qa2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="first" id="acW-dT-cKf">
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="acW-dT-cKf">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -409,7 +414,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Home" width="33" height="33"/>
+        <image name="Profile" width="33" height="33"/>
+        <image name="plus_math" width="33" height="33"/>
     </resources>
 </document>
