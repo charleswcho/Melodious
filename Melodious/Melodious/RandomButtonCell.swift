@@ -1,21 +1,15 @@
 //
-//  youTurnCell.swift
+//  RandomButtonCell.swift
 //  Melodious
 //
-//  Created by Charles Wesley Cho on 9/28/15.
+//  Created by Charles Wesley Cho on 10/1/15.
 //  Copyright (c) 2015 Charles Wesley Cho. All rights reserved.
 //
 
 import UIKit
 
-class youTurnCell: UITableViewCell {
+class RandomButtonCell: UITableViewCell {
 
-    @IBOutlet var friendProfilePic: UIImageView!
-    @IBOutlet weak var yourTurnNameLabel: UILabel!
-    @IBOutlet weak var winNumber: UILabel!
-    @IBOutlet weak var lossNumber: UILabel!
-    @IBOutlet weak var tieNumber: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

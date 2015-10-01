@@ -1,14 +1,14 @@
 //
-//  theirTurnSectionHeaderCell.swift
+//  JudgeButtonCell.swift
 //  Melodious
 //
-//  Created by Charles Wesley Cho on 9/28/15.
+//  Created by Charles Wesley Cho on 10/1/15.
 //  Copyright (c) 2015 Charles Wesley Cho. All rights reserved.
 //
 
 import UIKit
 
-class theirTurnSectionHeaderCell: UITableViewCell {
+class JudgeButtonCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
