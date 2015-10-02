@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.38482042664019744" blue="0.39152043486475985" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="483B9CF3-B705-4928-B7F7-64E4A21EE287" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="7C92F0D9-5AC7-4AAA-B2D0-BD5129E4431A" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -248,7 +248,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableViewCellContentView>
                     </tableViewCell>
-                    <tabBarItem key="tabBarItem" title="" image="07DA7BEF-8D95-4E81-8E95-D4ABE50EB939" id="cPa-gy-q4n">
+                    <tabBarItem key="tabBarItem" title="" image="52FBC8B0-2096-4328-AF2A-AF3A3104B263" id="cPa-gy-q4n">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -286,7 +286,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="07DA7BEF-8D95-4E81-8E95-D4ABE50EB939" width="33" height="33">
+        <image name="52FBC8B0-2096-4328-AF2A-AF3A3104B263" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -409,7 +409,7 @@ twC5ALsAvQDCANkA2wDdGlMaWBpjGmwafxqDGpYaoRqqGq8atxq6Gr8azhrSGtka4RruGvMa9Rr3Gvwb
 BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
 </mutableData>
         </image>
-        <image name="483B9CF3-B705-4928-B7F7-64E4A21EE287" width="33" height="33">
+        <image name="7C92F0D9-5AC7-4AAA-B2D0-BD5129E4431A" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
