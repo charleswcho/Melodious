@@ -33,20 +33,77 @@ class HomeTVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return 0
     }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0){}
+        return 0.0
+    }
 
-    /*
+    var cell: UITableViewCell!
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        
+        
+        switch indexPath.row {
+            
+        case 0:
+            
+            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
+            
+            // Configure cell
+            
+        case 1:
+            
+            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle2", forIndexPath: indexPath) as! cellStyle2
+           
+            // Configure cell
+
+        case 2:
+            
+            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
+
+            // Configure cell
+            
+        default:
+            // Should change to default cell?
+            
+            cell.textLabel?.text = ""
+            
+        }
+        
+        switch indexPath.section {
+            
+        case 0:
+            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as!  cellStyle3
+            
+            // Configure cell
+            
+        case 1:
+            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
+            
+            // Configure cell
+            
+        case 2:
+            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
+            
+            // Configure cell
+            
+        default:
+            cell.textLabel?.text = ""
+            
+        }
+        
 
         // Configure the cell...
 
         return cell
     }
-    */
+
 
        /*
     // MARK: - Navigation
