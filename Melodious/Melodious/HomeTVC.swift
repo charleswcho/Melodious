@@ -7,12 +7,40 @@
 //
 
 import UIKit
+import Parse
 
-class HomeTVC: UITableViewController {
+class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        // Querying data from Parse
+        
+        // Query Game State first > games
+        var query : PFQuery = PFQuery(className: "Game")
+        query.whereKey("gameState", equalTo: 1)
+        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            
+            if(error == nil){
+                if let gameObjects = objects as? [PFObject] {
+                    for game in gameObjects {
+                        
+                        let opponent: AnyObject? = game.objectForKey("opponent")
+                        
+                        let name: AnyObject? = opponent?.objectForKey("name")
+
+                        let fbID: AnyObject? = opponent?.objectForKey("facebookID")
+                    }
+                }
+            }
+                
+            else{
+                println("Error in retrieving \(error)")
+            }
+            
+        })
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,7 +62,18 @@ class HomeTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // #warning Incomplete method implementation.
+//        switch section {
+//            
+//        case 0:
+//            return 0
+//        case 1:
+//            return 1
+//        case 2:
+//            return 1
+//        default:
+//            return 0
+//        }
+        
         // Return the number of rows in the section.
         return 0
     }
@@ -53,47 +92,68 @@ class HomeTVC: UITableViewController {
             
         case 0:
             
-            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
             
             // Configure cell
+            cell.label?.text = "Friends"
+            return cell
             
         case 1:
             
-            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle2", forIndexPath: indexPath) as! cellStyle2
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle2", forIndexPath: indexPath) as! cellStyle2
            
             // Configure cell
+            cell.label?.text = "Random"
+            return cell
 
         case 2:
             
-            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
 
             // Configure cell
+            cell.label?.text = "Judge"
+            return cell
             
         default:
-            // Should change to default cell?
+            // Default cell with no text
             
             cell.textLabel?.text = ""
             
         }
         
+
+
+        
         switch indexPath.section {
             
         case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as!  cellStyle3
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as!  cellStyle3
             
             // Configure cell
+            
+            cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
+//             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
+            return cell
             
         case 1:
-            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
             
             // Configure cell
+            cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
+            //             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
+            return cell
             
         case 2:
-            cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
             
             // Configure cell
+            cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
+            //             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
+            return cell
             
         default:
+            // Default cell with no text
+
             cell.textLabel?.text = ""
             
         }
