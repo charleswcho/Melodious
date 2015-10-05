@@ -11,6 +11,8 @@ import Parse
 
 class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let games : [[PFObject]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,7 +59,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
-        return 3
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +69,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 //        case 0:
 //            return 0
 //        case 1:
-//            return 1
+//            return 1 // PFQuery array .count
 //        case 2:
 //            return 1
 //        default:
@@ -79,14 +81,19 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(section == 0){}
-        return 0.0
+        return 25
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+         let titleArray = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge"]
+        
+        return titleArray[section]
     }
 
     var cell: UITableViewCell!
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+        //if section == 0
         
         switch indexPath.row {
             
@@ -120,48 +127,23 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             cell.textLabel?.text = ""
             
         }
+        return cell
+        //else
+        //grab array by section title
         
 
-
-        
-        switch indexPath.section {
-            
-        case 0:
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as!  cellStyle3
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as!  cellStyle3 as! GameTableViewCell
             
             // Configure cell
+            cell.game = array[indexPath.row]
             
             cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
 //             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
             return cell
             
-        case 1:
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
-            
-            // Configure cell
-            cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
-            //             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
-            return cell
-            
-        case 2:
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! cellStyle3
-            
-            // Configure cell
-            cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
-            //             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
-            return cell
-            
-        default:
-            // Default cell with no text
-
-            cell.textLabel?.text = ""
-            
-        }
+ 
         
 
-        // Configure the cell...
-
-        return cell
     }
 
 

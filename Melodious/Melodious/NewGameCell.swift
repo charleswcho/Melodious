@@ -1,5 +1,5 @@
 //
-//  headerStyle2.swift
+//  cellStyle.swift
 //  Melodious
 //
 //  Created by Charles Wesley Cho on 10/2/15.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class headerStyle2: UITableViewCell {
+class NewGameCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

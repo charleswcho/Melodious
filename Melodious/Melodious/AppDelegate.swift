@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Parse.enableLocalDatastore()
         
         // Initialize Parse.
+        Game.registerSubclass()
+        
         Parse.setApplicationId("ert9Xm9hkX0xlUbo0bQaeK7mMfvQCB9P3Ey4e8iN",
             clientKey: "01Z4UwEwCwOerop9KwJmNkJXeTwGcVMC1PxhnObz")
         
