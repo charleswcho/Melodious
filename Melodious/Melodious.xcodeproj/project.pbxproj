@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA50C9821BC4782D00305108 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9811BC4782D00305108 /* User.swift */; };
+		BA50C9851BC480CC00305108 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA50C9831BC480CC00305108 /* FBSDKCoreKit.framework */; };
+		BA50C9861BC480CC00305108 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA50C9841BC480CC00305108 /* FBSDKLoginKit.framework */; };
+		BA50C9881BC480DD00305108 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA50C9871BC480DD00305108 /* ParseFacebookUtilsV4.framework */; };
+		BA50C98E1BC48D4300305108 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C98D1BC48D4300305108 /* ProfileCell.swift */; };
+		BA50C9901BC48D6600305108 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C98F1BC48D6600305108 /* ScoreCell.swift */; };
+		BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9911BC48D9400305108 /* ProfileTVC.swift */; };
 		BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */; };
-		BA8482B01BA338EF00A3CE99 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AF1BA338EF00A3CE99 /* Profile.swift */; };
 		BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B11BA338EF00A3CE99 /* Main.storyboard */; };
 		BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B41BA338EF00A3CE99 /* Images.xcassets */; };
 		BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B61BA338EF00A3CE99 /* LaunchScreen.xib */; };
@@ -28,9 +34,8 @@
 		BA8482EC1BA33F3D00A3CE99 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */; };
 		BA8482ED1BA33F3D00A3CE99 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EB1BA33F3D00A3CE99 /* Parse.framework */; };
 		BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* NewGame.swift */; };
-		BAAC5AED1BC1CA9E0073D352 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAAC5AEC1BC1CA9E0073D352 /* Default-568h@2x.png */; };
 		BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165441BBF3A420078C280 /* NewGameCell.swift */; };
-		BAB165491BBF3A630078C280 /* cellStyle3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165481BBF3A630078C280 /* cellStyle3.swift */; };
+		BAB165491BBF3A630078C280 /* WaitingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165481BBF3A630078C280 /* WaitingCell.swift */; };
 		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
 		BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD55061BBDF4780071C22B /* HomeTVC.swift */; };
 /* End PBXBuildFile section */
@@ -46,10 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA50C9811BC4782D00305108 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BA50C9831BC480CC00305108 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		BA50C9841BC480CC00305108 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		BA50C9871BC480DD00305108 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = "../../../../Documents/parse-library-1.8.3/ParseFacebookUtilsV4.framework"; sourceTree = "<group>"; };
+		BA50C98D1BC48D4300305108 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		BA50C98F1BC48D6600305108 /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
+		BA50C9911BC48D9400305108 /* ProfileTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		BA8482A61BA338EF00A3CE99 /* Melodious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melodious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8482AA1BA338EF00A3CE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA8482AF1BA338EF00A3CE99 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		BA8482B21BA338EF00A3CE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA8482B41BA338EF00A3CE99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA8482B71BA338EF00A3CE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -71,9 +82,8 @@
 		BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		BA8482EB1BA33F3D00A3CE99 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BA8482F51BA34F2100A3CE99 /* NewGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGame.swift; sourceTree = "<group>"; };
-		BAAC5AEC1BC1CA9E0073D352 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BAB165441BBF3A420078C280 /* NewGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
-		BAB165481BBF3A630078C280 /* cellStyle3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellStyle3.swift; sourceTree = "<group>"; };
+		BAB165481BBF3A630078C280 /* WaitingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingCell.swift; sourceTree = "<group>"; };
 		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BACD55061BBDF4780071C22B /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA50C9881BC480DD00305108 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				BA50C9851BC480CC00305108 /* FBSDKCoreKit.framework in Frameworks */,
+				BA50C9861BC480CC00305108 /* FBSDKLoginKit.framework in Frameworks */,
 				BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */,
 				BA8482E21BA33BEE00A3CE99 /* Accounts.framework in Frameworks */,
 				BA8482E01BA33BE700A3CE99 /* libsqlite3.dylib in Frameworks */,
@@ -110,10 +123,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA50C98B1BC48C7500305108 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BA50C9911BC48D9400305108 /* ProfileTVC.swift */,
+				BA50C98C1BC48D2900305108 /* Cells */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		BA50C98C1BC48D2900305108 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BA50C98D1BC48D4300305108 /* ProfileCell.swift */,
+				BA50C98F1BC48D6600305108 /* ScoreCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		BA84829D1BA338EF00A3CE99 = {
 			isa = PBXGroup;
 			children = (
-				BAAC5AEC1BC1CA9E0073D352 /* Default-568h@2x.png */,
 				BA8482A81BA338EF00A3CE99 /* Melodious */,
 				BA8482E51BA33C2400A3CE99 /* Frameworks */,
 				BA8482C01BA338EF00A3CE99 /* MelodiousTests */,
@@ -170,6 +200,9 @@
 		BA8482E51BA33C2400A3CE99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA50C9871BC480DD00305108 /* ParseFacebookUtilsV4.framework */,
+				BA50C9831BC480CC00305108 /* FBSDKCoreKit.framework */,
+				BA50C9841BC480CC00305108 /* FBSDKLoginKit.framework */,
 				BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */,
 				BA8482EB1BA33F3D00A3CE99 /* Parse.framework */,
 				BA8482E31BA33BFA00A3CE99 /* Social.framework */,
@@ -193,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC0A0F71BC2FA6F00A114E2 /* Game.swift */,
+				BA50C9811BC4782D00305108 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -210,9 +244,9 @@
 		BAC0A0F61BC2FA3000A114E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA8482AF1BA338EF00A3CE99 /* Profile.swift */,
 				BA8482F51BA34F2100A3CE99 /* NewGame.swift */,
 				BADE0B5B1BB9B30800C633EA /* Home Tab */,
+				BA50C98B1BC48C7500305108 /* Profile */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -230,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				BAB165441BBF3A420078C280 /* NewGameCell.swift */,
-				BAB165481BBF3A630078C280 /* cellStyle3.swift */,
+				BAB165481BBF3A630078C280 /* WaitingCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -316,7 +350,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */,
-				BAAC5AED1BC1CA9E0073D352 /* Default-568h@2x.png in Resources */,
 				BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */,
 				BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */,
 			);
@@ -336,12 +369,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */,
 				BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */,
 				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
 				BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */,
-				BA8482B01BA338EF00A3CE99 /* Profile.swift in Sources */,
+				BA50C9821BC4782D00305108 /* User.swift in Sources */,
 				BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */,
-				BAB165491BBF3A630078C280 /* cellStyle3.swift in Sources */,
+				BA50C98E1BC48D4300305108 /* ProfileCell.swift in Sources */,
+				BAB165491BBF3A630078C280 /* WaitingCell.swift in Sources */,
+				BA50C9901BC48D6600305108 /* ScoreCell.swift in Sources */,
 				BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +509,7 @@
 					"$(inherited)",
 					"/Users/charleswesleycho/Documents/parse-library-1.8.3",
 					"$(PROJECT_DIR)/Melodious",
+					"/Users/charleswesleycho/Documents/FacebookSDKs-iOS-20150813",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -488,6 +525,7 @@
 					"$(inherited)",
 					"/Users/charleswesleycho/Documents/parse-library-1.8.3",
 					"$(PROJECT_DIR)/Melodious",
+					"/Users/charleswesleycho/Documents/FacebookSDKs-iOS-20150813",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

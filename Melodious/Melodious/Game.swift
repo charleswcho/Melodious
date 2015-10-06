@@ -24,12 +24,11 @@ class Game: PFObject, PFSubclassing {
     }
     
     @NSManaged var gameState: NSNumber!
-    @NSManaged var challenger: PFUser!
-    @NSManaged var opponent: PFUser!
+    @NSManaged var challenger: User!
+    @NSManaged var opponent: User!
     @NSManaged var challengerSongURL: [NSString: String]!
     @NSManaged var opponentSongURL: [NSString: String]!
     @NSManaged var winner: String!
     @NSManaged var loser: String!
    
 }
-

@@ -77,9 +77,10 @@
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outlet property="label" destination="5y6-Vm-EYV" id="boj-CT-9D9"/>
+                                        <segue destination="Kii-HF-TFo" kind="show" id="Oc7-Op-YVY"/>
                                     </connections>
                                 </tableViewCell>
-                                <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WaitingCell" rowHeight="75" id="Uws-cO-nYg" customClass="cellStyle3" customModule="Melodious" customModuleProvider="target">
+                                <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WaitingCell" rowHeight="75" id="Uws-cO-nYg" customClass="WaitingCell" customModule="Melodious" customModuleProvider="target">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uws-cO-nYg" id="jRv-7a-3Bp">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -172,25 +173,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.38482042664019744" blue="0.39152043486475985" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="C614618A-2960-4468-B0AD-9B49A3B8D9C0" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="B80D5DB8-C82E-4FAF-8CD8-6F22AA930D6F" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQo-RB-IS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1463.5" y="501.5"/>
+            <point key="canvasLocation" x="1945.5" y="-320.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="f1V-NY-meu">
             <objects>
-                <tableViewController id="kPZ-rQ-HIV" sceneMemberID="viewController">
+                <tableViewController id="kPZ-rQ-HIV" customClass="ProfileTVC" customModule="Melodious" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MAi-3q-MH0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellStyle4" rowHeight="200" id="6lI-yd-xmU">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="200" id="6lI-yd-xmU" customClass="ProfileCell" customModule="Melodious" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lI-yd-xmU" id="sJz-xe-r88">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -275,23 +276,15 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.01176470588" green="0.68627450980000004" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="currentUserLLabel" destination="TdA-ju-jtS" id="X2F-SO-yq0"/>
+                                    <outlet property="currentUserNameLabel" destination="Db8-78-Vac" id="gHc-ex-z8P"/>
+                                    <outlet property="currentUserProfilePic" destination="xQt-iy-DBR" id="kfR-DZ-dnc"/>
+                                    <outlet property="currentUserTLabel" destination="Jtf-RT-alC" id="51t-wQ-s1b"/>
+                                    <outlet property="currentUserWLabel" destination="LCZ-Qf-faj" id="UJb-k3-11n"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerStyle2" rowHeight="25" id="x6Y-w3-Ol2">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6Y-w3-Ol2" id="5ew-aX-YML">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match History" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs2-9C-5Px">
-                                            <rect key="frame" x="30" y="2" width="94" height="21"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.29019607843137257" green="0.56862745098039214" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellStyle5" rowHeight="75" id="rE9-ZU-Dyd" customClass="cellStyle3" customModule="Melodious" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScoreCell" rowHeight="75" id="rE9-ZU-Dyd" customClass="ScoreCell" customModule="Melodious" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-ZU-Dyd" id="DJq-On-MvX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -372,8 +365,12 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="currentUserScoreLabel" destination="KCG-RV-X2d" id="uiI-Bo-TT1"/>
                                     <outlet property="friendProfilePic" destination="oVj-U5-bKG" id="s5M-fN-Uit"/>
                                     <outlet property="label" destination="zcC-cG-kZW" id="psO-a5-s0c"/>
+                                    <outlet property="opponentNameLabel" destination="zcC-cG-kZW" id="QKe-cy-mHU"/>
+                                    <outlet property="opponentProfilePic" destination="oVj-U5-bKG" id="Xq8-f2-Tyg"/>
+                                    <outlet property="opponentScoreLabel" destination="yI2-Sa-f88" id="sLH-GL-tjJ"/>
                                     <outlet property="yourTurnNameLabel" destination="zcC-cG-kZW" id="Hx8-7t-80g"/>
                                 </connections>
                             </tableViewCell>
@@ -387,7 +384,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXo-oZ-eqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945.5" y="-1168.5"/>
+            <point key="canvasLocation" x="1945.5" y="-1801.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FcP-67-DBK">
@@ -419,7 +416,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C614618A-2960-4468-B0AD-9B49A3B8D9C0" width="33" height="33">
+        <image name="B80D5DB8-C82E-4FAF-8CD8-6F22AA930D6F" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

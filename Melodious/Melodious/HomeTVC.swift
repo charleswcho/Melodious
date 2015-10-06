@@ -64,20 +64,13 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        switch section {
-//            
-//        case 0:
-//            return 0
-//        case 1:
-//            return 1 // PFQuery array .count
-//        case 2:
-//            return 1
-//        default:
-//            return 0
-//        }
+        // Need to 
+        var array = []
+        var array1 = []
+        var array2 = []
+        var numbeOfRowsArray = [3, array.count, array1.count, array2.count]
         
-        // Return the number of rows in the section.
-        return 0
+        return numbeOfRowsArray[section]
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -89,63 +82,37 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         
         return titleArray[section]
     }
-
+    
     var cell: UITableViewCell!
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //if section == 0
         
-        switch indexPath.row {
+        if indexPath.section == 0 {
             
-        case 0:
+            var cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
-            
+            let buttonTitleArray = ["Friends", "Random", "Judge"]
             // Configure cell
-            cell.label?.text = "Friends"
-            return cell
+            cell.label.text = buttonTitleArray[indexPath.row]
             
-        case 1:
-            
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle2", forIndexPath: indexPath) as! cellStyle2
-           
-            // Configure cell
-            cell.label?.text = "Random"
             return cell
 
-        case 2:
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle", forIndexPath: indexPath) as! cellStyle
-
-            // Configure cell
-            cell.label?.text = "Judge"
-            return cell
-            
-        default:
-            // Default cell with no text
-            
-            cell.textLabel?.text = ""
-            
-        }
-        return cell
-        //else
+        } else {
         //grab array by section title
         
-
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as!  cellStyle3 as! GameTableViewCell
+            
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! WaitingCell
             
             // Configure cell
-            cell.game = array[indexPath.row]
+//            cell.game = array[indexPath.row]
             
             cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
 //             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
             return cell
-            
- 
-        
-
+     
+        }
     }
-
 
        /*
     // MARK: - Navigation
