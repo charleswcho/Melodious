@@ -45,7 +45,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-         let titleArray = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge"]
+        let titleArray = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge"]
         
         return titleArray[section]
     }

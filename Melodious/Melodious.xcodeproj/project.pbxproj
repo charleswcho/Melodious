@@ -16,6 +16,7 @@
 		BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9911BC48D9400305108 /* ProfileTVC.swift */; };
 		BA50C99A1BC4D3E500305108 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9991BC4D3E500305108 /* FriendCell.swift */; };
 		BA50C99E1BC4D7A000305108 /* FriendSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C99D1BC4D7A000305108 /* FriendSearch.swift */; };
+		BA50C9A01BC4F36100305108 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA50C99F1BC4F36100305108 /* Default-568h@2x.png */; };
 		BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */; };
 		BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B11BA338EF00A3CE99 /* Main.storyboard */; };
 		BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B41BA338EF00A3CE99 /* Images.xcassets */; };
@@ -62,6 +63,7 @@
 		BA50C9911BC48D9400305108 /* ProfileTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		BA50C9991BC4D3E500305108 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		BA50C99D1BC4D7A000305108 /* FriendSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearch.swift; sourceTree = "<group>"; };
+		BA50C99F1BC4F36100305108 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA8482A61BA338EF00A3CE99 /* Melodious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melodious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8482AA1BA338EF00A3CE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		BA84829D1BA338EF00A3CE99 = {
 			isa = PBXGroup;
 			children = (
+				BA50C99F1BC4F36100305108 /* Default-568h@2x.png */,
 				BA8482A81BA338EF00A3CE99 /* Melodious */,
 				BA8482E51BA33C2400A3CE99 /* Frameworks */,
 				BA8482C01BA338EF00A3CE99 /* MelodiousTests */,
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */,
+				BA50C9A01BC4F36100305108 /* Default-568h@2x.png in Resources */,
 				BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */,
 				BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */,
 			);

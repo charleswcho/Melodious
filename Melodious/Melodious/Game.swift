@@ -14,7 +14,7 @@ enum GameState : Int {
     case GameIsWaitingForAnswer
     case GameIsWaitingforOpponent
     case GameIsWaitingForJudge
-    
+    // More game states needed? "JudgesHaveScored""GameHasEnded"
 }
 
 class Game: PFObject, PFSubclassing {
@@ -56,7 +56,7 @@ func fetchData() {
             
             // objects = An array of all game objects that have the .currentUser() in it
             
-            if let gameObjects = objects as? [Game] {     // Query Game State first > games
+            if let gameObjects = objects as? [Game] {     // Safe unpacking of array
 
                 for game : Game in gameObjects {
                     
@@ -74,9 +74,8 @@ func fetchData() {
                     case 4:
                         gameState4Array.addObject(game)
                         
-                        
                     default:
-                        println("No game")
+                        println("No game arrays available")
                     }
                 }
             }

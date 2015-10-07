@@ -80,8 +80,8 @@
                                                     <exclude reference="d2T-Yw-tuF"/>
                                                     <exclude reference="lzO-GF-uNx"/>
                                                     <exclude reference="D6I-Qt-2gW"/>
-                                                    <exclude reference="Qfv-Zb-Tru"/>
                                                     <exclude reference="EXT-12-jdv"/>
+                                                    <exclude reference="Qfv-Zb-Tru"/>
                                                     <exclude reference="Uem-O3-aX9"/>
                                                 </mask>
                                             </variation>
@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33529066289999998" green="0.79330636409999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="15715CC3-20A0-4B72-AA95-67B596CF988F" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="EDF80B15-9B20-4D74-8CC9-9664ED9B9B57" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -460,7 +460,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="15715CC3-20A0-4B72-AA95-67B596CF988F" width="33" height="33">
+        <image name="EDF80B15-9B20-4D74-8CC9-9664ED9B9B57" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
