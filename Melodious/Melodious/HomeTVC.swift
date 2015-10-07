@@ -11,10 +11,14 @@ import Parse
 
 class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let games : [[PFObject]] = []
+    var games : [[Game]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Game.fetchData { (objects, error) -> Void in
+            self.games = objects
+            self.tableView.reloadData()
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,20 +49,18 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let titleArray = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge"]
-        
+         let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge"]
+    
         return titleArray[section]
     }
     
-    var cell: UITableViewCell!
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
             
             var cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
             
-            let buttonTitleArray = ["Friends", "Random", "Judge"]
+            let buttonTitleArray : [String] = ["Friends", "Random", "Judge"]
             // Configure cell
             cell.label.text = buttonTitleArray[indexPath.row]
             
@@ -67,33 +69,26 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
         //grab array by section title
-            
+            var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
+
             switch indexPath.section {
                 
             case 1:
-                var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
                 cell.setGame(gameState2Array[indexPath.row] as! Game)
                 
-                return cell
-                
             case 2:
-                var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
                 cell.setGame(gameState3Array[indexPath.row] as! Game)
                 
-                return cell
-                
             case 3:
-                var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
                 cell.setGame(gameState4Array[indexPath.row] as! Game)
-                
-                return cell
                 
             default:
                 println("No more arrays")
+                
             }
-        }
+            return cell
 
-        return cell
+        }
     }
     
 

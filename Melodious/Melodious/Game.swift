@@ -16,6 +16,9 @@ enum GameState : Int {
     case GameIsWaitingForJudge
     // More game states needed? "JudgesHaveScored""GameHasEnded"
 }
+//WaitingForAcceptance  //trying to find partner or waiting for acceptance
+//WaitingForJudgment
+//Finished
 
 class Game: PFObject, PFSubclassing {
     
@@ -23,68 +26,86 @@ class Game: PFObject, PFSubclassing {
         return "Game"
     }
     
-    @NSManaged var gameState: NSNumber!
-    @NSManaged var challenger: User!
-    @NSManaged var opponent: User!
-    @NSManaged var challengerSongURL: [NSString: String]!
-    @NSManaged var opponentSongURL: [NSString: String]!
+    @NSManaged var stateValue: NSNumber!
+    @NSManaged var player1: User!
+    @NSManaged var player2: User!
+    @NSManaged var player1SongURL: String!
+    @NSManaged var player2SongURL: String!
     @NSManaged var winner: String!
     @NSManaged var loser: String!
+    
+    var state : GameState {
+        get {
+            return GameState(rawValue: stateValue.integerValue)!
+        }
+    }
    
-}
-
-// Initialize empty arrays that will store game objects of 
-var gameState1Array : NSMutableArray = []
-var gameState2Array : NSMutableArray = []
-var gameState3Array : NSMutableArray = []
-var gameState4Array : NSMutableArray = []
-
-func fetchData() {
-    // Querying data from Parse
+    var mySongURL : String! {
+        if player1 == User.currentUser() {
+            return player1SongURL
+        } else {
+            return player2SongURL
+        }
+    }
     
-    var gamesAsChallenger = PFQuery(className: "Game")
-    gamesAsChallenger.whereKey("challenger", equalTo: PFUser.currentUser()!)
+    var opponentSongURL : String! {
+        if player1 != User.currentUser() {
+            return player1SongURL
+        } else {
+            return player2SongURL
+        }
+    }
     
-    var gamesAsOpponent = PFQuery(className: "Game")
-    gamesAsOpponent.whereKey("opponent", equalTo: PFUser.currentUser()!)
     
-    var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
+    // MARK: Parse
+    
+    // Fetch data from Parse
+    
+    typealias GameResultsBlock = (objects:[[Game]]?, success:Bool) -> Void
 
-    query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+    class func fetchData(resultBlock: GameResultsBlock) {
+        // Querying data from Parse
+        // Initialize empty arrays that will store game objects of
+        var gameState1Array : [Game] = []
+        var gameState2Array : [Game] = []
+        var gameState3Array : [Game] = []
+        var gameState4Array : [Game] = []
         
-        if(error == nil){
+        let gamesArray = [gameState1Array, gameState2Array, gameState3Array, gameState4Array]
+        
+        
+        var gamesAsChallenger = PFQuery(className: "Game")
+        gamesAsChallenger.whereKey("challenger", equalTo: PFUser.currentUser()!)
+        
+        var gamesAsOpponent = PFQuery(className: "Game")
+        gamesAsOpponent.whereKey("opponent", equalTo: PFUser.currentUser()!)
+        
+        var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
+        
+        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
             
-            // objects = An array of all game objects that have the .currentUser() in it
-            
-            if let gameObjects = objects as? [Game] {     // Safe unpacking of array
-
-                for game : Game in gameObjects {
+            if(error == nil){
+                
+                // objects = An array of all game objects that have the .currentUser() in it
+                
+                if let gameObjects = objects as? [Game] {     // Safe unpacking of array
                     
-                    switch game.gameState {   // Seperate game objects by game state (Other option multiple queries?)
-                    
-                    case 1:
-                        gameState1Array.addObject(game)
-                        
-                    case 2:
-                        gameState2Array.addObject(game)
-                        
-                    case 3:
-                        gameState3Array.addObject(game)
-                        
-                    case 4:
-                        gameState4Array.addObject(game)
-                        
-                    default:
-                        println("No game arrays available")
+                    for game in gameObjects {
+                        var array = gamesArray[self.state.rawValue-1]
+                        array.append(game)
                     }
                 }
             }
-        }
+                
+            else{
+                println("Error in retrieving \(error)")
+            }
             
-        else{
-            println("Error in retrieving \(error)")
-        }
+        })
         
-    })
-    
+    }
+
 }
+
+
+
