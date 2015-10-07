@@ -14,6 +14,8 @@
 		BA50C98E1BC48D4300305108 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C98D1BC48D4300305108 /* ProfileCell.swift */; };
 		BA50C9901BC48D6600305108 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C98F1BC48D6600305108 /* ScoreCell.swift */; };
 		BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9911BC48D9400305108 /* ProfileTVC.swift */; };
+		BA50C99A1BC4D3E500305108 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9991BC4D3E500305108 /* FriendCell.swift */; };
+		BA50C99E1BC4D7A000305108 /* FriendSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C99D1BC4D7A000305108 /* FriendSearch.swift */; };
 		BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */; };
 		BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B11BA338EF00A3CE99 /* Main.storyboard */; };
 		BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B41BA338EF00A3CE99 /* Images.xcassets */; };
@@ -58,6 +60,8 @@
 		BA50C98D1BC48D4300305108 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		BA50C98F1BC48D6600305108 /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		BA50C9911BC48D9400305108 /* ProfileTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
+		BA50C9991BC4D3E500305108 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		BA50C99D1BC4D7A000305108 /* FriendSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearch.swift; sourceTree = "<group>"; };
 		BA8482A61BA338EF00A3CE99 /* Melodious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melodious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8482AA1BA338EF00A3CE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,24 @@
 			children = (
 				BA50C98D1BC48D4300305108 /* ProfileCell.swift */,
 				BA50C98F1BC48D6600305108 /* ScoreCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		BA50C9971BC4D39700305108 /* New Game */ = {
+			isa = PBXGroup;
+			children = (
+				BA8482F51BA34F2100A3CE99 /* NewGame.swift */,
+				BA50C99D1BC4D7A000305108 /* FriendSearch.swift */,
+				BA50C9981BC4D3B200305108 /* Cells */,
+			);
+			name = "New Game";
+			sourceTree = "<group>";
+		};
+		BA50C9981BC4D3B200305108 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BA50C9991BC4D3E500305108 /* FriendCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -244,8 +266,8 @@
 		BAC0A0F61BC2FA3000A114E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA8482F51BA34F2100A3CE99 /* NewGame.swift */,
 				BADE0B5B1BB9B30800C633EA /* Home Tab */,
+				BA50C9971BC4D39700305108 /* New Game */,
 				BA50C98B1BC48C7500305108 /* Profile */,
 			);
 			name = Controllers;
@@ -369,8 +391,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA50C99A1BC4D3E500305108 /* FriendCell.swift in Sources */,
 				BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */,
 				BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */,
+				BA50C99E1BC4D7A000305108 /* FriendSearch.swift in Sources */,
 				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
 				BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */,
 				BA50C9821BC4782D00305108 /* User.swift in Sources */,

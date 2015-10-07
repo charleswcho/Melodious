@@ -22,10 +22,9 @@ class WaitingCell: UITableViewCell {
     
     func setGame(inputGame: Game) {
         
-        var game = inputGame
-        label.text = game.opponent.name
+        label.text = inputGame.opponent.name
         
-        var facebookID = game.opponent.facebookID as NSString
+        var facebookID = inputGame.opponent.facebookID as NSString
         
         // Get user profile pic
         let url = NSURL(string: "https://graph.facebook.com/\(facebookID)/picture?type=large")

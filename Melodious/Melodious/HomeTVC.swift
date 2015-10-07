@@ -16,38 +16,8 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        // Querying data from Parse
-        
-        // Query Game State first > games
-        var query : PFQuery = PFQuery(className: "Game")
-        query.whereKey("gameState", equalTo: 1)
-        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-            
-            if(error == nil){
-                if let gameObjects = objects as? [PFObject] {
-                    for game in gameObjects {
-                        
-                        let opponent: AnyObject? = game.objectForKey("opponent")
-                        
-                        let name: AnyObject? = opponent?.objectForKey("name")
-
-                        let fbID: AnyObject? = opponent?.objectForKey("facebookID")
-                    }
-                }
-            }
-                
-            else{
-                println("Error in retrieving \(error)")
-            }
-            
-        })
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,12 +34,9 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // Need to 
-        var array = []
-        var array1 = []
-        var array2 = []
-        var numbeOfRowsArray = [3, array.count, array1.count, array2.count]
-        
+        var numbeOfRowsArray = [3, gameState2Array.count, gameState3Array.count, gameState4Array.count]
+//        var numbeOfRowsArray = [3, 1, 1, 1]
+
         return numbeOfRowsArray[section]
     }
     
@@ -100,19 +67,35 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
         //grab array by section title
-        
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellStyle3", forIndexPath: indexPath) as! WaitingCell
-            
-            // Configure cell
-//            cell.game = array[indexPath.row]
-            
-            cell.label?.text = "" // TODO: Need to put name from opponent _User reference into here
-//             cell.friendProfilePic.image = //Query facebook api for profile picture of friend with Facebook ID for "opponent"
-            return cell
-     
+            switch indexPath.section {
+                
+            case 1:
+                var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
+                cell.setGame(gameState2Array[indexPath.row] as! Game)
+                
+                return cell
+                
+            case 2:
+                var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
+                cell.setGame(gameState3Array[indexPath.row] as! Game)
+                
+                return cell
+                
+            case 3:
+                var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
+                cell.setGame(gameState4Array[indexPath.row] as! Game)
+                
+                return cell
+                
+            default:
+                println("No more arrays")
+            }
         }
+
+        return cell
     }
+    
 
        /*
     // MARK: - Navigation
