@@ -61,7 +61,7 @@ class Game: PFObject, PFSubclassing {
     
     // Fetch data from Parse
     
-    typealias GameResultsBlock = (objects:[[Game]]?, success:Bool) -> Void
+    typealias GameResultsBlock = (objects:[[Game]]?, success:Bool) -> Void  // Is this the correct syntax?
 
     class func fetchData(resultBlock: GameResultsBlock) {
         // Querying data from Parse
@@ -91,7 +91,7 @@ class Game: PFObject, PFSubclassing {
                 if let gameObjects = objects as? [Game] {     // Safe unpacking of array
                     
                     for game in gameObjects {
-                        var array = gamesArray[self.state.rawValue-1]
+                        var array = gamesArray[self.state.rawValue-1] // .state is out of scope
                         array.append(game)
                     }
                 }
