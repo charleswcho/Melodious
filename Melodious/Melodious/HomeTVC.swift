@@ -15,8 +15,9 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Game.fetchData { (objects, error) -> Void in
-            self.games = objects
+            self.games = objects!
             self.tableView.reloadData()
         }
 
@@ -33,12 +34,13 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
-        return 4
+        return 5
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var numbeOfRowsArray = [3, gameState2Array.count, gameState3Array.count, gameState4Array.count]
+        var numbeOfRowsArray = [3, games[section-1].count, games[section-1].count, games[section-1].count, games[section-1].count]
+        
 //        var numbeOfRowsArray = [3, 1, 1, 1]
 
         return numbeOfRowsArray[section]
@@ -49,7 +51,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-         let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge"]
+         let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games"]
     
         return titleArray[section]
     }
@@ -74,13 +76,16 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             switch indexPath.section {
                 
             case 1:
-                cell.setGame(gameState2Array[indexPath.row] as! Game)
+                cell.setGame(games[0][indexPath.row])
                 
             case 2:
-                cell.setGame(gameState3Array[indexPath.row] as! Game)
+                cell.setGame(games[1][indexPath.row])
                 
             case 3:
-                cell.setGame(gameState4Array[indexPath.row] as! Game)
+                cell.setGame(games[2][indexPath.row])
+            
+            case 4:
+                cell.setGame(games[3][indexPath.row])
                 
             default:
                 println("No more arrays")

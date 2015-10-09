@@ -25,12 +25,12 @@ class ProfileCell: UITableViewCell {
     
     func setGame(inputGame: Game) {
         
-        currentUserLLabel.text = inputGame.challenger.name
-        currentUserWLabel.text = inputGame.challenger.wins.stringValue
-        currentUserLLabel.text = inputGame.challenger.losses.stringValue
-        currentUserTLabel.text = inputGame.challenger.ties.stringValue
+        currentUserLLabel.text = inputGame.player1.name
+        currentUserWLabel.text = inputGame.player1.wins.stringValue
+        currentUserLLabel.text = inputGame.player1.losses.stringValue
+        currentUserTLabel.text = inputGame.player1.ties.stringValue
         
-        var facebookID = inputGame.challenger.facebookID as NSString
+        var facebookID = inputGame.player1.facebookID as NSString
         
         // Get user profile pic
         let url = NSURL(string: "https://graph.facebook.com/\(facebookID)/picture?type=large")

@@ -10,15 +10,11 @@ import Foundation
 import Parse
 
 enum GameState : Int {
-    case GameIsBeingCreated = 1
-    case GameIsWaitingForAnswer
-    case GameIsWaitingforOpponent
-    case GameIsWaitingForJudge
+    case WaitingForAcceptance = 0 //trying to find partner or waiting for acceptance
+    case WaitingForJudgment
+    case Finished
     // More game states needed? "JudgesHaveScored""GameHasEnded"
 }
-//WaitingForAcceptance  //trying to find partner or waiting for acceptance
-//WaitingForJudgment
-//Finished
 
 class Game: PFObject, PFSubclassing {
     
@@ -31,8 +27,12 @@ class Game: PFObject, PFSubclassing {
     @NSManaged var player2: User!
     @NSManaged var player1SongURL: String!
     @NSManaged var player2SongURL: String!
-    @NSManaged var winner: String!
-    @NSManaged var loser: String!
+    @NSManaged var winner: User!
+    @NSManaged var loser: User!
+    @NSManaged var judges: [User]!
+    @NSManaged var judgesScoresForPlayer1: [NSNumber]!
+    @NSManaged var judgesScoresForPlayer2: [NSNumber]!
+
     
     var state : GameState {
         get {
@@ -56,6 +56,16 @@ class Game: PFObject, PFSubclassing {
         }
     }
     
+//    var player1TotalScore : NSNumber {
+//        
+//        return judgesScoresForPlayer1.reduce(0, +)
+//    }
+//    
+//    var player2TotalScore : NSNumber {
+//        
+//        return judgesScoresForPlayer2.reduce(0,+)
+//    }
+    
     
     // MARK: Parse
     
@@ -65,20 +75,19 @@ class Game: PFObject, PFSubclassing {
 
     class func fetchData(resultBlock: GameResultsBlock) {
         // Querying data from Parse
-        // Initialize empty arrays that will store game objects of
-        var gameState1Array : [Game] = []
-        var gameState2Array : [Game] = []
-        var gameState3Array : [Game] = []
-        var gameState4Array : [Game] = []
+        // Initialize empty arrays that will store game objects of different game states
+        var waitingForOpponentArray : [Game] = []
+        var challengesWaitingForAnswerArray : [Game] = []
+        var waitingForJudgesArray : [Game] = []
+        var completedGamesArray : [Game] = []
         
-        let gamesArray = [gameState1Array, gameState2Array, gameState3Array, gameState4Array]
-        
+        let gamesArray = [waitingForOpponentArray, challengesWaitingForAnswerArray, waitingForJudgesArray, completedGamesArray]
         
         var gamesAsChallenger = PFQuery(className: "Game")
-        gamesAsChallenger.whereKey("challenger", equalTo: PFUser.currentUser()!)
+        gamesAsChallenger.whereKey("player1", equalTo: PFUser.currentUser()!)
         
         var gamesAsOpponent = PFQuery(className: "Game")
-        gamesAsOpponent.whereKey("opponent", equalTo: PFUser.currentUser()!)
+        gamesAsOpponent.whereKey("player2", equalTo: PFUser.currentUser()!)
         
         var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
         
@@ -91,8 +100,36 @@ class Game: PFObject, PFSubclassing {
                 if let gameObjects = objects as? [Game] {     // Safe unpacking of array
                     
                     for game in gameObjects {
-                        var array = gamesArray[self.state.rawValue-1] // .state is out of scope
-                        array.append(game)
+                        
+                        if game.state.rawValue < 1 {
+                            
+                            if game.player1 == User.currentUser() { // Perspective of the challenger
+                                
+                                waitingForOpponentArray.append(game)
+                                
+                            } else { // Perspective of the challenged opponent
+                                
+                                challengesWaitingForAnswerArray.append(game)
+                                
+                            }
+                            
+                        } else {
+                            
+                            if game.state.rawValue == 1 {
+                                
+                                waitingForJudgesArray.append(game)
+
+                            } else if game.state.rawValue == 2 {
+                                
+                                completedGamesArray.append(game)
+                                
+                            }
+                            
+                           
+//                            var array = gamesArray[game.state.rawValue-1]
+//                            array.append(game)
+                            
+                        }
                     }
                 }
             }

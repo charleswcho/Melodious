@@ -22,11 +22,11 @@ class ScoreCell: UITableViewCell {
 
     func setGame(inputGame: Game) {
         
-        opponentNameLabel.text = inputGame.opponent.name
+        opponentNameLabel.text = inputGame.player2.name
 //        opponentScoreLabel.text = inputGame.opponent.
 //        currentUserScoreLabel.text = inputGame.challenger.
         
-        var facebookID = inputGame.opponent.facebookID as NSString
+        var facebookID = inputGame.player2.facebookID as NSString
         
         // Get user profile pic
         let url = NSURL(string: "https://graph.facebook.com/\(facebookID)/picture?type=large")
