@@ -14,6 +14,8 @@ enum GameState : Int {
     case WaitingForJudgment
     case Finished
     // More game states needed? "JudgesHaveScored""GameHasEnded"
+    
+    // Change enums to have "state" before
 }
 
 class Game: PFObject, PFSubclassing {
@@ -71,7 +73,7 @@ class Game: PFObject, PFSubclassing {
     
     // Fetch data from Parse
     
-    typealias GameResultsBlock = (objects:[[Game]]?, success:Bool) -> Void  // Is this the correct syntax?
+    typealias GameResultsBlock = (games:[[Game]]?, error:NSError?) -> Void  // Is this the correct syntax?
 
     class func fetchData(resultBlock: GameResultsBlock) {
 
@@ -82,7 +84,6 @@ class Game: PFObject, PFSubclassing {
         var waitingForJudgesArray : [Game] = []
         var completedGamesArray : [Game] = []
         
-        let gamesArray = [waitingForOpponentArray, challengesWaitingForAnswerArray, waitingForJudgesArray, completedGamesArray]
         
         var gamesAsChallenger = PFQuery(className: "Game")
         gamesAsChallenger.whereKey("player1", equalTo: PFUser.currentUser()!)
@@ -102,7 +103,7 @@ class Game: PFObject, PFSubclassing {
                     
                     for game in gameObjects {
                         
-                        if game.state.rawValue < 1 {
+                        if game.state == .WaitingForAcceptance {
                             
                             if game.player1 == User.currentUser() { // Perspective of the challenger
                                 
@@ -116,17 +117,19 @@ class Game: PFObject, PFSubclassing {
                             
                         } else {
                             
-                            if game.state.rawValue == 1 {
+                            if game.state == .WaitingForJudgment {
                                 
                                 waitingForJudgesArray.append(game)
 
-                            } else if game.state.rawValue == 2 {
+                            } else if game.state == .Finished {
                                 
                                 completedGamesArray.append(game)
                                 
                             }
-                            
-                           
+                        
+                            let gamesArray = [waitingForOpponentArray, challengesWaitingForAnswerArray, waitingForJudgesArray, completedGamesArray]
+
+                            resultBlock(games: gamesArray, error:nil);
 //                            var array = gamesArray[game.state.rawValue-1]
 //                            array.append(game)
                             
@@ -136,6 +139,8 @@ class Game: PFObject, PFSubclassing {
             }
                 
             else{
+                resultBlock(games: nil, error:error);
+
                 println("Error in retrieving \(error)")
             }
             

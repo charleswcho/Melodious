@@ -16,9 +16,16 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Game.fetchData { (objects, error) -> Void in
-            self.games = objects!
-            self.tableView.reloadData()
+        Game.fetchData { (gameObjects, error) -> Void in
+            if error == nil {
+                self.games = gameObjects!
+                self.tableView.reloadData()
+                
+            } else {
+                
+                println("Error in retrieving \(error)")
+                // TODO: Add Alert view to tell the user about the problem
+            }
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -39,11 +46,15 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var numbeOfRowsArray = [3, games[0].count, games[1].count, games[2].count, games[3].count]
+        if section == 0 {
+            return 3
+        } else if games.count > 0 {
+            
+            return games[section-1].count
+        } else {
+            return 0
+        }
         
-//        var numbeOfRowsArray = [3, 1, 1, 1, 1]
-
-        return numbeOfRowsArray[section]
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

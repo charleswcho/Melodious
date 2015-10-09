@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        User.logInWithUsername("charles", password: "charles")
+        //User.logInWithUsername("charles", password: "charles")
+        User.enableAutomaticUser()
         
         return true
     }
