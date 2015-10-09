@@ -87,9 +87,8 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="friendNameLabel" destination="GQ5-7R-C68" id="kCg-Zg-Ob2"/>
-                                            <outlet property="friendProfilePic" destination="7Hl-22-LTd" id="nDc-CW-Ftc"/>
-                                            <outlet property="opponentProfilePic" destination="7Hl-22-LTd" id="gZd-IS-Hur"/>
+                                            <outlet property="friendNameLabel" destination="GQ5-7R-C68" id="aSQ-aX-Csf"/>
+                                            <outlet property="friendProfilePic" destination="7Hl-22-LTd" id="tba-ek-Npy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -220,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33529066289999998" green="0.79330636409999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="1E3DD1A4-5644-4D2C-A74A-F1FB05177B67" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="21F48C1E-ECD3-41F1-BD0A-4542D656BB7B" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -336,26 +335,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-ZU-Dyd" id="DJq-On-MvX">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVj-U5-bKG">
-                                            <rect key="frame" x="40" y="13" width="50" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="oVj-U5-bKG" secondAttribute="height" multiplier="1:1" id="iFV-2A-Ubq"/>
-                                                <constraint firstAttribute="width" secondItem="oVj-U5-bKG" secondAttribute="height" multiplier="1:1" id="oIa-oO-kuo"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="iFV-2A-Ubq"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Friend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcC-cG-kZW">
-                                            <rect key="frame" x="118" y="26" width="138" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Opp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcC-cG-kZW">
+                                            <rect key="frame" x="118" y="26" width="121" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -378,6 +359,24 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVj-U5-bKG">
+                                            <rect key="frame" x="40" y="13" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="oVj-U5-bKG" secondAttribute="height" multiplier="1:1" id="iFV-2A-Ubq"/>
+                                                <constraint firstAttribute="width" secondItem="oVj-U5-bKG" secondAttribute="height" multiplier="1:1" id="oIa-oO-kuo"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="iFV-2A-Ubq"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="oVj-U5-bKG" firstAttribute="leading" secondItem="DJq-On-MvX" secondAttribute="leading" constant="40" id="2Na-8R-Cmb"/>
@@ -397,6 +396,7 @@
                                         <constraint firstItem="Rsx-qH-POF" firstAttribute="leading" secondItem="yI2-Sa-f88" secondAttribute="trailing" constant="8" id="qUC-N9-aN3"/>
                                         <constraint firstItem="zcC-cG-kZW" firstAttribute="top" secondItem="DJq-On-MvX" secondAttribute="topMargin" constant="16" id="uz6-AV-LXT"/>
                                         <constraint firstItem="yI2-Sa-f88" firstAttribute="leading" secondItem="zcC-cG-kZW" secondAttribute="trailing" constant="29" id="vbD-3s-zgs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KCG-RV-X2d" secondAttribute="trailing" constant="8" id="wJc-oM-6aV"/>
                                         <constraint firstItem="zcC-cG-kZW" firstAttribute="top" secondItem="DJq-On-MvX" secondAttribute="topMargin" constant="2" id="xK0-Qz-T6J"/>
                                     </constraints>
                                     <variation key="default">
@@ -408,6 +408,7 @@
                                             <exclude reference="uz6-AV-LXT"/>
                                             <exclude reference="xK0-Qz-T6J"/>
                                             <exclude reference="lei-1P-mXi"/>
+                                            <exclude reference="vbD-3s-zgs"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -460,7 +461,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1E3DD1A4-5644-4D2C-A74A-F1FB05177B67" width="33" height="33">
+        <image name="21F48C1E-ECD3-41F1-BD0A-4542D656BB7B" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -39,9 +39,9 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var numbeOfRowsArray = [3, games[section-1].count, games[section-1].count, games[section-1].count, games[section-1].count]
+        var numbeOfRowsArray = [3, games[0].count, games[1].count, games[2].count, games[3].count]
         
-//        var numbeOfRowsArray = [3, 1, 1, 1]
+//        var numbeOfRowsArray = [3, 1, 1, 1, 1]
 
         return numbeOfRowsArray[section]
     }

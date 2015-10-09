@@ -74,8 +74,9 @@ class Game: PFObject, PFSubclassing {
     typealias GameResultsBlock = (objects:[[Game]]?, success:Bool) -> Void  // Is this the correct syntax?
 
     class func fetchData(resultBlock: GameResultsBlock) {
-        // Querying data from Parse
+
         // Initialize empty arrays that will store game objects of different game states
+        
         var waitingForOpponentArray : [Game] = []
         var challengesWaitingForAnswerArray : [Game] = []
         var waitingForJudgesArray : [Game] = []
