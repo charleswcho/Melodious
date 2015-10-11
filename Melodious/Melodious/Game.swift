@@ -84,67 +84,72 @@ class Game: PFObject, PFSubclassing {
         var waitingForJudgesArray : [Game] = []
         var completedGamesArray : [Game] = []
         
-        
-        var gamesAsChallenger = PFQuery(className: "Game")
-        gamesAsChallenger.whereKey("player1", equalTo: PFUser.currentUser()!)
-        
-        var gamesAsOpponent = PFQuery(className: "Game")
-        gamesAsOpponent.whereKey("player2", equalTo: PFUser.currentUser()!)
-        
-        var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
-        
-        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+        if User.currentUser() != nil {
             
-            if(error == nil){
+            var gamesAsChallenger = PFQuery(className: "Game")
+            gamesAsChallenger.whereKey("player1", equalTo: User.currentUser()!)
+            
+            var gamesAsOpponent = PFQuery(className: "Game")
+            gamesAsOpponent.whereKey("player2", equalTo: User.currentUser()!)
+
+            var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
+            
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 
-                // objects = An array of all game objects that have the .currentUser() in it
-                
-                if let gameObjects = objects as? [Game] {     // Safe unpacking of array
+                if(error == nil){
                     
-                    for game in gameObjects {
+                    // objects = An array of all game objects that have the .currentUser() in it
+                    
+                    if let gameObjects = objects as? [Game] {     // Safe unpacking of array
                         
-                        if game.state == .WaitingForAcceptance {
+                        for game in gameObjects {
                             
-                            if game.player1 == User.currentUser() { // Perspective of the challenger
+                            if game.state == .WaitingForAcceptance {
                                 
-                                waitingForOpponentArray.append(game)
+                                if game.player1 == User.currentUser() { // Perspective of the challenger
+                                    
+                                    waitingForOpponentArray.append(game)
+                                    
+                                } else { // Perspective of the challenged opponent
+                                    
+                                    challengesWaitingForAnswerArray.append(game)
+                                    
+                                }
                                 
-                            } else { // Perspective of the challenged opponent
+                            } else {
                                 
-                                challengesWaitingForAnswerArray.append(game)
+                                if game.state == .WaitingForJudgment {
+                                    
+                                    waitingForJudgesArray.append(game)
+                                    
+                                } else if game.state == .Finished {
+                                    
+                                    completedGamesArray.append(game)
+                                    
+                                }
+                                
+                                let gamesArray = [waitingForOpponentArray, challengesWaitingForAnswerArray, waitingForJudgesArray, completedGamesArray]
+                                
+                                resultBlock(games: gamesArray, error:nil);
+                                //                            var array = gamesArray[game.state.rawValue-1]
+                                //                            array.append(game)
                                 
                             }
-                            
-                        } else {
-                            
-                            if game.state == .WaitingForJudgment {
-                                
-                                waitingForJudgesArray.append(game)
-
-                            } else if game.state == .Finished {
-                                
-                                completedGamesArray.append(game)
-                                
-                            }
-                        
-                            let gamesArray = [waitingForOpponentArray, challengesWaitingForAnswerArray, waitingForJudgesArray, completedGamesArray]
-
-                            resultBlock(games: gamesArray, error:nil);
-//                            var array = gamesArray[game.state.rawValue-1]
-//                            array.append(game)
-                            
                         }
                     }
                 }
-            }
+                    
+                else{
+                    resultBlock(games: nil, error:error);
+                    
+                    println("Error in retrieving \(error)")
+                }
                 
-            else{
-                resultBlock(games: nil, error:error);
-
-                println("Error in retrieving \(error)")
-            }
+            })
             
-        })
+        } else {
+            println("No User logged in")
+        }
         
     }
 

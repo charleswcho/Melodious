@@ -8,13 +8,40 @@
 
 import UIKit
 import Parse
+import ParseUI
+import FBSDKCoreKit
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
-class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate {
 
-    var games : [[Game]] = []
+    // Implement PFLogin
+    var logInVC: PFLogInViewController! = PFLogInViewController()
+    let permissions = ["public_profile", "user_friends"]
+    
+    var games : [[Game]] = [] // Saving results of .fetchData to local array
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (PFUser.currentUser() == nil) {
+            
+            self.logInVC.fields = PFLogInFields.Default
+            
+            // MARK: Facebook
+            
+            self.logInVC.facebookPermissions = permissions
+            
+            // TODO: Need to create a custom PFLoginViewController to customize
+            
+            self.logInVC.delegate = self
+            
+            self.presentViewController(self.logInVC, animated: true, completion: nil)
+            
+        } else {
+            
+            println("User already logged in")
+        }
         
         Game.fetchData { (gameObjects, error) -> Void in
             if error == nil {
@@ -31,11 +58,29 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: Parse Login
+    
+    func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
+        
+        if (!username.isEmpty || password.isEmpty) {
+            return true
+        } else {
+            return false
+        }
     }
+    
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
+        println("Failed to login")
+    }
+
+
 
     // MARK: - Table view data source
 
@@ -108,6 +153,14 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
 
+    
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
        /*
     // MARK: - Navigation
 

@@ -154,7 +154,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="ytF-CK-fzd" id="c9G-Ow-0Ah"/>
-                                    <segue destination="hfl-41-dj6" kind="show" id="Bgg-AY-5t0"/>
+                                    <segue destination="Kii-HF-TFo" kind="show" id="HE6-hm-LZB"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WaitingCell" rowHeight="75" id="fpd-VK-2oF" customClass="WaitingCell" customModule="Melodious" customModuleProvider="target">
@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33529066289999998" green="0.79330636409999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="9EA847F5-6AE2-4342-9792-03F5C2CD8C47" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="C1581334-E064-4F0F-8FE0-4F096D6A3478" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -461,7 +461,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9EA847F5-6AE2-4342-9792-03F5C2CD8C47" width="33" height="33">
+        <image name="C1581334-E064-4F0F-8FE0-4F096D6A3478" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
