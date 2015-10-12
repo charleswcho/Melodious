@@ -129,30 +129,20 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         //grab array by section title
             var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
 
-            switch indexPath.section {
+            cell.setGame(games[indexPath.section - 1][indexPath.row])
                 
-            case 1:
-                cell.setGame(games[0][indexPath.row])
-                
-            case 2:
-                cell.setGame(games[1][indexPath.row])
-                
-            case 3:
-                cell.setGame(games[2][indexPath.row])
-            
-            case 4:
-                cell.setGame(games[3][indexPath.row])
-                
-            default:
-                println("No more arrays")
-                
-            }
             return cell
 
         }
     }
     
-
+    // Segue to multiple VCs
+        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+    }
+    
     
     
     

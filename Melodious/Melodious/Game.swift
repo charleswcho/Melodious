@@ -10,9 +10,9 @@ import Foundation
 import Parse
 
 enum GameState : Int {
-    case WaitingForAcceptance = 0 //trying to find partner or waiting for acceptance
-    case WaitingForJudgment
-    case Finished
+    case stateWaitingForAcceptance = 0 //trying to find partner or waiting for acceptance
+    case stateWaitingForJudgment
+    case stateFinished
     // More game states needed? "JudgesHaveScored""GameHasEnded"
     
     // Change enums to have "state" before
@@ -24,7 +24,7 @@ class Game: PFObject, PFSubclassing {
         return "Game"
     }
     
-    @NSManaged var stateValue: NSNumber!
+    @NSManaged var gameState: NSNumber!
     @NSManaged var player1: User!
     @NSManaged var player2: User!
     @NSManaged var player1SongURL: String!
@@ -38,12 +38,12 @@ class Game: PFObject, PFSubclassing {
     
     var state : GameState {
         get {
-            return GameState(rawValue: stateValue.integerValue)!
+            return GameState(rawValue: gameState.integerValue)!
         }
     }
    
     var mySongURL : String! {
-        if player1 == User.currentUser() {
+        if player1.isEqual(User.currentUser()!) {
             return player1SongURL
         } else {
             return player2SongURL
@@ -51,10 +51,18 @@ class Game: PFObject, PFSubclassing {
     }
     
     var opponentSongURL : String! {
-        if player1 != User.currentUser() {
+        if !player1.isEqual(User.currentUser()!) {
             return player1SongURL
         } else {
             return player2SongURL
+        }
+    }
+    
+    var opponent : User! {
+        if player1.isEqual(User.currentUser()) {
+            return player2
+        } else {
+            return player1
         }
     }
     
@@ -93,6 +101,8 @@ class Game: PFObject, PFSubclassing {
             gamesAsOpponent.whereKey("player2", equalTo: User.currentUser()!)
 
             var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
+            query.includeKey("player1")
+            query.includeKey("player2")
             
             query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 
@@ -104,9 +114,9 @@ class Game: PFObject, PFSubclassing {
                         
                         for game in gameObjects {
                             
-                            if game.state == .WaitingForAcceptance {
+                            if game.state == .stateWaitingForAcceptance {
                                 
-                                if game.player1 == User.currentUser() { // Perspective of the challenger
+                                if game.player1.isEqual(User.currentUser()) { // Perspective of the challenger
                                     
                                     waitingForOpponentArray.append(game)
                                     
@@ -118,21 +128,19 @@ class Game: PFObject, PFSubclassing {
                                 
                             } else {
                                 
-                                if game.state == .WaitingForJudgment {
+                                if game.state == .stateWaitingForJudgment {
                                     
                                     waitingForJudgesArray.append(game)
                                     
-                                } else if game.state == .Finished {
+                                } else if game.state == .stateFinished {
                                     
                                     completedGamesArray.append(game)
                                     
                                 }
                                 
-                                let gamesArray = [waitingForOpponentArray, challengesWaitingForAnswerArray, waitingForJudgesArray, completedGamesArray]
+                                let gamesArray = [challengesWaitingForAnswerArray, waitingForOpponentArray, waitingForJudgesArray, completedGamesArray]
                                 
                                 resultBlock(games: gamesArray, error:nil);
-                                //                            var array = gamesArray[game.state.rawValue-1]
-                                //                            array.append(game)
                                 
                             }
                         }

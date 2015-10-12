@@ -18,5 +18,16 @@ class User: PFUser, PFSubclassing {
     @NSManaged var ties: NSNumber!
     @NSManaged var loser: String!
     
-
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let user = object as? User {
+            
+            if self.objectId! == user.objectId {
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        return false
+    }
 }
