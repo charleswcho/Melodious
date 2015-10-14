@@ -35,7 +35,7 @@
 		BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482E31BA33BFA00A3CE99 /* Social.framework */; };
 		BA8482EC1BA33F3D00A3CE99 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */; };
 		BA8482ED1BA33F3D00A3CE99 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EB1BA33F3D00A3CE99 /* Parse.framework */; };
-		BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* NewGame.swift */; };
+		BA8482F61BA34F2100A3CE99 /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* Songs.swift */; };
 		BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165441BBF3A420078C280 /* NewGameCell.swift */; };
 		BAB165491BBF3A630078C280 /* WaitingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165481BBF3A630078C280 /* WaitingCell.swift */; };
 		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
@@ -43,6 +43,10 @@
 		BAD1C9DF1BCDED3F00A49E72 /* AnswerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD1C9DE1BCDED3F00A49E72 /* AnswerChallenge.swift */; };
 		BAD1C9E51BCE044B00A49E72 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */; };
 		BAD1C9E71BCE045A00A49E72 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1C9E61BCE045A00A49E72 /* FBSDKLoginKit.framework */; };
+		BAE668301BCEC4A100C3FFE2 /* SubmitSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE6682F1BCEC4A100C3FFE2 /* SubmitSong.swift */; };
+		BAE668371BCEC51C00C3FFE2 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = BAE668321BCEC51C00C3FFE2 /* YTPlayerView-iframe-player.html */; };
+		BAE668381BCEC51C00C3FFE2 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE668341BCEC51C00C3FFE2 /* YTPlayerView.m */; };
+		BAE668391BCEC51C00C3FFE2 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE668361BCEC51C00C3FFE2 /* YTPlayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +92,7 @@
 		BA8482E31BA33BFA00A3CE99 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		BA8482EB1BA33F3D00A3CE99 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		BA8482F51BA34F2100A3CE99 /* NewGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGame.swift; sourceTree = "<group>"; };
+		BA8482F51BA34F2100A3CE99 /* Songs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
 		BAB165441BBF3A420078C280 /* NewGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
 		BAB165481BBF3A630078C280 /* WaitingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingCell.swift; sourceTree = "<group>"; };
 		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -96,6 +100,13 @@
 		BAD1C9DE1BCDED3F00A49E72 /* AnswerChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerChallenge.swift; sourceTree = "<group>"; };
 		BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		BAD1C9E61BCE045A00A49E72 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		BAE6682F1BCEC4A100C3FFE2 /* SubmitSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitSong.swift; sourceTree = "<group>"; };
+		BAE668321BCEC51C00C3FFE2 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
+		BAE668331BCEC51C00C3FFE2 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		BAE668341BCEC51C00C3FFE2 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		BAE668351BCEC51C00C3FFE2 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		BAE668361BCEC51C00C3FFE2 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		BAE6683A1BCECAB600C3FFE2 /* YTDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTDemo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +166,7 @@
 		BA50C9971BC4D39700305108 /* New Game */ = {
 			isa = PBXGroup;
 			children = (
-				BA8482F51BA34F2100A3CE99 /* NewGame.swift */,
+				BA8482F51BA34F2100A3CE99 /* Songs.swift */,
 				BA50C99D1BC4D7A000305108 /* FriendSearch.swift */,
 				BA50C9981BC4D3B200305108 /* Cells */,
 			);
@@ -178,6 +189,9 @@
 				BA8482E51BA33C2400A3CE99 /* Frameworks */,
 				BA8482C01BA338EF00A3CE99 /* MelodiousTests */,
 				BA8482A71BA338EF00A3CE99 /* Products */,
+				BAE668311BCEC51C00C3FFE2 /* Assets */,
+				BAE668351BCEC51C00C3FFE2 /* YTPlayerView.h */,
+				BAE668361BCEC51C00C3FFE2 /* YTPlayerView.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +212,7 @@
 				BAC0A0F51BC2FA1E00A114E2 /* View */,
 				BAC0A0F41BC2FA1300A114E2 /* Model */,
 				BA8482A91BA338EF00A3CE99 /* Supporting Files */,
+				BAE6683A1BCECAB600C3FFE2 /* YTDemo-Bridging-Header.h */,
 			);
 			path = Melodious;
 			sourceTree = "<group>";
@@ -278,6 +293,7 @@
 				BA50C98B1BC48C7500305108 /* Profile */,
 				BADE0B5B1BB9B30800C633EA /* Home */,
 				BA50C9971BC4D39700305108 /* New Game */,
+				BAE6682E1BCEC48400C3FFE2 /* Submit Song */,
 				BAD1C9DD1BCDECFC00A49E72 /* Accept/Deny Challenge */,
 			);
 			name = Controllers;
@@ -307,6 +323,24 @@
 				BAB165481BBF3A630078C280 /* WaitingCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		BAE6682E1BCEC48400C3FFE2 /* Submit Song */ = {
+			isa = PBXGroup;
+			children = (
+				BAE6682F1BCEC4A100C3FFE2 /* SubmitSong.swift */,
+			);
+			name = "Submit Song";
+			sourceTree = "<group>";
+		};
+		BAE668311BCEC51C00C3FFE2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BAE668321BCEC51C00C3FFE2 /* YTPlayerView-iframe-player.html */,
+				BAE668331BCEC51C00C3FFE2 /* YTPlayerView.h */,
+				BAE668341BCEC51C00C3FFE2 /* YTPlayerView.m */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +427,7 @@
 				BA50C9A01BC4F36100305108 /* Default-568h@2x.png in Resources */,
 				BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */,
 				BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */,
+				BAE668371BCEC51C00C3FFE2 /* YTPlayerView-iframe-player.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,16 +447,19 @@
 			files = (
 				BA50C99A1BC4D3E500305108 /* FriendCell.swift in Sources */,
 				BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */,
-				BA8482F61BA34F2100A3CE99 /* NewGame.swift in Sources */,
+				BA8482F61BA34F2100A3CE99 /* Songs.swift in Sources */,
 				BA50C99E1BC4D7A000305108 /* FriendSearch.swift in Sources */,
 				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
 				BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */,
+				BAE668301BCEC4A100C3FFE2 /* SubmitSong.swift in Sources */,
 				BA50C9821BC4782D00305108 /* User.swift in Sources */,
+				BAE668381BCEC51C00C3FFE2 /* YTPlayerView.m in Sources */,
 				BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */,
 				BA50C98E1BC48D4300305108 /* ProfileCell.swift in Sources */,
 				BAB165491BBF3A630078C280 /* WaitingCell.swift in Sources */,
 				BA50C9901BC48D6600305108 /* ScoreCell.swift in Sources */,
 				BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */,
+				BAE668391BCEC51C00C3FFE2 /* YTPlayerView.m in Sources */,
 				BAD1C9DF1BCDED3F00A49E72 /* AnswerChallenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/charleswesleycho/Documents/parse-library-1.8.3",
@@ -559,6 +598,7 @@
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -566,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/charleswesleycho/Documents/parse-library-1.8.3",
