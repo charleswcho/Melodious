@@ -16,7 +16,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var currentUserWLabel: UILabel!
     @IBOutlet weak var currentUserLLabel: UILabel!
     @IBOutlet weak var currentUserTLabel: UILabel!
-    @IBOutlet var currentUserProfilePic: UIImageView!
+    @IBOutlet var currentUserProfilePic: FBSDKProfilePictureView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,19 +30,10 @@ class ProfileCell: UITableViewCell {
         currentUserLLabel.text = inputGame.player1.losses.stringValue
         currentUserTLabel.text = inputGame.player1.ties.stringValue
         
-        var facebookID = inputGame.player1.facebookID as NSString
+        var facebookID = inputGame.player1.facebookID
         
         // Get user profile pic
-        let url = NSURL(string: "https://graph.facebook.com/\(facebookID)/picture?type=large")
-        let urlRequest = NSURLRequest(URL: url!)
-        
-        NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
-            
-            // Display the image
-            let image = UIImage(data: data)
-            self.currentUserProfilePic.image = image
-        }
-        
+        currentUserProfilePic.profileID = facebookID        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

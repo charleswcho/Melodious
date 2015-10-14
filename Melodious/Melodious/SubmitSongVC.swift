@@ -1,23 +1,31 @@
 //
-//  FriendSearch.swift
+//  SubmitSong.swift
 //  Melodious
 //
-//  Created by Charles Wesley Cho on 10/6/15.
+//  Created by Charles Wesley Cho on 10/14/15.
 //  Copyright (c) 2015 Charles Wesley Cho. All rights reserved.
 //
 
 import UIKit
 
-class FriendSearch: UIViewController {
+class SubmitSongVC: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var playerView: YTPlayerView!
+    @IBOutlet weak var songNameLabel: UILabel!
+    @IBOutlet weak var channelNameLabel: UILabel!
+    @IBOutlet weak var numberOfViewsLabel: UILabel!
     
+    var videoID : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func submitSong(sender: UIButton) {
+        
+        // TODO: Save the songID, set game state
     }
 
     override func didReceiveMemoryWarning() {

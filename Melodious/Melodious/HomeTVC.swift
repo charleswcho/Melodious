@@ -40,6 +40,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
             
+            self.returnUserData()
             println("User already logged in")
         }
         
@@ -58,6 +59,39 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
     }
+    
+    func returnUserData() { // Get personal info from current User
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                println("Error: \(error)")
+            } else {
+                
+                println("fetched user: \(result)")
+                let currentUserName = result.valueForKey("name") as! String
+                println("User Name is: \(currentUserName)")
+                let currentUserFBID = result.valueForKey("id") as! String
+                println("User Email is: \(currentUserFBID)")
+
+                User.currentUser()?.name = currentUserName
+                User.currentUser()?.facebookID = currentUserFBID as String
+                
+                User.currentUser()?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                    if success {
+                        NSLog("Current User name and fbID saved")
+                    } else {
+                        NSLog("%@", error!)
+                    }
+                })
+                
+            }
+        })
+    }
+    
     
     // MARK: Parse Login
     
@@ -159,7 +193,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
 
         } else if indexPath.section == 1 {
 
-            AnswerChallenge().setGame(games[0][indexPath.row])
+            AnswerChallengeVC().game = (games[0][indexPath.row])  // Set the game for
             
         } else if indexPath.section == 2 {
             

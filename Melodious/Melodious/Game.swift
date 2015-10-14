@@ -29,11 +29,9 @@ class Game: PFObject, PFSubclassing {
     @NSManaged var player2: User!
     @NSManaged var player1SongURL: String!
     @NSManaged var player2SongURL: String!
-    @NSManaged var winner: User!
-    @NSManaged var loser: User!
     @NSManaged var judges: [User]!
-    @NSManaged var judgesScoresForPlayer1: [NSNumber]!
-    @NSManaged var judgesScoresForPlayer2: [NSNumber]!
+    @NSManaged var player1Scores: [Int]!
+    @NSManaged var player2Scores: [Int]!
 
     
     var state : GameState {
@@ -66,14 +64,24 @@ class Game: PFObject, PFSubclassing {
         }
     }
     
-//    var player1TotalScore : NSNumber {
+    var player1TotalScore : Int {
+        
+        return player1Scores.reduce(0, combine: +)
+    }
+    
+    var player2TotalScore : Int {
+        
+        return player2Scores.reduce(0,combine: +)
+    }
+    
+//    var winner : User? {
 //        
-//        return judgesScoresForPlayer1.reduce(0, +)
-//    }
-//    
-//    var player2TotalScore : NSNumber {
+//        if player1TotalScore > player2TotalScore {
+//            return player1
 //        
-//        return judgesScoresForPlayer2.reduce(0,+)
+//        } else if player1TotalScore == player2TotalScore {
+//            return nil
+//        }
 //    }
     
     

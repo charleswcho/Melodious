@@ -10,32 +10,30 @@ import UIKit
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
 
-class AnswerChallenge: UIViewController {
+class AnswerChallengeVC: UIViewController {
 
-    @IBOutlet var opponentProfilePic: UIImageView!
+    @IBOutlet var opponentProfilePic: FBSDKProfilePictureView!
     @IBOutlet weak var opponentNameLabel: UILabel!
+    
+    var game : Game! {
+        didSet {
+            self.updateViewForGame()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
-    func setGame(inputGame: Game) {
+    func updateViewForGame() {
         
-        opponentNameLabel.text = inputGame.opponent.name
+        opponentNameLabel.text = self.game.opponent.name
         
-        var facebookID = inputGame.opponent.facebookID as NSString
+        var facebookID = self.game.opponent.facebookID
         
         // Get user profile pic
-        let url = NSURL(string: "https://graph.facebook.com/\(facebookID)/picture?type=large")
-        let urlRequest = NSURLRequest(URL: url!)
-        
-        NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
-            
-            // Display the image
-            let image = UIImage(data: data)
-            self.opponentProfilePic.image = image
-        }
+        opponentProfilePic.profileID = facebookID
         
     }
     
