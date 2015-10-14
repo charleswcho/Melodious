@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 class AnswerChallenge: UIViewController {
 
@@ -15,8 +17,7 @@ class AnswerChallenge: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     func setGame(inputGame: Game) {
@@ -26,10 +27,9 @@ class AnswerChallenge: UIViewController {
         var facebookID = inputGame.opponent.facebookID as NSString
         
         // Get user profile pic
-      
         let url = NSURL(string: "https://graph.facebook.com/\(facebookID)/picture?type=large")
         let urlRequest = NSURLRequest(URL: url!)
-    
+        
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
             
             // Display the image

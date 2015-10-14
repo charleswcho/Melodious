@@ -158,8 +158,8 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
 
         } else if indexPath.section == 1 {
-            var game : Game = games[0][indexPath.row]
-            AnswerChallenge().setGame(game)
+
+            AnswerChallenge().setGame(games[0][indexPath.row])
             
         } else if indexPath.section == 2 {
             
