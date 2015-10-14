@@ -42,6 +42,7 @@
 		BAB165491BBF3A630078C280 /* WaitingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165481BBF3A630078C280 /* WaitingCell.swift */; };
 		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
 		BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD55061BBDF4780071C22B /* HomeTVC.swift */; };
+		BAD1C9DF1BCDED3F00A49E72 /* AnswerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD1C9DE1BCDED3F00A49E72 /* AnswerChallenge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		BAB165481BBF3A630078C280 /* WaitingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingCell.swift; sourceTree = "<group>"; };
 		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BACD55061BBDF4780071C22B /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		BAD1C9DE1BCDED3F00A49E72 /* AnswerChallenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerChallenge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,20 +275,29 @@
 		BAC0A0F61BC2FA3000A114E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BADE0B5B1BB9B30800C633EA /* Home Tab */,
-				BA50C9971BC4D39700305108 /* New Game */,
 				BA50C98B1BC48C7500305108 /* Profile */,
+				BADE0B5B1BB9B30800C633EA /* Home */,
+				BA50C9971BC4D39700305108 /* New Game */,
+				BAD1C9DD1BCDECFC00A49E72 /* Accept/Deny Challenge */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		BADE0B5B1BB9B30800C633EA /* Home Tab */ = {
+		BAD1C9DD1BCDECFC00A49E72 /* Accept/Deny Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				BAD1C9DE1BCDED3F00A49E72 /* AnswerChallenge.swift */,
+			);
+			name = "Accept/Deny Challenge";
+			sourceTree = "<group>";
+		};
+		BADE0B5B1BB9B30800C633EA /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				BACD55061BBDF4780071C22B /* HomeTVC.swift */,
 				BADE0B5C1BB9B31E00C633EA /* Cells */,
 			);
-			name = "Home Tab";
+			name = Home;
 			sourceTree = "<group>";
 		};
 		BADE0B5C1BB9B31E00C633EA /* Cells */ = {
@@ -411,6 +422,7 @@
 				BAB165491BBF3A630078C280 /* WaitingCell.swift in Sources */,
 				BA50C9901BC48D6600305108 /* ScoreCell.swift in Sources */,
 				BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */,
+				BAD1C9DF1BCDED3F00A49E72 /* AnswerChallenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

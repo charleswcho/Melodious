@@ -136,8 +136,42 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    // Setup the Height of the cells ?? Why doesn't setting the values in interface builder work?
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 75
+        } else {
+            return 100
+        }
+    }
+    
     // Segue to multiple VCs
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        println("\(indexPath.row)")
+        
+        let segueArray = ["FriendGame", "RandomGame", "JudgeGame"]
+          
+        if indexPath.section == 0 {
+            performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
+
+        } else if indexPath.section == 1 {
+            var game : Game = games[0][indexPath.row]
+            AnswerChallenge().setGame(game)
+            
+        } else if indexPath.section == 2 {
+            
+        } else if indexPath.section == 3 {
+            
+        }
+//
+////        , "AnswerChallenge","WaitingForOpponent", "WaitingForJudge"
+        
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         

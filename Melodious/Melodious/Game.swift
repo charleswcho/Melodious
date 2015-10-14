@@ -137,12 +137,13 @@ class Game: PFObject, PFSubclassing {
                                     completedGamesArray.append(game)
                                     
                                 }
-                                
-                                let gamesArray = [challengesWaitingForAnswerArray, waitingForOpponentArray, waitingForJudgesArray, completedGamesArray]
-                                
-                                resultBlock(games: gamesArray, error:nil);
-                                
+                            
                             }
+                            
+                            let gamesArray = [challengesWaitingForAnswerArray, waitingForOpponentArray, waitingForJudgesArray, completedGamesArray]
+                            
+                            resultBlock(games: gamesArray, error:nil);
+                            
                         }
                     }
                 }
