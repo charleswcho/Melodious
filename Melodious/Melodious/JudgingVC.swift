@@ -1,21 +1,15 @@
 //
-//  FriendSearch.swift
+//  JudgingVC.swift
 //  Melodious
 //
-//  Created by Charles Wesley Cho on 10/6/15.
+//  Created by Charles Wesley Cho on 10/16/15.
 //  Copyright (c) 2015 Charles Wesley Cho. All rights reserved.
 //
 
 import UIKit
 
-class FriendSearchVC: UIViewController {
+class JudgingVC: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -26,7 +26,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         
         if (PFUser.currentUser() == nil) {
             
-            self.logInVC.fields = PFLogInFields.Default
+            self.logInVC.fields = PFLogInFields.Default | PFLogInFields.Facebook
             
             // MARK: Facebook
             
@@ -40,7 +40,6 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
             
-            self.returnUserData()
             println("User already logged in")
         }
         
@@ -105,7 +104,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        
+        returnUserData()
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -161,9 +160,9 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
         //grab array by section title
-            var cell = tableView.dequeueReusableCellWithIdentifier("WaitingCell", forIndexPath: indexPath) as! WaitingCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
 
-            cell.setGame(games[indexPath.section - 1][indexPath.row])
+            cell.game = (games[indexPath.section - 1][indexPath.row])
                 
             return cell
 
@@ -199,10 +198,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else if indexPath.section == 3 {
             
-        }
-//
-////        , "AnswerChallenge","WaitingForOpponent", "WaitingForJudge"
-        
+        }        
         
     }
     

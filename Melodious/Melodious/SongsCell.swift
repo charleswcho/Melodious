@@ -15,18 +15,23 @@ class SongsCell: UITableViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var numberOfViewsLabel: UILabel!
     
+    var videoDetails : NSDictionary! {
+        didSet {
+            self.updateView()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func setCell(input: AnyObject) {
+    func updateView() {
         
-//        songNameLabel.text =
-//        channelNameLabel.text =
-//        numberOfViewsLabel.text =
+        thumbnailPic.image = UIImage(data: NSData(contentsOfURL: (string: (videoDetails["thumbnail"] as? String)!)!)!)
         
     }
+
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

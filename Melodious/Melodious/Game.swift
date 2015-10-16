@@ -74,16 +74,18 @@ class Game: PFObject, PFSubclassing {
         return player2Scores.reduce(0,combine: +)
     }
     
-//    var winner : User? {
-//        
-//        if player1TotalScore > player2TotalScore {
-//            return player1
-//        
-//        } else if player1TotalScore == player2TotalScore {
-//            return nil
-//        }
-//    }
-    
+    var winner : User? {
+        
+        if player1TotalScore > player2TotalScore {
+            return player1
+        
+        } else if player1TotalScore == player2TotalScore {
+            return nil
+            
+        } else {
+            return player2
+        }
+    }
     
     // MARK: Parse
     
