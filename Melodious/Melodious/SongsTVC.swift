@@ -102,17 +102,15 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 // Loop through all search results and keep just the necessary data.
                 for var i=0; i<items.count; ++i {
                     let snippetDict = items[i]["snippet"] as! Dictionary<NSObject, AnyObject>
-                    
+                    let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
+
                     // Create a new dictionary to store the video details.
                     var videoDetailsDict = Dictionary<NSObject, AnyObject>()
                     videoDetailsDict["title"] = snippetDict["title"]
                     videoDetailsDict["channelTitle"] = snippetDict["channelTitle"]
                     videoDetailsDict["thumbnail"] = ((snippetDict["thumbnails"] as! Dictionary<NSObject, AnyObject>)["default"] as! Dictionary<NSObject, AnyObject>)["url"]
                     videoDetailsDict["videoID"] = (items[i]["id"] as! Dictionary<NSObject, AnyObject>)["videoId"]
-                    
-                    // Get statistics from video
-//                    let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
-//                    videoDetailsDict["viewCount"] = statisticsDict["viewCount"]
+                    videoDetailsDict["viewCount"] = statisticsDict["viewCount"]
                     
                     // Append the desiredPlaylistItemDataDict dictionary to the videos array.
                     self.videosArray.append(videoDetailsDict)
