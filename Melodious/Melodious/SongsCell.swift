@@ -28,7 +28,10 @@ class SongsCell: UITableViewCell {
     
     func updateView() {
         
-        thumbnailPic.image = UIImage(data: NSData(contentsOfURL: (string: (videoDetails["thumbnail"] as? String)!)!)!)
+        thumbnailPic.image = UIImage(data: NSData(contentsOfURL: NSURL(string: (videoDetails["thumbnail"] as? String)!)!)!)
+        songNameLabel.text = videoDetails["title"] as? String
+        channelNameLabel.text = videoDetails["channelTitle"] as? String
+//        numberOfViewsLabel.text = videoDetails["viewCount"] as? String
         
     }
 

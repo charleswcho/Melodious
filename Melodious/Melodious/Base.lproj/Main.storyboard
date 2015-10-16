@@ -658,35 +658,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-Nf-2Ig">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-Qx-mlt">
-                                        <rect key="frame" x="177" y="324" width="20" height="20"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="qpd-Qx-mlt" secondAttribute="centerY" id="C8Z-jt-QF8"/>
-                                    <constraint firstAttribute="centerX" secondItem="qpd-Qx-mlt" secondAttribute="centerX" id="LG4-cI-t9i"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7qO-92-51H" firstAttribute="top" secondItem="Nuo-o6-iNF" secondAttribute="bottom" constant="8" id="4l8-dv-no6"/>
                             <constraint firstAttribute="trailing" secondItem="7qO-92-51H" secondAttribute="trailing" constant="16" id="6wB-0p-nRN"/>
                             <constraint firstItem="7qO-92-51H" firstAttribute="leading" secondItem="Tcw-fZ-Hsf" secondAttribute="leading" constant="16" id="7Q5-Zj-uRi"/>
-                            <constraint firstItem="ZaF-Nf-2Ig" firstAttribute="top" secondItem="Tcw-fZ-Hsf" secondAttribute="top" id="MrA-tC-2dI"/>
                             <constraint firstItem="Nkn-e0-wjC" firstAttribute="leading" secondItem="Tcw-fZ-Hsf" secondAttribute="leading" id="VYn-ug-0ga"/>
                             <constraint firstAttribute="trailing" secondItem="Nkn-e0-wjC" secondAttribute="trailing" id="WBN-sd-Its"/>
                             <constraint firstItem="33o-Qo-QdN" firstAttribute="top" secondItem="Nkn-e0-wjC" secondAttribute="bottom" id="Y29-Y0-7TV"/>
-                            <constraint firstItem="ZaF-Nf-2Ig" firstAttribute="leading" secondItem="Tcw-fZ-Hsf" secondAttribute="leading" id="dkH-YH-FtC"/>
                             <constraint firstItem="Nkn-e0-wjC" firstAttribute="top" secondItem="7qO-92-51H" secondAttribute="bottom" constant="8" id="gy3-Dm-ogk"/>
-                            <constraint firstAttribute="trailing" secondItem="ZaF-Nf-2Ig" secondAttribute="trailing" id="hnN-Wn-05s"/>
-                            <constraint firstItem="33o-Qo-QdN" firstAttribute="top" secondItem="ZaF-Nf-2Ig" secondAttribute="bottom" id="oBc-YC-gzl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" image="FCFDCE30-BBC5-4711-ADAB-EB9C7B66CD7B" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="1D52F475-2F20-4111-B1D5-9C626A7EF6CA" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -694,7 +677,6 @@
                     <connections>
                         <outlet property="tblVideos" destination="Nkn-e0-wjC" id="oau-q2-9i2"/>
                         <outlet property="txtSearch" destination="7qO-92-51H" id="JNC-My-oik"/>
-                        <outlet property="viewWait" destination="ZaF-Nf-2Ig" id="IPI-r9-lKQ"/>
                         <segue destination="3rd-iL-WZd" kind="show" identifier="idSeguePlayer" id="ZpP-kX-Y8D"/>
                     </connections>
                 </viewController>
@@ -977,7 +959,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FCFDCE30-BBC5-4711-ADAB-EB9C7B66CD7B" width="33" height="33">
+        <image name="1D52F475-2F20-4111-B1D5-9C626A7EF6CA" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

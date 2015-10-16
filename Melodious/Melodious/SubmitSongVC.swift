@@ -20,7 +20,7 @@ class SubmitSongVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        playerView.loadWithVideoId(videoID)
     }
     
     @IBAction func submitSong(sender: UIButton) {

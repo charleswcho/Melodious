@@ -12,8 +12,6 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     @IBOutlet weak var tblVideos: UITableView!
     
-    @IBOutlet weak var viewWait: UIView!
-    
     @IBOutlet weak var txtSearch: UITextField!
     
     var apiKey = "AIzaSyCSxpFQyMQ92xzbreKoZsRpJnTiqV-5CLQ"
@@ -81,7 +79,6 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        viewWait.hidden = false
         
         // Specify the search type (channel, video).
       
@@ -109,12 +106,13 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     // Create a new dictionary to store the video details.
                     var videoDetailsDict = Dictionary<NSObject, AnyObject>()
                     videoDetailsDict["title"] = snippetDict["title"]
+                    videoDetailsDict["channelTitle"] = snippetDict["channelTitle"]
                     videoDetailsDict["thumbnail"] = ((snippetDict["thumbnails"] as! Dictionary<NSObject, AnyObject>)["default"] as! Dictionary<NSObject, AnyObject>)["url"]
                     videoDetailsDict["videoID"] = (items[i]["id"] as! Dictionary<NSObject, AnyObject>)["videoId"]
                     
                     // Get statistics from video
-                    let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
-                    videoDetailsDict["viewCount"] = statisticsDict["viewCount"]
+//                    let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
+//                    videoDetailsDict["viewCount"] = statisticsDict["viewCount"]
                     
                     // Append the desiredPlaylistItemDataDict dictionary to the videos array.
                     self.videosArray.append(videoDetailsDict)
@@ -130,8 +128,6 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 println("Error while loading channel videos: \(error)")
             }
             
-            // Hide the activity indicator.
-            self.viewWait.hidden = true
         })
         
         
