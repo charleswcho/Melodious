@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="mMG-F9-9gb"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="hfl-41-dj6" id="U8G-g4-tZK"/>
                                 </connections>
@@ -76,6 +76,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="hfl-41-dj6" id="P3C-a8-ujK"/>
+                                    <outlet property="delegate" destination="hfl-41-dj6" id="bhZ-ki-1s7"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -93,7 +94,7 @@
                     <navigationItem key="navigationItem" title="Friends" id="knH-jH-ZUO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="searchBar" destination="zlo-o5-aj2" id="ftQ-z7-d13"/>
+                        <outlet property="searchBarOutlet" destination="zlo-o5-aj2" id="rWt-gG-iAc"/>
                         <outlet property="tableView" destination="3H1-76-AyD" id="VwX-VF-W8g"/>
                         <segue destination="Kii-HF-TFo" kind="show" identifier="showSongs" id="ESi-Pf-TZr"/>
                     </connections>
@@ -677,7 +678,7 @@
                             <constraint firstItem="Nkn-e0-wjC" firstAttribute="top" secondItem="7qO-92-51H" secondAttribute="bottom" constant="8" id="gy3-Dm-ogk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" image="B9CCF8DE-4761-496E-919F-D3B21B1CBBF0" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="D32B391C-64F3-4856-8F9F-0CB47B0F8166" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -971,7 +972,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B9CCF8DE-4761-496E-919F-D3B21B1CBBF0" width="33" height="33">
+        <image name="D32B391C-64F3-4856-8F9F-0CB47B0F8166" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

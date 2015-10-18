@@ -11,7 +11,6 @@ import UIKit
 class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tblVideos: UITableView!
-    
     @IBOutlet weak var txtSearch: UITextField!
     
     var apiKey = "AIzaSyCSxpFQyMQ92xzbreKoZsRpJnTiqV-5CLQ"

@@ -37,7 +37,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             self.logInVC.delegate = self
             
             self.presentViewController(self.logInVC, animated: true, completion: nil)
-            
+                        
         } else {
             
             print("User already logged in")

@@ -91,8 +91,8 @@ class Game: PFObject, PFSubclassing {
     
     // Fetch data from Parse
     
-    typealias GameResultsBlock = (games:[[Game]]?, error:NSError?) -> Void  // Is this the correct syntax?
-
+    typealias GameResultsBlock = (games:[[Game]]?, error:NSError?) -> Void
+    
     class func fetchData(resultBlock: GameResultsBlock) {
 
         // Initialize empty arrays that will store game objects of different game states

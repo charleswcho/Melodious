@@ -10,21 +10,32 @@ import UIKit
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
 
-class FriendSearchTVC: UIViewController, UITableViewDelegate, UITableViewDataSourse, UITextFieldDelegate {
-
-    @IBOutlet weak var searchBar: UISearchBar!
+class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBarOutlet: UISearchBar!
 
-    var friendsArray : Array = []
+    var active : Bool = false
+    var friendsArray:[User] = []
+    var filtered:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getFriendsList()
+        getDataForTable()
+        
+        tableView.reloadData()
+
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
+        
+        searchBarOutlet.delegate = self
 
     }
+
+    
+    // MARK: UITableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -32,17 +43,32 @@ class FriendSearchTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return friendsArray.count
+        if (active) {
+            
+            return filtered.count
+            
+        } else {
+            
+            return friendsArray.count
+
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
         
-        let friend = friendsArray[indexPath.row]
-        
-        cell.friend = friend
-        
+        if (active) {
+            let friend = filtered[indexPath.row]
+            
+            cell.friend = friend
+            
+        } else {
+            let friend = friendsArray[indexPath.row]
+            
+            cell.friend = friend
+        }
+
         return cell
     }
     
@@ -52,64 +78,67 @@ class FriendSearchTVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        selectedVideoIndex = indexPath.row
         performSegueWithIdentifier("showSongs", sender: self)
         
     }
     
-    // MARK: UITextFieldDelegate method implementation
+    // MARK: UISearchBarDelegate method implementation
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        
-        tableView.reloadData()
-        
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        active = true
     }
     
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        
+        searchBar.resignFirstResponder()
+        active = false
+        tableView.reloadData()
+        
+        return true
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        active = false
+        tableView.reloadData()
+    }
     
-    func getFriendsList() {
-
-        // Get List Of Friends
-
-        var fbRequest = FBSDKGraphRequest(graphPath:"/me/friends", parameters: nil);
-        fbRequest.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
+        searchBar.text = ""
+        active = false
+        searchBar.resignFirstResponder()
+        
+        tableView.reloadData()
+    }
+    
+    func getDataForTable() {
+        
+        for friend in friendsArray {
             
-            if error == nil {
-                
-                var friendObjects = result.objectForKey("data") as! NSArray
-                var friendIDs : NSMutableArray!
-                
-                for friendObject in friendObjects {
-                    friendIDs.addObject(friendObject.objectForKey("id")!)
-                    
-                print("Friends are : \(result)")
-
-                    
-                }
-                    
-                var query : PFQuery
-                
-                query.whereKey("facebookID", containedIn: friendIDs as [AnyObject]) // Find friends whose facebookIDs are in currentUser's friend list
-                
-                var friendUsers = query.findObjectsInBackgroundWithBlock({ (_: [User]?, error: NSError?) -> Void in
-                    if error == nil {
-                        print("currentUser friends found")
-                    } else {
-                        print("Error getting Users from parse \(error)")
-                    }
-                })
-                
-                
-            } else {
-                
-                print("Error Getting Friends \(error)");
-                
+            if friend.name.lowercaseString.containsString((searchBarOutlet.text?.lowercaseString)!) {
+                filtered.append(friend)
             }
         }
     }
-
     
+    func getFriendsList() {
+
+        User.currentUser()?.getUsersFriends({ (friends: [PFObject]?, error: NSError?) -> Void in         // Get List Of Friends
+            
+            if error == nil {
+                
+                self.friendsArray = friends as! [User]
+                
+            } else {
+                
+                print("Error \(error)")
+            }
+            
+        })
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
