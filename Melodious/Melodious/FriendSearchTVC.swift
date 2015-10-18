@@ -8,56 +8,106 @@
 
 import UIKit
 import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
-class FriendSearchTVC: UIViewController {
+class FriendSearchTVC: UIViewController, UITableViewDelegate, UITableViewDataSourse, UITextFieldDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+
+    var friendsArray : Array = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return friendsArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
+        
+        let friend = friendsArray[indexPath.row]
+        
+        cell.friend = friend
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 75.0
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        selectedVideoIndex = indexPath.row
+        performSegueWithIdentifier("showSongs", sender: self)
+        
+    }
+    
+    // MARK: UITextFieldDelegate method implementation
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        
+        tableView.reloadData()
+        
     }
     
     
-//    func getFriendsList() {
-//        
-//        // Get List Of Friends
-//        
-//        var friendsRequest : FBRequest = FBRequest.requestForMyFriends()
-//        friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-//            
-//            if error == nil {
-//                
-//                var friendObjects = result.objectForKey("data") as NSArray
-//                var friendIDs: NSMutableArray!
-//                
-//                for friendObject as NSDictionary in friendObjects.count {
-//                    friendIDs.addObject(friendObject.o)
-//                }
-//                
-//                var resultdict = result as NSDictionary
-//                println("Result Dict: \(resultdict)")
-//                var data : NSArray = resultdict.objectForKey("data") as NSArray
-//                
-//                for i in 0..data.count {
-//                    let valueDict : NSDictionary = data[i] as NSDictionary
-//                    let id = valueDict.objectForKey("id") as String
-//                    println("the id value is \(id)")
-//                }
-//                
-//                var friends = resultdict.objectForKey("data") as NSArray
-//                
-//                
-//                println("Found \(friends.count) friends")
-//                
-//            } else {
-//                println("Error \(error)")
-//            }
-//        }
-//        
-//    }
+    func getFriendsList() {
+
+        // Get List Of Friends
+
+        var fbRequest = FBSDKGraphRequest(graphPath:"/me/friends", parameters: nil);
+        fbRequest.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+            
+            if error == nil {
+                
+                var friendObjects = result.objectForKey("data") as! NSArray
+                var friendIDs : NSMutableArray!
+                
+                for friendObject in friendObjects {
+                    friendIDs.addObject(friendObject.objectForKey("id")!)
+                    
+                print("Friends are : \(result)")
+
+                    
+                }
+                    
+                var query : PFQuery
+                
+                query.whereKey("facebookID", containedIn: friendIDs as [AnyObject]) // Find friends whose facebookIDs are in currentUser's friend list
+                
+                var friendUsers = query.findObjectsInBackgroundWithBlock({ (_: [User]?, error: NSError?) -> Void in
+                    if error == nil {
+                        print("currentUser friends found")
+                    } else {
+                        print("Error getting Users from parse \(error)")
+                    }
+                })
+                
+                
+            } else {
+                
+                print("Error Getting Friends \(error)");
+                
+            }
+        }
+    }
 
     
 

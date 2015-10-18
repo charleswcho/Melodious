@@ -82,7 +82,6 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         // Specify the search type (channel, video).
       
-
         // Form the request URL string.
         var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(textField.text)&type=video&key=\(apiKey)"
         urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!

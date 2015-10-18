@@ -20,6 +20,12 @@ class GameCell: UITableViewCell {
         }
     }
     
+    var friend : User! {
+        didSet {
+            self.updateView()
+        }
+    }
+    
     func updateView() {
         
         opponentNameLabel.text = self.game.opponent.name

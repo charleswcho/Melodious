@@ -104,17 +104,17 @@ class Game: PFObject, PFSubclassing {
         
         if User.currentUser() != nil {
             
-            var gamesAsChallenger = PFQuery(className: "Game")
+            let gamesAsChallenger = PFQuery(className: "Game")
             gamesAsChallenger.whereKey("player1", equalTo: User.currentUser()!)
             
-            var gamesAsOpponent = PFQuery(className: "Game")
+            let gamesAsOpponent = PFQuery(className: "Game")
             gamesAsOpponent.whereKey("player2", equalTo: User.currentUser()!)
 
-            var query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
+            let query : PFQuery = PFQuery.orQueryWithSubqueries([gamesAsChallenger, gamesAsOpponent])
             query.includeKey("player1")
             query.includeKey("player2")
             
-            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            query.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error: NSError?) -> Void in
                 
                 if(error == nil){
                     
