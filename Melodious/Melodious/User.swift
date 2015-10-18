@@ -10,7 +10,7 @@ import Foundation
 import Parse
 import FBSDKCoreKit
 
-class User: PFUser, PFSubclassing {
+class User: PFUser {
  
     @NSManaged var facebookID: String!
     @NSManaged var name: String!

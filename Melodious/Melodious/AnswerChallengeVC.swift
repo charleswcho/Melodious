@@ -30,7 +30,7 @@ class AnswerChallengeVC: UIViewController {
         
         opponentNameLabel.text = self.game.opponent.name
         
-        var facebookID = self.game.opponent.facebookID
+        let facebookID = self.game.opponent.facebookID
         
         // Get user profile pic
         opponentProfilePic.profileID = facebookID

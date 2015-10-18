@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import ParseFacebookUtilsV4
 
-class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate {
+class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
     // Implement PFLogin
     var logInVC: PFLogInViewController! = PFLogInViewController()
@@ -26,7 +26,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         
         if (PFUser.currentUser() == nil) {
             
-            self.logInVC.fields = PFLogInFields.Default | PFLogInFields.Facebook
+            self.logInVC.fields = [PFLogInFields.Default, PFLogInFields.Facebook]
             
             // MARK: Facebook
             
@@ -40,7 +40,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
             
-            println("User already logged in")
+            print("User already logged in")
         }
         
         Game.fetchData { (gameObjects, error) -> Void in
@@ -50,7 +50,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
                 
             } else {
                 
-                println("Error in retrieving \(error)")
+                print("Error in retrieving \(error)")
                 // TODO: Add Alert view to tell the user about the problem
             }
         }
@@ -67,14 +67,14 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             if ((error) != nil)
             {
                 // Process error
-                println("Error: \(error)")
+                print("Error: \(error)")
             } else {
                 
-                println("fetched user: \(result)")
+                print("fetched user: \(result)")
                 let currentUserName = result.valueForKey("name") as! String
-                println("User Name is: \(currentUserName)")
+                print("User Name is: \(currentUserName)")
                 let currentUserFBID = result.valueForKey("id") as! String
-                println("User Email is: \(currentUserFBID)")
+                print("User Email is: \(currentUserFBID)")
 
                 User.currentUser()?.name = currentUserName
                 User.currentUser()?.facebookID = currentUserFBID as String
@@ -110,7 +110,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
-        println("Failed to login")
+        print("Failed to login")
     }
 
 
@@ -149,7 +149,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
         
         if indexPath.section == 0 {
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
             
             let buttonTitleArray : [String] = ["Friends", "Random", "Judge"]
             // Configure cell
@@ -160,7 +160,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
             
         } else {
         //grab array by section title
-            var cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
 
             cell.game = (games[indexPath.section - 1][indexPath.row])
                 
@@ -183,7 +183,7 @@ class HomeTVC: UITableViewController, UITableViewDelegate, UITableViewDataSource
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println("\(indexPath.row)")
+        print("\(indexPath.row)")
         
         let segueArray = ["FriendGame", "RandomGame", "JudgeGame"]
           

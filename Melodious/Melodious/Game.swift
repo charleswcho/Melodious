@@ -158,16 +158,16 @@ class Game: PFObject, PFSubclassing {
                     }
                 }
                     
-                else{
+                else {
                     resultBlock(games: nil, error:error);
                     
-                    println("Error in retrieving \(error)")
+                    print("Error in retrieving \(error)")
                 }
                 
             })
             
         } else {
-            println("No User logged in")
+            print("No User logged in")
         }
         
     }

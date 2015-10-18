@@ -30,7 +30,7 @@ class ProfileCell: UITableViewCell {
         currentUserLLabel.text = inputGame.player1.losses.stringValue
         currentUserTLabel.text = inputGame.player1.ties.stringValue
         
-        var facebookID = inputGame.player1.facebookID
+        let facebookID = inputGame.player1.facebookID
         
         // Get user profile pic
         currentUserProfilePic.profileID = facebookID        
