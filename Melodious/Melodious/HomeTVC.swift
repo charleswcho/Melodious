@@ -188,6 +188,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     
     // Segue to multiple VCs
     
+    var selectedIndex : Int!
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         print("\(indexPath.row)")
@@ -198,8 +200,9 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
 
         } else if indexPath.section == 1 {
-
-            AnswerChallengeVC().game = (games[0][indexPath.row])  // Set the game for
+            
+            selectedIndex = indexPath.row
+            performSegueWithIdentifier("AnswerChallenge", sender: self)
             
         } else if indexPath.section == 2 {
             
@@ -209,19 +212,18 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AnswerChallenge" {
+            let answerChallenge = segue.destinationViewController as! AnswerChallengeVC
+            answerChallenge.game = (games[0][selectedIndex])
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-       /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

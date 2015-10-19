@@ -119,7 +119,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewGameCell" rowHeight="75" id="qTz-nq-kOs" customClass="NewGameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="89" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="25" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qTz-nq-kOs" id="sen-CM-gq0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -161,7 +161,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="100" id="fpd-VK-2oF" userLabel="GameCell" customClass="GameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="164" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpd-VK-2oF" id="Fxe-s6-UH4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -436,14 +436,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-IX-Dzt">
-                                <rect key="frame" x="124" y="432" width="127" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-IX-Dzt">
+                                <rect key="frame" x="99" y="432" width="178" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJn-2W-r7L">
-                                <rect key="frame" x="80" y="533" width="49" height="30"/>
+                                <rect key="frame" x="80" y="540" width="49" height="30"/>
                                 <state key="normal" title="Accept">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -452,7 +452,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-BF-ulu">
-                                <rect key="frame" x="243" y="533" width="52" height="30"/>
+                                <rect key="frame" x="243" y="540" width="52" height="30"/>
                                 <state key="normal" title="Decline">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -470,9 +470,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vKu-3X-zCj" firstAttribute="top" secondItem="Jbi-rW-rE8" secondAttribute="bottom" constant="38" id="0sC-19-ovF"/>
                             <constraint firstAttribute="trailing" secondItem="wXM-IX-Dzt" secondAttribute="trailing" constant="167" id="6qp-cp-WiG"/>
                             <constraint firstItem="xJn-2W-r7L" firstAttribute="top" secondItem="wXM-IX-Dzt" secondAttribute="bottom" constant="80" id="9G3-rd-OjA"/>
                             <constraint firstItem="ovx-BF-ulu" firstAttribute="top" secondItem="wXM-IX-Dzt" secondAttribute="bottom" constant="80" id="DjU-BQ-fOu"/>
+                            <constraint firstItem="wXM-IX-Dzt" firstAttribute="centerX" secondItem="C4A-tA-38o" secondAttribute="centerX" id="IIZ-sV-8Se"/>
                             <constraint firstItem="wXM-IX-Dzt" firstAttribute="leading" secondItem="C4A-tA-38o" secondAttribute="leading" constant="124" id="KNy-P9-wwy"/>
                             <constraint firstItem="vKu-3X-zCj" firstAttribute="top" secondItem="Jbi-rW-rE8" secondAttribute="bottom" constant="38" id="QKD-BX-LqN"/>
                             <constraint firstItem="wXM-IX-Dzt" firstAttribute="leading" secondItem="C4A-tA-38o" secondAttribute="leading" constant="166" id="V8X-lx-iqb"/>
@@ -486,9 +488,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="QKD-BX-LqN"/>
                                 <exclude reference="6qp-cp-WiG"/>
+                                <exclude reference="KNy-P9-wwy"/>
                                 <exclude reference="V8X-lx-iqb"/>
                                 <exclude reference="h2q-2c-dpl"/>
+                                <exclude reference="lTd-PX-eeC"/>
                             </mask>
                         </variation>
                     </view>
@@ -711,7 +716,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="0D34DC7E-6869-4CB8-B7F7-2F66ECDCC997" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="75902244-2C2A-416E-A43A-F71F780DBDA7" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -814,11 +819,12 @@
                         <outlet property="numberOfViewsLabel" destination="c5L-OA-rha" id="MQM-aJ-u9t"/>
                         <outlet property="playerView" destination="VJ1-V3-Ast" id="6zX-xp-tMN"/>
                         <outlet property="songNameLabel" destination="K0W-8m-UOv" id="IMS-bs-bKA"/>
+                        <segue destination="CT4-hi-fn9" kind="showDetail" identifier="submittedSong" id="SHL-ng-8A6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-EE-0UE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2975.5" y="-320.5"/>
+            <point key="canvasLocation" x="2903.5" y="-320.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="f1V-NY-meu">
@@ -829,8 +835,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="200" id="6lI-yd-xmU" customClass="ProfileCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="375" height="200"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="200" id="6lI-yd-xmU" customClass="ProfileCell" customModule="Melodious" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lI-yd-xmU" id="sJz-xe-r88">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -920,7 +926,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="100" id="3ZV-zu-ich" userLabel="GameCell" customClass="GameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="286" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="222" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ZV-zu-ich" id="Zsg-dH-3RZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -1002,11 +1008,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdJ-4w-zFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="847.5" y="-320.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="0D34DC7E-6869-4CB8-B7F7-2F66ECDCC997" width="33" height="33">
+        <image name="75902244-2C2A-416E-A43A-F71F780DBDA7" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1133,8 +1139,8 @@ BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
         <image name="Profile" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ESi-Pf-TZr"/>
-        <segue reference="dEs-ex-W3Z"/>
+        <segue reference="2qR-ib-r0T"/>
+        <segue reference="SHL-ng-8A6"/>
         <segue reference="B64-Da-TPd"/>
     </inferredMetricsTieBreakers>
 </document>

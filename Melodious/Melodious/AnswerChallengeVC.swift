@@ -21,21 +21,22 @@ class AnswerChallengeVC: UIViewController {
     
     var game : Game! {
         didSet {
-            self.updateViewForGame()
         }
+    }
+
+    func updateViewForGame() {
+        
+        opponentNameLabel.text = game.opponent?.name
+        
+        // Get user profile pic
+        opponentProfilePic.profileID = game.opponent?.facebookID
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-
-    func updateViewForGame() {
-        
-        opponentNameLabel.text = game.opponent.name
-        
-        // Get user profile pic
-        opponentProfilePic.profileID = game.opponent.facebookID
+        self.updateViewForGame()
         
     }
     
@@ -50,9 +51,7 @@ class AnswerChallengeVC: UIViewController {
     
     @IBAction func declineGame(sender: UIButton) {
         
-        game = nil
-        
-        game.saveEventually()
+        game.deleteEventually()
         
         performSegueWithIdentifier("declineGame", sender: self)
     }

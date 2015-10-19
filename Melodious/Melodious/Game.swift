@@ -64,6 +64,11 @@ class Game: PFObject, PFSubclassing {
         }
     }
     
+    var currentUser : User! {
+        
+        return User.currentUser()
+    }
+    
     var player1TotalScore : Int {
         
         return player1Scores.reduce(0, combine: +)

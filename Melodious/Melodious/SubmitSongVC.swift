@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SubmitSongVC: UIViewController {
 
@@ -16,16 +17,48 @@ class SubmitSongVC: UIViewController {
     @IBOutlet weak var numberOfViewsLabel: UILabel!
     
     var videoID : String!
+    var friendID : String!
+    var videoDetails : NSDictionary! {
+        didSet {
+        }
+    }
+
+    func updateView() {
+        
+        songNameLabel.text = videoDetails["title"] as? String
+        channelNameLabel.text = videoDetails["channelTitle"] as? String
+        numberOfViewsLabel.text = videoDetails["viewCount"] as? String
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         playerView.loadWithVideoId(videoID)
+        self.updateView()
+
+        
     }
     
     @IBAction func submitSong(sender: UIButton) {
         
-        // TODO: Save the songID, set game state
+        let newGame = Game()
+        newGame.player1 = User.currentUser()
+        newGame.player1SongURL = videoID
+//        newGame.opponent.facebookID = friendID
+        newGame.gameState = 0
+        
+        newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            
+            if error == nil {
+                print("\(success)")
+            } else {
+                print("Error \(error)")
+            }
+        }
+        
+        performSegueWithIdentifier("submittedSong", sender: self)
+
     }
 
     override func didReceiveMemoryWarning() {

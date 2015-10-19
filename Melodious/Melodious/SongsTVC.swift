@@ -33,13 +33,6 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "idSeguePlayer" {
-            let submitSong = segue.destinationViewController as! SubmitSongVC
-            submitSong.videoID = videosArray[selectedVideoIndex]["videoID"] as! String
-        }
-    }
-    
     // MARK: UITableView method implementation
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -71,6 +64,14 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         selectedVideoIndex = indexPath.row
         performSegueWithIdentifier("idSeguePlayer", sender: self)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "idSeguePlayer" {
+            let submitSong = segue.destinationViewController as! SubmitSongVC
+            submitSong.videoID = videosArray[selectedVideoIndex]["videoID"] as! String
+            submitSong.videoDetails = videosArray[selectedVideoIndex]
+        }
     }
 
     // MARK: UISearchBarDelegate method implementation

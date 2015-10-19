@@ -16,6 +16,7 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
     @IBOutlet weak var searchBarOutlet: UISearchBar!
 
     var active : Bool = false
+    var selectedFriendIndex : Int!
     var friendsArray:[User] = []
     var filtered:[User] = []
     
@@ -78,8 +79,22 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        selectedFriendIndex = indexPath.row
         performSegueWithIdentifier("showSongs", sender: self)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showSongs" {
+            let pickSong = segue.destinationViewController as! SubmitSongVC
+            
+            if (active) {
+                pickSong.friendID = filtered[selectedFriendIndex].facebookID as String
+
+            } else {
+                pickSong.friendID = friendsArray[selectedFriendIndex].facebookID as String
+            }
+        }
     }
     
     // MARK: UISearchBarDelegate method implementation
