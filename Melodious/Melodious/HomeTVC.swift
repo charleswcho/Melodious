@@ -26,7 +26,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         if (PFUser.currentUser() == nil) {
             
-            self.logInVC.fields = [PFLogInFields.Default, PFLogInFields.Facebook]
+            self.logInVC.fields = PFLogInFields.Facebook
             
             // MARK: Facebook
             
@@ -37,7 +37,16 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             self.logInVC.delegate = self
             
             self.presentViewController(self.logInVC, animated: true, completion: nil)
-                        
+            
+            // Set default scores to 0
+            User.currentUser()?.wins = 0
+            User.currentUser()?.losses = 0
+            User.currentUser()?.ties = 0
+            
+            User.currentUser()?.saveEventually()
+            
+            self.tableView.reloadData()
+            
         } else {
             
             print("User already logged in")
@@ -169,8 +178,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         }
     }
     
-    // Setup the Height of the cells ?? Why doesn't setting the values in interface builder work?
-    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 75
@@ -201,14 +208,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         }        
         
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
-    }
-    
-    
-    
     
     
     override func didReceiveMemoryWarning() {

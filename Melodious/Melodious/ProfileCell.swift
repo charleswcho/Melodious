@@ -20,21 +20,18 @@ class ProfileCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-    
-    func setGame(inputGame: Game) {
         
-        currentUserLLabel.text = inputGame.player1.name
-        currentUserWLabel.text = inputGame.player1.wins.stringValue
-        currentUserLLabel.text = inputGame.player1.losses.stringValue
-        currentUserTLabel.text = inputGame.player1.ties.stringValue
-        
-        let facebookID = inputGame.player1.facebookID
+        currentUserNameLabel.text = User.currentUser()?.name
+        currentUserWLabel.text = User.currentUser()?.wins.stringValue
+        currentUserLLabel.text = User.currentUser()?.losses.stringValue
+        currentUserTLabel.text = User.currentUser()?.ties.stringValue
         
         // Get user profile pic
-        currentUserProfilePic.profileID = facebookID        
+        currentUserProfilePic.profileID = User.currentUser()!.facebookID
+
     }
+    
+ 
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

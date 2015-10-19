@@ -7,17 +7,30 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileTVC: UITableViewController {
 
+    var games : [[Game]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Game.fetchData { (gameObjects, error) -> Void in
+            if error == nil {
+                self.games = gameObjects!
+                self.tableView.reloadData()
+                
+            } else {
+                
+                print("Error in retrieving \(error)")
+                // TODO: Add Alert view to tell the user about the problem
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,29 +39,66 @@ class ProfileTVC: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else {
+            return 25
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 1 {
+            return "Match History"
+        } else {
+            return ""
+        }
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        if section == 0 {
+            return 1
+        } else if games.count > 0 {
+            
+            return games[3].count
+        } else {
+            return 0
+        }
     }
-
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell", forIndexPath: indexPath) as! ProfileCell
 
-        // Configure the cell...
-
-        return cell
+        if indexPath.section == 0 {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell", forIndexPath: indexPath) as! ProfileCell
+            
+            return cell
+            
+        } else {
+            //grab array by section title
+            let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
+            
+            cell.game = (games[3][indexPath.row])
+            
+            return cell
+            
+        }
     }
-
-
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 200
+        } else {
+            return 100
+        }
+    }
 
     /*
     // MARK: - Navigation

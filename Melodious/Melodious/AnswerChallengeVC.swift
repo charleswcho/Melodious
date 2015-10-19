@@ -15,6 +15,10 @@ class AnswerChallengeVC: UIViewController {
     @IBOutlet var opponentProfilePic: FBSDKProfilePictureView!
     @IBOutlet weak var opponentNameLabel: UILabel!
     
+    @IBOutlet var acceptGameButton: UIButton!
+    @IBOutlet var declineGameButton: UIButton!
+    
+    
     var game : Game! {
         didSet {
             self.updateViewForGame()
@@ -28,14 +32,32 @@ class AnswerChallengeVC: UIViewController {
 
     func updateViewForGame() {
         
-        opponentNameLabel.text = self.game.opponent.name
-        
-        let facebookID = self.game.opponent.facebookID
+        opponentNameLabel.text = game.opponent.name
         
         // Get user profile pic
-        opponentProfilePic.profileID = facebookID
+        opponentProfilePic.profileID = game.opponent.facebookID
         
     }
+    
+    @IBAction func acceptGame(sender: UIButton) {
+        
+        game.gameState = 0
+        
+        game.saveEventually()
+        
+        performSegueWithIdentifier("selectSong", sender: self)
+    }
+    
+    @IBAction func declineGame(sender: UIButton) {
+        
+        game = nil
+        
+        game.saveEventually()
+        
+        performSegueWithIdentifier("declineGame", sender: self)
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
