@@ -78,7 +78,7 @@ class ProfileTVC: UITableViewController {
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell", forIndexPath: indexPath) as! ProfileCell
-            
+                        
             return cell
             
         } else {

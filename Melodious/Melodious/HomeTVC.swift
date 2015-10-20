@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import ParseFacebookUtilsV4
 
-class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
+class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     // Implement PFLogin
     var logInVC: PFLogInViewController! = PFLogInViewController()
@@ -49,7 +49,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             
         } else {
             
-            print("User already logged in")
+            print("\(User.currentUser()) already logged in")
         }
         
         Game.fetchData { (gameObjects, error) -> Void in
@@ -83,7 +83,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 let currentUserName = result.valueForKey("name") as! String
                 print("User Name is: \(currentUserName)")
                 let currentUserFBID = result.valueForKey("id") as! String
-                print("User Email is: \(currentUserFBID)")
+                print("User FBID is: \(currentUserFBID)")
 
                 User.currentUser()?.name = currentUserName
                 User.currentUser()?.facebookID = currentUserFBID as String
@@ -103,15 +103,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     
     // MARK: Parse Login
     
-    func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
-        
-        if (!username.isEmpty || password.isEmpty) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         returnUserData()
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -121,7 +112,13 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         print("Failed to login")
     }
-
+    
+    // MARK: Parse Signup
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        print("\(User.currentUser())")
+        
+    }
 
 
     // MARK: - Table view data source
