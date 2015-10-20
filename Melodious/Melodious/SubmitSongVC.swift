@@ -43,19 +43,38 @@ class SubmitSongVC: UIViewController {
     @IBAction func submitSong(sender: UIButton) {
         
         let newGame = Game()
-        newGame.player1 = User.currentUser()
-        newGame.player1SongURL = videoID
-//        newGame.opponent.facebookID = friendID
-        newGame.gameState = 0
         
-        newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        if (newGame.player1 == nil) {
+            newGame.player1 = User.currentUser()
+            newGame.player1SongURL = videoID
+            //        newGame.opponent.facebookID = friendID
+            newGame.gameState = 0
             
-            if error == nil {
-                print("\(success)")
-            } else {
-                print("Error \(error)")
+            newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                
+                if error == nil {
+                    print("Did save player 1 data? \(success)")
+                } else {
+                    print("Error \(error)")
+                }
             }
+        } else {
+            
+            newGame.player2 = User.currentUser()
+            newGame.player2SongURL = videoID
+            newGame.gameState = 1
+            
+            newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                
+                if error == nil {
+                    print("Did save player 2 data? \(success)")
+                } else {
+                    print("Error \(error)")
+                }
+            }
+            
         }
+
         
         performSegueWithIdentifier("submittedSong", sender: self)
 
@@ -65,16 +84,6 @@ class SubmitSongVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
