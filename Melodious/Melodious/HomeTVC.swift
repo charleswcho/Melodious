@@ -38,13 +38,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             
             self.presentViewController(self.logInVC, animated: true, completion: nil)
             
-            // Set default scores to 0
-            User.currentUser()?.wins = 0
-            User.currentUser()?.losses = 0
-            User.currentUser()?.ties = 0
-            
-            User.currentUser()?.saveEventually()
-            
             self.tableView.reloadData()
             
         } else {

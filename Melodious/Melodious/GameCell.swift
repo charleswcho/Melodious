@@ -28,11 +28,21 @@ class GameCell: UITableViewCell {
     
     func updateView() {
         
-        opponentNameLabel.text = self.game.opponent.name
-        
-        // Get user profile pic
-        opponentProfilePic.profileID = self.game.opponent.facebookID
-        
+        if (self.game == nil && self.friend != nil || self.game != nil && self.friend != nil) {
+            opponentNameLabel.text = self.friend.name
+            opponentProfilePic.profileID = self.friend.facebookID
+            
+        } else if (self.game != nil && self.friend == nil || self.game != nil && self.friend != nil) {
+            
+            opponentNameLabel.text = self.game.opponent.name
+            // Get user profile pic
+            opponentProfilePic.profileID = self.game.opponent.facebookID
+            
+        } else {
+            
+            print("Error: No games or users")
+        }
+ 
     }
     
     override func awakeFromNib() {

@@ -19,6 +19,8 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     var selectedVideoIndex: Int!
     
+    var friendID : String!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,6 +73,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let submitSong = segue.destinationViewController as! SubmitSongVC
             submitSong.videoID = videosArray[selectedVideoIndex]["videoID"] as! String
             submitSong.videoDetails = videosArray[selectedVideoIndex]
+            submitSong.friendID = self.friendID
         }
     }
 

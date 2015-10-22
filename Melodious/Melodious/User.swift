@@ -30,16 +30,16 @@ class User: PFUser {
         return false
     }
     
-    func getUsersFriends(block: PFQueryArrayResultBlock) {
+    func getUsersFriends(block: PFQueryArrayResultBlock?) {
         FBSDKGraphRequest(graphPath: "me/friends", parameters: ["fields":"id"]).startWithCompletionHandler ({ (connection, result, error) -> Void in
             if result != nil {
                 let r = result as! NSDictionary
                 let list = r["data"] as! NSArray
-                print(list)
+                print("\(list) friends")
                 let idArray : [String] = list.map({$0["id"] as! String })
-                let query = User.query()
-                query?.whereKey("facebookID", containedIn: idArray)
-                query?.findObjectsInBackgroundWithBlock(block)
+                let query = User.query()!
+                query.whereKey("facebookID", containedIn: idArray)
+                query.findObjectsInBackgroundWithBlock(block)
             }
         })
     }

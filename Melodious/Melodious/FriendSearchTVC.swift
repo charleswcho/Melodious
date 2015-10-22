@@ -17,22 +17,22 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
 
     var active : Bool = false
     var selectedFriendIndex : Int!
-    var friendsArray:[User] = []
-    var filtered:[User] = []
+    var friendsArray:[User]!
+    var filtered:[User]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getFriendsList()
-        getDataForTable()
-        
-        tableView.reloadData()
-
         tableView.delegate = self
         tableView.dataSource = self
         
         searchBarOutlet.delegate = self
+        
+        getFriendsList()
+        
+        tableView.reloadData()
 
+        
     }
 
     
@@ -44,15 +44,12 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (active) {
+        if (active == true) {
             
             return filtered.count
-            
-        } else {
-            
-            return friendsArray.count
-
         }
+        
+        return friendsArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -60,14 +57,11 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
         
         if (active) {
-            let friend = filtered[indexPath.row]
             
-            cell.friend = friend
-            
+            cell.friend = filtered[indexPath.row]
         } else {
-            let friend = friendsArray[indexPath.row]
             
-            cell.friend = friend
+            cell.friend = friendsArray[indexPath.row]
         }
 
         return cell
@@ -86,7 +80,7 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSongs" {
-            let pickSong = segue.destinationViewController as! SubmitSongVC
+            let pickSong = segue.destinationViewController as! SongsTVC
             
             if (active) {
                 pickSong.friendID = filtered[selectedFriendIndex].facebookID as String
@@ -101,6 +95,7 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         active = true
+        
     }
     
     func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
@@ -128,15 +123,28 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
         tableView.reloadData()
     }
     
-    func getDataForTable() {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        for friend in friendsArray {
-            
-            if friend.name.lowercaseString.containsString((searchBarOutlet.text?.lowercaseString)!) {
-                filtered.append(friend)
-            }
+        filtered = friendsArray.filter({ (User) -> Bool in
+            let tmp: NSString = User.name
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        
+        if(filtered.count == 0) {
+            active = false
+        } else {
+            active = true
         }
+        
+        tableView.reloadData()
     }
+    
+    
+    
+    
+    // MARK: Get data for table
+
     
     func getFriendsList() {
 
@@ -159,16 +167,5 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

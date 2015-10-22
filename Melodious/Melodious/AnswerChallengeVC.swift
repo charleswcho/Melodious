@@ -42,10 +42,6 @@ class AnswerChallengeVC: UIViewController {
     
     @IBAction func acceptGame(sender: UIButton) {
         
-        game.gameState = 0
-        
-        game.saveEventually()
-        
         performSegueWithIdentifier("selectSong", sender: self)
     }
     
@@ -55,8 +51,6 @@ class AnswerChallengeVC: UIViewController {
         
         performSegueWithIdentifier("declineGame", sender: self)
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
