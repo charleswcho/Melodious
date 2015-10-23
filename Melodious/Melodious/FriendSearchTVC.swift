@@ -47,9 +47,14 @@ class FriendSearchTVC: UIViewController, UISearchBarDelegate, UITableViewDelegat
         if (active == true) {
             
             return filtered.count
+        } else if friendsArray?.count > 0 {
+            return friendsArray.count
+
+        } else {
+            print("Not editing text field, friends array empty")
+            return 0
         }
         
-        return friendsArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
