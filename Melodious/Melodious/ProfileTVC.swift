@@ -33,10 +33,6 @@ class ProfileTVC: UITableViewController {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
     
@@ -69,7 +65,7 @@ class ProfileTVC: UITableViewController {
             
             return games[3].count
         } else {
-            return 0
+            return 1
         }
     }
 
@@ -81,7 +77,7 @@ class ProfileTVC: UITableViewController {
                         
             return cell
             
-        } else {
+        } else if indexPath.section == 1 && games.count > 0 {
             //grab array by section title
             let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
             
@@ -89,6 +85,11 @@ class ProfileTVC: UITableViewController {
             
             return cell
             
+        } else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
+            
+            return cell
         }
     }
     
@@ -98,6 +99,11 @@ class ProfileTVC: UITableViewController {
         } else {
             return 100
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print(indexPath.section)
     }
 
     /*
@@ -109,5 +115,12 @@ class ProfileTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 }

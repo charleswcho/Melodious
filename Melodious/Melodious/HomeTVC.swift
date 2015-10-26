@@ -116,6 +116,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
 
     // MARK: - Table view data source
 
+    // MARK: Section Delegate methods
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
         return 5
@@ -138,12 +140,25 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
         return 25
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-         let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games"]
-    
-        return titleArray[section]
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let homeHeaderCell = tableView.dequeueReusableCellWithIdentifier("HomeHeaderCell") as! HomeHeaderCell
+        
+        // Array of titles
+        let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games"]
+
+        // Creating color for headers
+        let headerColor = UIColor(red: 74/255, green: 145/255, blue: 226/255, alpha: 1.0)
+        
+        homeHeaderCell.backgroundColor = headerColor
+        homeHeaderCell.headerLabel.textColor = UIColor.whiteColor()
+        homeHeaderCell.headerLabel.text = titleArray[section]
+        
+        return homeHeaderCell
     }
     
+    // MARK: Cell Delegate methods
+        
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {

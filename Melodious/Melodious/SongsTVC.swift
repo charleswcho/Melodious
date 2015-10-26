@@ -19,7 +19,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     var selectedVideoIndex: Int!
     
-    var friendID : String!
+    var friend : User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +28,16 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         tableView.dataSource = self
         txtSearch.delegate = self
         
-        self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
-        self.navigationItem.leftBarButtonItem = newBackButton;
+//        self.navigationItem.hidesBackButton = true
+//        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
+//        self.navigationItem.leftBarButtonItem = newBackButton;
     }
     
-    func back(sender: UIBarButtonItem) {
-        
-        self.friendID = nil
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+//    func back(sender: UIBarButtonItem) {
+//        
+//        self.friendID = nil
+//        self.navigationController?.popViewControllerAnimated(true)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,7 +82,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let submitSong = segue.destinationViewController as! SubmitSongVC
             submitSong.videoID = videosArray[selectedVideoIndex]["videoID"] as! String
             submitSong.videoDetails = videosArray[selectedVideoIndex]
-            submitSong.friendID = self.friendID
+            submitSong.friend = self.friend
         }
     }
 

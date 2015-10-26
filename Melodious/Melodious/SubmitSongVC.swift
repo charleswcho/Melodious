@@ -17,7 +17,7 @@ class SubmitSongVC: UIViewController {
     @IBOutlet weak var numberOfViewsLabel: UILabel!
     
     var videoID : String!
-    var friendID : String!
+    var friend : User!
     var videoDetails : NSDictionary! {
         didSet {
         }
@@ -47,7 +47,7 @@ class SubmitSongVC: UIViewController {
         if (newGame.player1 == nil) {
             newGame.player1 = User.currentUser()
             newGame.player1SongURL = videoID
-            //        newGame.opponent.facebookID = friendID
+            newGame.player2 = friend
             newGame.gameState = 0
             
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
@@ -60,7 +60,6 @@ class SubmitSongVC: UIViewController {
             }
         } else {
             
-            newGame.player2 = User.currentUser()
             newGame.player2SongURL = videoID
             newGame.gameState = 1
             
