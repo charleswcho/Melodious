@@ -700,7 +700,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="0A694D45-9FBC-41B0-AC42-B86A34B11E1F" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="719978B7-2246-4272-A20C-F46F51CDC578" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -993,7 +993,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0A694D45-9FBC-41B0-AC42-B86A34B11E1F" width="33" height="33">
+        <image name="719978B7-2246-4272-A20C-F46F51CDC578" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
