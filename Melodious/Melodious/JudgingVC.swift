@@ -10,10 +10,35 @@ import UIKit
 
 class JudgingVC: UIViewController {
 
+    var games : [[Game]] = []
+    var gamesWaitingForJudges : [Game] {
+        return games[1]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        Game.fetchData { (gameObjects, error) -> Void in
+            if error == nil {
+                self.games = gameObjects!
+                
+            } else {
+                
+                print("Error in retrieving \(error)")
+                // TODO: Add Alert view to tell the user about the problem
+            }
+        }
+                
+        for game in gamesWaitingForJudges {
+            if game.judges.count < 3 {
+                game.judges.append(User.currentUser()!)
+            } else if game.judges.count == 3 {
+                print("Already enough judges for \(game)")
+            } else {
+                print("Error game.judges.count = \(game.judges.count)")
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
