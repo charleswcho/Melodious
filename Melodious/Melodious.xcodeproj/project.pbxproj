@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA50C9821BC4782D00305108 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9811BC4782D00305108 /* User.swift */; };
+		BA50C9881BC480DD00305108 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA50C9871BC480DD00305108 /* ParseFacebookUtilsV4.framework */; };
+		BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9911BC48D9400305108 /* ProfileTVC.swift */; };
+		BA50C9A01BC4F36100305108 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA50C99F1BC4F36100305108 /* Default-568h@2x.png */; };
+		BA5CC42A1BD168E9003A9642 /* JudgingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CC4291BD168E9003A9642 /* JudgingVC.swift */; };
+		BA5CC42C1BD170E9003A9642 /* GameDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CC42B1BD170E9003A9642 /* GameDetailVC.swift */; };
+		BA5CC42E1BD180B3003A9642 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CC42D1BD180B3003A9642 /* ProfileCell.swift */; };
+		BA5CC4321BD18B12003A9642 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CC4311BD18B12003A9642 /* GameCell.swift */; };
+		BA5FEB571BC8415F002702F0 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5FEB561BC8415F002702F0 /* ParseUI.framework */; };
 		BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */; };
-		BA8482AE1BA338EF00A3CE99 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AD1BA338EF00A3CE99 /* FirstViewController.swift */; };
-		BA8482B01BA338EF00A3CE99 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482AF1BA338EF00A3CE99 /* SecondViewController.swift */; };
 		BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B11BA338EF00A3CE99 /* Main.storyboard */; };
 		BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B41BA338EF00A3CE99 /* Images.xcassets */; };
 		BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8482B61BA338EF00A3CE99 /* LaunchScreen.xib */; };
@@ -28,6 +35,19 @@
 		BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482E31BA33BFA00A3CE99 /* Social.framework */; };
 		BA8482EC1BA33F3D00A3CE99 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */; };
 		BA8482ED1BA33F3D00A3CE99 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8482EB1BA33F3D00A3CE99 /* Parse.framework */; };
+		BA8482F61BA34F2100A3CE99 /* SongsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */; };
+		BA8BDC501BDD6B2E008AE258 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */; settings = {ASSET_TAGS = (); }; };
+		BA8BDC521BDDCE19008AE258 /* FriendsSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */; settings = {ASSET_TAGS = (); }; };
+		BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165441BBF3A420078C280 /* NewGameCell.swift */; };
+		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
+		BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD55061BBDF4780071C22B /* HomeTVC.swift */; };
+		BAD1C9DF1BCDED3F00A49E72 /* AnswerChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */; };
+		BAD1C9E51BCE044B00A49E72 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */; };
+		BAD1C9E71BCE045A00A49E72 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1C9E61BCE045A00A49E72 /* FBSDKLoginKit.framework */; };
+		BAE668301BCEC4A100C3FFE2 /* SubmitSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE6682F1BCEC4A100C3FFE2 /* SubmitSongVC.swift */; };
+		BAE6683C1BCECC6700C3FFE2 /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE6683B1BCECC6700C3FFE2 /* SongsCell.swift */; };
+		BAE668471BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = BAE668441BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html */; };
+		BAE668481BCEDD7900C3FFE2 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE668461BCEDD7900C3FFE2 /* YTPlayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +61,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA50C9811BC4782D00305108 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BA50C9871BC480DD00305108 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = "../../../../Documents/parse-library-1.8.3/ParseFacebookUtilsV4.framework"; sourceTree = "<group>"; };
+		BA50C9911BC48D9400305108 /* ProfileTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
+		BA50C99F1BC4F36100305108 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BA5CC4291BD168E9003A9642 /* JudgingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JudgingVC.swift; sourceTree = "<group>"; };
+		BA5CC42B1BD170E9003A9642 /* GameDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailVC.swift; sourceTree = "<group>"; };
+		BA5CC42D1BD180B3003A9642 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		BA5CC4311BD18B12003A9642 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		BA5FEB561BC8415F002702F0 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../../Documents/parse-library-1.8.3/ParseUI.framework"; sourceTree = "<group>"; };
 		BA8482A61BA338EF00A3CE99 /* Melodious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melodious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8482AA1BA338EF00A3CE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA8482AD1BA338EF00A3CE99 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BA8482AF1BA338EF00A3CE99 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BA8482B21BA338EF00A3CE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA8482B41BA338EF00A3CE99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA8482B71BA338EF00A3CE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -66,6 +93,21 @@
 		BA8482E31BA33BFA00A3CE99 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		BA8482EB1BA33F3D00A3CE99 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTVC.swift; sourceTree = "<group>"; };
+		BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchTVC.swift; sourceTree = "<group>"; };
+		BAB165441BBF3A420078C280 /* NewGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
+		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BACD55061BBDF4780071C22B /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerChallengeVC.swift; sourceTree = "<group>"; };
+		BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		BAD1C9E61BCE045A00A49E72 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		BAE6682F1BCEC4A100C3FFE2 /* SubmitSongVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitSongVC.swift; sourceTree = "<group>"; };
+		BAE6683B1BCECC6700C3FFE2 /* SongsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
+		BAE6683F1BCEDD6900C3FFE2 /* Melodious-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Melodious-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		BAE668441BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
+		BAE668451BCEDD7900C3FFE2 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		BAE668461BCEDD7900C3FFE2 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +115,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD1C9E71BCE045A00A49E72 /* FBSDKLoginKit.framework in Frameworks */,
+				BAD1C9E51BCE044B00A49E72 /* FBSDKCoreKit.framework in Frameworks */,
+				BA5FEB571BC8415F002702F0 /* ParseUI.framework in Frameworks */,
+				BA50C9881BC480DD00305108 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */,
 				BA8482E21BA33BEE00A3CE99 /* Accounts.framework in Frameworks */,
 				BA8482E01BA33BE700A3CE99 /* libsqlite3.dylib in Frameworks */,
@@ -100,13 +146,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA50C98B1BC48C7500305108 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BA50C9911BC48D9400305108 /* ProfileTVC.swift */,
+				BA50C98C1BC48D2900305108 /* Cells */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		BA50C98C1BC48D2900305108 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BA5CC42D1BD180B3003A9642 /* ProfileCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		BA50C9971BC4D39700305108 /* New Game */ = {
+			isa = PBXGroup;
+			children = (
+				BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */,
+				BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */,
+				BA50C9981BC4D3B200305108 /* Cells */,
+			);
+			name = "New Game";
+			sourceTree = "<group>";
+		};
+		BA50C9981BC4D3B200305108 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BAE6683B1BCECC6700C3FFE2 /* SongsCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		BA5CC4261BD168A5003A9642 /* Judging */ = {
+			isa = PBXGroup;
+			children = (
+				BA5CC4291BD168E9003A9642 /* JudgingVC.swift */,
+			);
+			name = Judging;
+			sourceTree = "<group>";
+		};
 		BA84829D1BA338EF00A3CE99 = {
 			isa = PBXGroup;
 			children = (
+				BA50C99F1BC4F36100305108 /* Default-568h@2x.png */,
 				BA8482A81BA338EF00A3CE99 /* Melodious */,
+				BAE6683F1BCEDD6900C3FFE2 /* Melodious-Bridging-Header.h */,
 				BA8482E51BA33C2400A3CE99 /* Frameworks */,
 				BA8482C01BA338EF00A3CE99 /* MelodiousTests */,
 				BA8482A71BA338EF00A3CE99 /* Products */,
+				BAE668431BCEDD7900C3FFE2 /* Assets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,11 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				BA8482AB1BA338EF00A3CE99 /* AppDelegate.swift */,
-				BA8482AD1BA338EF00A3CE99 /* FirstViewController.swift */,
-				BA8482AF1BA338EF00A3CE99 /* SecondViewController.swift */,
-				BA8482B11BA338EF00A3CE99 /* Main.storyboard */,
-				BA8482B41BA338EF00A3CE99 /* Images.xcassets */,
-				BA8482B61BA338EF00A3CE99 /* LaunchScreen.xib */,
+				BAC0A0F61BC2FA3000A114E2 /* Controllers */,
+				BAC0A0F51BC2FA1E00A114E2 /* View */,
+				BAC0A0F41BC2FA1300A114E2 /* Model */,
 				BA8482A91BA338EF00A3CE99 /* Supporting Files */,
 			);
 			path = Melodious;
@@ -161,6 +251,10 @@
 		BA8482E51BA33C2400A3CE99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAD1C9E61BCE045A00A49E72 /* FBSDKLoginKit.framework */,
+				BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */,
+				BA5FEB561BC8415F002702F0 /* ParseUI.framework */,
+				BA50C9871BC480DD00305108 /* ParseFacebookUtilsV4.framework */,
 				BA8482EA1BA33F3D00A3CE99 /* Bolts.framework */,
 				BA8482EB1BA33F3D00A3CE99 /* Parse.framework */,
 				BA8482E31BA33BFA00A3CE99 /* Social.framework */,
@@ -178,6 +272,93 @@
 			);
 			name = Frameworks;
 			path = Melodious;
+			sourceTree = "<group>";
+		};
+		BAC0A0F41BC2FA1300A114E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAC0A0F71BC2FA6F00A114E2 /* Game.swift */,
+				BA50C9811BC4782D00305108 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BAC0A0F51BC2FA1E00A114E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA8482B11BA338EF00A3CE99 /* Main.storyboard */,
+				BA8482B61BA338EF00A3CE99 /* LaunchScreen.xib */,
+				BA8482B41BA338EF00A3CE99 /* Images.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BAC0A0F61BC2FA3000A114E2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA50C98B1BC48C7500305108 /* Profile */,
+				BADE0B5B1BB9B30800C633EA /* Home */,
+				BA50C9971BC4D39700305108 /* New Game */,
+				BAE6682E1BCEC48400C3FFE2 /* Submit Song */,
+				BA5CC4261BD168A5003A9642 /* Judging */,
+				BAD1C9DD1BCDECFC00A49E72 /* Accept/Deny Challenge */,
+				BAE668491BCEF92400C3FFE2 /* Game Detail */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BAD1C9DD1BCDECFC00A49E72 /* Accept/Deny Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */,
+			);
+			name = "Accept/Deny Challenge";
+			sourceTree = "<group>";
+		};
+		BADE0B5B1BB9B30800C633EA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BACD55061BBDF4780071C22B /* HomeTVC.swift */,
+				BADE0B5C1BB9B31E00C633EA /* Cells */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		BADE0B5C1BB9B31E00C633EA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BAB165441BBF3A420078C280 /* NewGameCell.swift */,
+				BA5CC4311BD18B12003A9642 /* GameCell.swift */,
+				BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		BAE6682E1BCEC48400C3FFE2 /* Submit Song */ = {
+			isa = PBXGroup;
+			children = (
+				BAE6682F1BCEC4A100C3FFE2 /* SubmitSongVC.swift */,
+			);
+			name = "Submit Song";
+			sourceTree = "<group>";
+		};
+		BAE668431BCEDD7900C3FFE2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BAE668441BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html */,
+				BAE668451BCEDD7900C3FFE2 /* YTPlayerView.h */,
+				BAE668461BCEDD7900C3FFE2 /* YTPlayerView.m */,
+			);
+			name = Assets;
+			path = Melodious/Assets;
+			sourceTree = "<group>";
+		};
+		BAE668491BCEF92400C3FFE2 /* Game Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BA5CC42B1BD170E9003A9642 /* GameDetailVC.swift */,
+			);
+			name = "Game Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,11 +405,14 @@
 		BA84829E1BA338EF00A3CE99 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Charles Wesley Cho";
 				TargetAttributes = {
 					BA8482A51BA338EF00A3CE99 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = K622334C2L;
 					};
 					BA8482BC1BA338EF00A3CE99 = {
 						CreatedOnToolsVersion = 6.4;
@@ -261,8 +445,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8482B31BA338EF00A3CE99 /* Main.storyboard in Resources */,
+				BA50C9A01BC4F36100305108 /* Default-568h@2x.png in Resources */,
 				BA8482B81BA338EF00A3CE99 /* LaunchScreen.xib in Resources */,
 				BA8482B51BA338EF00A3CE99 /* Images.xcassets in Resources */,
+				BAE668471BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,9 +466,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8482B01BA338EF00A3CE99 /* SecondViewController.swift in Sources */,
+				BA5CC42E1BD180B3003A9642 /* ProfileCell.swift in Sources */,
+				BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */,
+				BA8482F61BA34F2100A3CE99 /* SongsTVC.swift in Sources */,
+				BA5CC4321BD18B12003A9642 /* GameCell.swift in Sources */,
+				BAE668481BCEDD7900C3FFE2 /* YTPlayerView.m in Sources */,
+				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
+				BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */,
+				BAE668301BCEC4A100C3FFE2 /* SubmitSongVC.swift in Sources */,
+				BA8BDC501BDD6B2E008AE258 /* HomeHeaderCell.swift in Sources */,
+				BA50C9821BC4782D00305108 /* User.swift in Sources */,
 				BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */,
-				BA8482AE1BA338EF00A3CE99 /* FirstViewController.swift in Sources */,
+				BA5CC42C1BD170E9003A9642 /* GameDetailVC.swift in Sources */,
+				BA8BDC521BDDCE19008AE258 /* FriendsSearchTVC.swift in Sources */,
+				BA5CC42A1BD168E9003A9642 /* JudgingVC.swift in Sources */,
+				BAE6683C1BCECC6700C3FFE2 /* SongsCell.swift in Sources */,
+				BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */,
+				BAD1C9DF1BCDED3F00A49E72 /* AnswerChallengeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +545,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -360,7 +561,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -398,7 +599,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -409,14 +610,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/charleswesleycho/Documents/parse-library-1.8.3",
 					"$(PROJECT_DIR)/Melodious",
+					"/Users/charleswesleycho/Documents/FacebookSDKs-iOS-20150813",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charleswesleycho.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Melodious-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -424,14 +633,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/charleswesleycho/Documents/parse-library-1.8.3",
 					"$(PROJECT_DIR)/Melodious",
+					"/Users/charleswesleycho/Documents/FacebookSDKs-iOS-20150813",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charleswesleycho.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Melodious-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -449,6 +665,7 @@
 				);
 				INFOPLIST_FILE = MelodiousTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charleswesleycho.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Melodious.app/Melodious";
 			};
@@ -464,6 +681,7 @@
 				);
 				INFOPLIST_FILE = MelodiousTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charleswesleycho.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Melodious.app/Melodious";
 			};
