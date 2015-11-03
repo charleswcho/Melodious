@@ -37,6 +37,7 @@
 		BA8482F61BA34F2100A3CE99 /* SongsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */; };
 		BA8BDC501BDD6B2E008AE258 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */; settings = {ASSET_TAGS = (); }; };
 		BA8BDC521BDDCE19008AE258 /* FriendsSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */; settings = {ASSET_TAGS = (); }; };
+		BA9D11761BE9432F002F6C08 /* JudgingVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D11751BE9432F002F6C08 /* JudgingVC2.swift */; settings = {ASSET_TAGS = (); }; };
 		BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165441BBF3A420078C280 /* NewGameCell.swift */; };
 		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
 		BAC591A91BE8318E00D3C8CC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC591A81BE8318E00D3C8CC /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
@@ -97,6 +98,7 @@
 		BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTVC.swift; sourceTree = "<group>"; };
 		BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchTVC.swift; sourceTree = "<group>"; };
+		BA9D11751BE9432F002F6C08 /* JudgingVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JudgingVC2.swift; sourceTree = "<group>"; };
 		BAB165441BBF3A420078C280 /* NewGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
 		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BAC591A81BE8318E00D3C8CC /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				BA5CC4291BD168E9003A9642 /* JudgingVC.swift */,
+				BA9D11751BE9432F002F6C08 /* JudgingVC2.swift */,
 				BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */,
 			);
 			name = Judging;
@@ -486,6 +489,7 @@
 				BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */,
 				BA5CC42C1BD170E9003A9642 /* GameDetailVC.swift in Sources */,
 				BA8BDC521BDDCE19008AE258 /* FriendsSearchTVC.swift in Sources */,
+				BA9D11761BE9432F002F6C08 /* JudgingVC2.swift in Sources */,
 				BA5CC42A1BD168E9003A9642 /* JudgingVC.swift in Sources */,
 				BAC591A91BE8318E00D3C8CC /* LoginVC.swift in Sources */,
 				BAE6683C1BCECC6700C3FFE2 /* SongsCell.swift in Sources */,

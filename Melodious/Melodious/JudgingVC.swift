@@ -10,51 +10,85 @@ import UIKit
 
 class JudgingVC: UIViewController {
 
-    var games : [[Game]] = []
-    var gamesWaitingForJudges : [Game] {
-        return games[1]
-    }
+    var gamesWaitingForJudges : [Game] = []
+    var gamesNeedingJudges : [Game] = []
+    var judgedGame : Game!
+    
+    @IBOutlet var player1Video: UIView!
+    @IBOutlet weak var player1SongNameLabel: UILabel!
+    @IBOutlet weak var player1ChannelNameLabel: UILabel!
+    @IBOutlet weak var player1VideoViewCountLabel: UILabel!
+    @IBOutlet weak var ratingControl: RatingControlView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Get games from Parse
+        
         Game.fetchData { (gameObjects, error) -> Void in
             if error == nil {
-                self.games = gameObjects!
-                
+                if let gameObjects2DArray = gameObjects {
+                    self.gamesWaitingForJudges = gameObjects2DArray[1] as [Game]
+                }
             } else {
                 
                 print("Error in retrieving \(error)")
                 // TODO: Add Alert view to tell the user about the problem
             }
         }
-                
+        
+        // Decide if games need a judge
+        
         for game in gamesWaitingForJudges {
             if game.judges.count < 3 {
-                game.judges.append(User.currentUser()!)
+                gamesNeedingJudges.append(game)
             } else if game.judges.count == 3 {
                 print("Already enough judges for \(game)")
             } else {
                 print("Error game.judges.count = \(game.judges.count)")
             }
+            
+            game.saveEventually()
         }
         
+        // Pick first game from array and setup
+        judgedGame = gamesNeedingJudges.first
+    
     }
 
+    @IBAction func submitButtonPressed(sender: UIButton) {
+        
+        
+        // Save player 1 Score
+        
+        
+        // Save player 2 Score
+        
+        
+        
+        
+        
+        
+        
+        let judgingVC2 = JudgingVC2()
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        
+        
     }
-    */
+
 
 }
