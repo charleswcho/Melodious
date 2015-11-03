@@ -44,7 +44,6 @@ class SubmitSongVC: UIViewController {
         playerView.loadWithVideoId(videoID)
         self.updateView()
 
-        
     }
     
     @IBAction func submitSong(sender: UIButton) {
@@ -52,11 +51,19 @@ class SubmitSongVC: UIViewController {
         let newGame = Game()
         
         if (game?.player1 == nil && game?.player2 == nil) {
-            newGame.player1 = User.currentUser()
-            newGame.player1SongURL = videoID
-            newGame.player2 = friend
             newGame.gameState = 0
+            newGame.player1 = User.currentUser()
+            newGame.player2 = friend
+
+            newGame.player1Scores = [0,0,0]
+            newGame.player2Scores = [0,0,0]
             
+            newGame.player1SongID = videoID
+            
+            newGame.player1SongDetails[0] = (videoDetails["title"] as? String)!
+            newGame.player1SongDetails[1] = (videoDetails["channelTitle"] as? String)!
+            newGame.player1SongDetails[2] = (videoDetails["viewCount"] as? String)!
+
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
@@ -68,8 +75,12 @@ class SubmitSongVC: UIViewController {
             
         } else if game.player1 != nil {
             
-            game.player2SongURL = videoID
             game.gameState = 1
+            game.player2SongID = videoID
+            
+            game.player2SongDetails[0] = (videoDetails["title"] as? String)!
+            game.player2SongDetails[1] = (videoDetails["channelTitle"] as? String)!
+            game.player2SongDetails[2] = (videoDetails["viewCount"] as? String)!
             
             game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 

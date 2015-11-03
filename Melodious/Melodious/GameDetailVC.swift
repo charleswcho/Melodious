@@ -7,29 +7,47 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+
 
 class GameDetailVC: UIViewController {
     
-    @IBOutlet var opponentProfilePic: UIView!
+    @IBOutlet var opponentProfilePic: FBSDKProfilePictureView!
     @IBOutlet weak var opponentTotalScore: UILabel!
     @IBOutlet var opponentVideo: YTPlayerView!
     @IBOutlet var opponentVideoName: UILabel!
     @IBOutlet var opponentVideoChannel: UILabel!
     @IBOutlet var opponentVideoViewCount: UILabel!
     
-    @IBOutlet var currentUserProfilePic: UIView!
+    @IBOutlet var currentUserProfilePic: FBSDKProfilePictureView!
     @IBOutlet weak var currentUserTotalScore: UILabel!
     @IBOutlet var currentUserVideo: YTPlayerView!
     @IBOutlet var currentUserVideoName: UILabel!
     @IBOutlet var currentUserVideoChannel: UILabel!
     @IBOutlet var currentUserVideoViewCount: UILabel!
     
-    
+    var game : Game! {
+        didSet {
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        opponentProfilePic.profileID = game.opponent.facebookID
+        opponentTotalScore.text = String(game.opponentTotalScore)
+        opponentVideo.loadWithVideoId(game.player2SongID)
+        opponentVideoName.text = game.opponentSongDetails[0] as String!
+        opponentVideoChannel.text = game.opponentSongDetails[1] as String!
+//        opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
+
+        currentUserProfilePic.profileID = game.currentUser.facebookID
+        currentUserTotalScore.text = String(game.myTotalScore)
+        currentUserVideo.loadWithVideoId(game.mySongID)
+        currentUserVideoName.text = game.mySongDetails[0] as String!
+        currentUserVideoChannel.text = game.mySongDetails[1] as String!
+//        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,15 +55,5 @@ class GameDetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

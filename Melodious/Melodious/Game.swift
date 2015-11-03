@@ -27,11 +27,14 @@ class Game: PFObject, PFSubclassing {
     @NSManaged var gameState: NSNumber!
     @NSManaged var player1: User!
     @NSManaged var player2: User!
-    @NSManaged var player1SongURL: String!
-    @NSManaged var player2SongURL: String!
-    @NSManaged var judges: [User]!
     @NSManaged var player1Scores: [Int]!
     @NSManaged var player2Scores: [Int]!
+    @NSManaged var player1SongID: String!
+    @NSManaged var player2SongID: String!
+    @NSManaged var player1SongDetails: [String]!
+    @NSManaged var player2SongDetails: [String]!
+    @NSManaged var judges: [User]!
+
 
     
     var state : GameState {
@@ -40,20 +43,8 @@ class Game: PFObject, PFSubclassing {
         }
     }
    
-    var mySongURL : String! {
-        if player1.isEqual(User.currentUser()!) {
-            return player1SongURL
-        } else {
-            return player2SongURL
-        }
-    }
-    
-    var opponentSongURL : String! {
-        if !player1.isEqual(User.currentUser()!) {
-            return player1SongURL
-        } else {
-            return player2SongURL
-        }
+    var currentUser : User! {
+        return User.currentUser()
     }
     
     var opponent : User! {
@@ -63,32 +54,66 @@ class Game: PFObject, PFSubclassing {
             return player1
         }
     }
-    
-    var currentUser : User! {
-        
-        return User.currentUser()
+
+    var myTotalScore : Int {
+        if player1.isEqual(User.currentUser()!) {
+            return player1Scores.reduce(0, combine: +)
+        } else {
+            return player2Scores.reduce(0,combine: +)
+        }
     }
     
-    var player1TotalScore : Int {
-        
-        return player1Scores.reduce(0, combine: +)
+    var opponentTotalScore : Int {
+    
+        if !player1.isEqual(User.currentUser()!) {
+            return player1Scores.reduce(0, combine: +)
+        } else {
+            return player2Scores.reduce(0,combine: +)
+        }
     }
     
-    var player2TotalScore : Int {
-        
-        return player2Scores.reduce(0,combine: +)
+    var mySongID : String! {
+        if player1.isEqual(User.currentUser()!) {
+            return player1SongID
+        } else {
+            return player2SongID
+        }
+    }
+    
+    var opponentSongID : String! {
+        if !player1.isEqual(User.currentUser()!) {
+            return player1SongID
+        } else {
+            return player2SongID
+        }
+    }
+    
+    var mySongDetails : [String]! {
+        if player1.isEqual(User.currentUser()!) {
+            return player1SongDetails
+        } else {
+            return player2SongDetails
+        }
+    }
+    
+    var opponentSongDetails : [String]! {
+        if !player1.isEqual(User.currentUser()!) {
+            return player1SongDetails
+        } else {
+            return player2SongDetails
+        }
     }
     
     var winner : User? {
         
-        if player1TotalScore > player2TotalScore {
-            return player1
+        if myTotalScore > opponentTotalScore {
+            return currentUser
         
-        } else if player1TotalScore == player2TotalScore {
+        } else if myTotalScore == opponentTotalScore {
             return nil
             
         } else {
-            return player2
+            return opponent
         }
     }
     

@@ -209,25 +209,27 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     // Segue to multiple VCs
     
     var selectedIndex : Int!
+    var section : Int!
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         print("\(indexPath.row)")
         
-        let segueArray = ["FriendGame", "RandomGame", "JudgeGame"]
-          
+        let segueArray0 = ["FriendGame", "RandomGame", "JudgeGame"]
+        
         if indexPath.section == 0 {
-            performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
+            performSegueWithIdentifier(segueArray0[indexPath.row], sender: self)
 
         } else if indexPath.section == 1 {
             
             selectedIndex = indexPath.row
             performSegueWithIdentifier("AnswerChallenge", sender: self)
             
-        } else if indexPath.section == 2 {
+        } else {
             
-        } else if indexPath.section == 3 {
-            
+            section = indexPath.section
+            selectedIndex = indexPath.row
+            performSegueWithIdentifier("GameDetail", sender: self)
         }        
         
     }
@@ -236,6 +238,9 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
         if segue.identifier == "AnswerChallenge" {
             let answerChallenge = segue.destinationViewController as! AnswerChallengeVC
             answerChallenge.game = (games[0][selectedIndex])
+        } else if segue.identifier == "GameDetail" {
+            let gameDetail = segue.destinationViewController as! GameDetailVC
+            gameDetail.game = (games[section-1][selectedIndex])
         }
     }
     
