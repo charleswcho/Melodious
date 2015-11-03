@@ -104,11 +104,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         searchBar.resignFirstResponder()
         
         // Form the request URL string.
-//        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchBar.text)&type=video&maxResults=15&key=\(apiKey)"
-        
-//        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet,statistics&fields=items(id,snippet,statistics)q=\(searchBar.text)&type=video&maxResults=15&key=\(apiKey)"
-
-        var urlString = "https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=\(apiKey)&part=snippet,statistics&fields=items(id,snippet,statistics)"
+        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id,snippet(title,channelTitle,thumbnails))&order=viewCount&q=\(searchBar.text)&type=video&maxResults=25&key=\(apiKey)"
         
         urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         
@@ -160,6 +156,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         searchBar.text = ""
         searchBar.resignFirstResponder()
         
+        videosArray = []
         tableView.reloadData()
     }
 
