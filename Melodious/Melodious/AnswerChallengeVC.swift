@@ -43,14 +43,24 @@ class AnswerChallengeVC: UIViewController {
     @IBAction func acceptGame(sender: UIButton) {
         
         performSegueWithIdentifier("selectSong", sender: self)
+        
+        
     }
     
     @IBAction func declineGame(sender: UIButton) {
         
         game.deleteEventually()
-        
         performSegueWithIdentifier("declineGame", sender: self)
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selectSong" {
+            let songs = segue.destinationViewController as! SongsTVC
+            songs.game = game
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

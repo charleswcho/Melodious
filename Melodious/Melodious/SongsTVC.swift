@@ -20,6 +20,11 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     var selectedVideoIndex: Int!
     
     var friend : User!
+    
+    var game : Game! {
+        didSet {
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +88,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             submitSong.videoID = videosArray[selectedVideoIndex]["videoID"] as! String
             submitSong.videoDetails = videosArray[selectedVideoIndex]
             submitSong.friend = self.friend
+            submitSong.game = game
         }
     }
 

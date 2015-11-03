@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+let homeTableNeedsReloadingNotification = "homeTableNeedsReloading"
+
 class SubmitSongVC: UIViewController {
 
     @IBOutlet weak var playerView: YTPlayerView!
@@ -18,11 +20,16 @@ class SubmitSongVC: UIViewController {
     
     var videoID : String!
     var friend : User!
+    var game : Game! {
+        didSet {
+        }
+    }
+    
     var videoDetails : NSDictionary! {
         didSet {
         }
     }
-
+    
     func updateView() {
         
         songNameLabel.text = videoDetails["title"] as? String
@@ -44,7 +51,7 @@ class SubmitSongVC: UIViewController {
         
         let newGame = Game()
         
-        if (newGame.player1 == nil) {
+        if (game?.player1 == nil && game?.player2 == nil) {
             newGame.player1 = User.currentUser()
             newGame.player1SongURL = videoID
             newGame.player2 = friend
@@ -58,12 +65,13 @@ class SubmitSongVC: UIViewController {
                     print("Error \(error)")
                 }
             }
-        } else {
             
-            newGame.player2SongURL = videoID
-            newGame.gameState = 1
+        } else if game.player1 != nil {
             
-            newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            game.player2SongURL = videoID
+            game.gameState = 1
+            
+            game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
                     print("Did save player 2 data? \(success)")
@@ -73,8 +81,12 @@ class SubmitSongVC: UIViewController {
             }
             
         }
-
         
+        // Create notification that homeTVC needs to be reloaded
+        NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
+        
+        print("Home Table needs to reload")
+            
         performSegueWithIdentifier("submittedSong", sender: self)
 
     }

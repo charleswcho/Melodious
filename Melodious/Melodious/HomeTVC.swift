@@ -16,7 +16,7 @@ import ParseFacebookUtilsV4
 class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     // Implement PFLogin
-    var logInVC: PFLogInViewController! = PFLogInViewController()
+    var logInVC: PFLogInViewController! = LoginVC()
     let permissions = ["public_profile", "user_friends"]
     
     var games : [[Game]] = [] // Saving results of .fetchData to local array
@@ -56,12 +56,27 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
                 // TODO: Add Alert view to tell the user about the problem
             }
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Notifications
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable", name: homeTableNeedsReloadingNotification, object: nil)
+        
     }
     
-    func returnUserData() { // Get personal info from current User
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    // Reload table
+    
+    func reloadTable() {
+        print("Home Table received notification")
+        self.tableView.reloadData()
+    }
+    
+    // Get Facebook info from current User
+    
+    func returnUserData() {
         
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
