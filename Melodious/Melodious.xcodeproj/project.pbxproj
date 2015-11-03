@@ -41,6 +41,7 @@
 		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
 		BAC591A91BE8318E00D3C8CC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC591A81BE8318E00D3C8CC /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
 		BAC591AB1BE83B5900D3C8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC591AA1BE83B5900D3C8CC /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		BAC591AD1BE8567000D3C8CC /* RatingControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */; settings = {ASSET_TAGS = (); }; };
 		BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD55061BBDF4780071C22B /* HomeTVC.swift */; };
 		BAD1C9DF1BCDED3F00A49E72 /* AnswerChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */; };
 		BAD1C9E51BCE044B00A49E72 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */; };
@@ -100,6 +101,7 @@
 		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BAC591A81BE8318E00D3C8CC /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BAC591AA1BE83B5900D3C8CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControlVC.swift; sourceTree = "<group>"; };
 		BACD55061BBDF4780071C22B /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerChallengeVC.swift; sourceTree = "<group>"; };
 		BAD1C9E41BCE044B00A49E72 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				BA5CC4291BD168E9003A9642 /* JudgingVC.swift */,
+				BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */,
 			);
 			name = Judging;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */,
 				BA8482F61BA34F2100A3CE99 /* SongsTVC.swift in Sources */,
 				BA5CC4321BD18B12003A9642 /* GameCell.swift in Sources */,
+				BAC591AD1BE8567000D3C8CC /* RatingControlVC.swift in Sources */,
 				BAE668481BCEDD7900C3FFE2 /* YTPlayerView.m in Sources */,
 				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
 				BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */,
