@@ -12,32 +12,43 @@ class JudgingVC2: UIViewController {
     
     var judgedGame : Game!
     
-    @IBOutlet var player2Video: UIView!
+    @IBOutlet var player2Video: YTPlayerView!
     @IBOutlet weak var player2SongNameLabel: UILabel!
     @IBOutlet weak var player2ChannelNameLabel: UILabel!
-    @IBOutlet weak var player1VideoViewCountLabel: UILabel!
+    @IBOutlet weak var player2VideoViewCountLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControlView!
  
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //        player2Video.loadWithVideoId(judgedGame.player2SongID)
+        //        player2SongNameLabel.text = judgedGame.player2SongDetails[0]
+        //        player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
+        //        player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
+        
     }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-        
         // Save player 2 Score
         
+        judgedGame.player2Scores.append(ratingControl.rating)
         
+        judgedGame.saveEventually()
         
+        performSegueWithIdentifier("judgedPlayer2", sender: self)
         
-        
-        
-        
-        let judgingVC = JudgingVC()
-        self.navigationController?.pushViewController(judgingVC, animated: true)
-        
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "judgedPlayer2" {
+            
+            let judgingVC2 = segue.destinationViewController as! JudgingVC2
+            judgingVC2.judgedGame = judgedGame
+        }
     }
     
     
@@ -45,16 +56,5 @@ class JudgingVC2: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

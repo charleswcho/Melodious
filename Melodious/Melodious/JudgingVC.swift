@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class JudgingVC: UIViewController {
 
@@ -14,7 +15,7 @@ class JudgingVC: UIViewController {
     var gamesNeedingJudges : [Game] = []
     var judgedGame : Game!
     
-    @IBOutlet var player1Video: UIView!
+    @IBOutlet var player1Video: YTPlayerView!
     @IBOutlet weak var player1SongNameLabel: UILabel!
     @IBOutlet weak var player1ChannelNameLabel: UILabel!
     @IBOutlet weak var player1VideoViewCountLabel: UILabel!
@@ -53,42 +54,40 @@ class JudgingVC: UIViewController {
         
         // Pick first game from array and setup
         judgedGame = gamesNeedingJudges.first
-    
+        
+//        player1Video.loadWithVideoId(judgedGame.player1SongID)
+//        player1SongNameLabel.text = judgedGame.player1SongDetails[0]
+//        player1ChannelNameLabel.text = judgedGame.player1SongDetails[1]
+//        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
+
     }
 
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-        
         // Save player 1 Score
         
+        judgedGame.player1Scores.append(ratingControl.rating)
         
-        // Save player 2 Score
+        judgedGame.saveEventually()
         
-        
-        
-        
-        
-        
-        
-        let judgingVC2 = JudgingVC2()
+        performSegueWithIdentifier("judgedPlayer1", sender: self)
         
     }
+ 
     
+    // MARK: - Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "judgedPlayer1" {
+            
+            let judgingVC2 = segue.destinationViewController as! JudgingVC2
+            judgingVC2.judgedGame = judgedGame
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
-    // MARK: - Navigation
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-        
-        
-    }
-
 
 }
