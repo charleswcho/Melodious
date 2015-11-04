@@ -236,9 +236,12 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AnswerChallenge" {
+            
             let answerChallenge = segue.destinationViewController as! AnswerChallengeVC
             answerChallenge.game = (games[0][selectedIndex])
+            
         } else if segue.identifier == "GameDetail" {
+            
             let gameDetail = segue.destinationViewController as! GameDetailVC
             gameDetail.game = (games[section-1][selectedIndex])
         }

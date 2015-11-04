@@ -22,10 +22,10 @@ class JudgingVC2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        player2Video.loadWithVideoId(judgedGame.player2SongID)
-        //        player2SongNameLabel.text = judgedGame.player2SongDetails[0]
-        //        player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
-        //        player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
+        player2Video.loadWithVideoId(judgedGame.player2SongID)
+        player2SongNameLabel.text = judgedGame.player2SongDetails[0]
+        player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
+//        player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
         
     }
     
@@ -34,6 +34,13 @@ class JudgingVC2: UIViewController {
         // Save player 2 Score
         
         judgedGame.player2Scores.append(ratingControl.rating)
+        if (judgedGame.player1Scores.count == 3 && judgedGame.player2Scores.count > 3) {
+            
+            judgedGame.gameState = 2
+            
+        } else {
+            print("Need more judges to give scores")
+        }
         
         judgedGame.saveEventually()
         

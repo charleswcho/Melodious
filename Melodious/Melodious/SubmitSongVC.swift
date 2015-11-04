@@ -25,10 +25,7 @@ class SubmitSongVC: UIViewController {
         }
     }
     
-    var videoDetails : NSDictionary! {
-        didSet {
-        }
-    }
+    var videoDetails : NSDictionary!
     
     func updateView() {
         
@@ -40,9 +37,9 @@ class SubmitSongVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        playerView.loadWithVideoId(videoID)
+        
         self.updateView()
+        playerView.loadWithVideoId(videoID)
 
     }
     
@@ -60,13 +57,17 @@ class SubmitSongVC: UIViewController {
             
             newGame.player1SongID = videoID
             
-            newGame.player1SongDetails[0] = (videoDetails["title"] as? String)!
-            newGame.player1SongDetails[1] = (videoDetails["channelTitle"] as? String)!
-            newGame.player1SongDetails[2] = (videoDetails["viewCount"] as? String)!
+            newGame.player1SongDetails = ["","",""]
+            newGame.player2SongDetails = ["","",""]
 
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
+                    
+                    newGame.player1SongDetails[0] = (self.videoDetails["title"] as! String)
+                    newGame.player1SongDetails[1] = (self.videoDetails["channelTitle"] as! String)
+//                    newGame.player1SongDetails[2] = (self.videoDetails["viewCount"] as! String)
+                    newGame.saveEventually()
                     print("Did save player 1 data? \(success)")
                 } else {
                     print("Error \(error)")
@@ -78,13 +79,15 @@ class SubmitSongVC: UIViewController {
             game.gameState = 1
             game.player2SongID = videoID
             
-            game.player2SongDetails[0] = (videoDetails["title"] as? String)!
-            game.player2SongDetails[1] = (videoDetails["channelTitle"] as? String)!
-            game.player2SongDetails[2] = (videoDetails["viewCount"] as? String)!
+
             
             game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
+                    
+                    self.game.player2SongDetails[0] = (self.videoDetails["title"] as? String)!
+                    self.game.player2SongDetails[1] = (self.videoDetails["channelTitle"] as? String)!
+//                    self.game.player2SongDetails[2] = (self.videoDetails["viewCount"] as? String)!
                     print("Did save player 2 data? \(success)")
                 } else {
                     print("Error \(error)")

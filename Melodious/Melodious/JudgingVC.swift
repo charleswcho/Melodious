@@ -13,7 +13,11 @@ class JudgingVC: UIViewController {
 
     var gamesWaitingForJudges : [Game] = []
     var gamesNeedingJudges : [Game] = []
-    var judgedGame : Game!
+    var judgedGame : Game! {
+        didSet {
+            loadView()
+        }
+    }
     
     @IBOutlet var player1Video: YTPlayerView!
     @IBOutlet weak var player1SongNameLabel: UILabel!
@@ -29,7 +33,7 @@ class JudgingVC: UIViewController {
         Game.fetchData { (gameObjects, error) -> Void in
             if error == nil {
                 if let gameObjects2DArray = gameObjects {
-                    self.gamesWaitingForJudges = gameObjects2DArray[1] as [Game]
+                    self.gamesWaitingForJudges = gameObjects2DArray[2] as [Game]
                 }
             } else {
                 
@@ -42,24 +46,53 @@ class JudgingVC: UIViewController {
         
         for game in gamesWaitingForJudges {
             if game.judges.count < 3 {
+                
                 gamesNeedingJudges.append(game)
             } else if game.judges.count == 3 {
+                
                 print("Already enough judges for \(game)")
             } else {
+                
                 print("Error game.judges.count = \(game.judges.count)")
             }
             
             game.saveEventually()
         }
         
-        // Pick first game from array and setup
-        judgedGame = gamesNeedingJudges.first
-        
-//        player1Video.loadWithVideoId(judgedGame.player1SongID)
-//        player1SongNameLabel.text = judgedGame.player1SongDetails[0]
-//        player1ChannelNameLabel.text = judgedGame.player1SongDetails[1]
-//        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
+        func loadView() {
+            
+            // Pick first game from array and setup
 
+            if !gamesNeedingJudges.isEmpty {
+                judgedGame = gamesNeedingJudges.first
+                
+                player1Video.loadWithVideoId(judgedGame.player1SongID)
+                player1SongNameLabel.text = judgedGame.player1SongDetails[0]
+                player1ChannelNameLabel.text = judgedGame.player1SongDetails[1]
+                //        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
+            } else {
+                
+                let alertController = UIAlertController(title: "Alert", message: "Sorry, no games to judge!", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                    self.performSegueWithIdentifier("noGamesToJudge", sender: self)
+                    
+                }
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    self.performSegueWithIdentifier("noGamesToJudge", sender: self)
+                    
+                }
+                
+                alertController.addAction(cancelAction)
+                
+                alertController.addAction(OKAction)
+                
+                presentViewController(alertController, animated: true, completion: { () -> Void in
+                    print("Alert was shown")
+                })
+            }
+        }
     }
 
     @IBAction func submitButtonPressed(sender: UIButton) {
