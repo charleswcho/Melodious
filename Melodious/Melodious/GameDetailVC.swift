@@ -13,6 +13,7 @@ import FBSDKCoreKit
 class GameDetailVC: UIViewController {
     
     @IBOutlet var opponentProfilePic: FBSDKProfilePictureView!
+    @IBOutlet weak var opponentNameLabel: UILabel!
     @IBOutlet weak var opponentTotalScore: UILabel!
     @IBOutlet var opponentVideo: YTPlayerView!
     @IBOutlet var opponentVideoName: UILabel!
@@ -35,6 +36,7 @@ class GameDetailVC: UIViewController {
         super.viewDidLoad()
 
         opponentProfilePic.profileID = game.opponent.facebookID
+        opponentNameLabel.text = game.opponent.name
         opponentTotalScore.text = String(game.opponentTotalScore)
         opponentVideo.loadWithVideoId(game.player2SongID)
         opponentVideoName.text = game.opponentSongDetails[0] as String!

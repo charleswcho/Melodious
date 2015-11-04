@@ -11,11 +11,9 @@ import Parse
 
 class JudgingVC: UIViewController {
 
-    var gamesWaitingForJudges : [Game] = []
-    var gamesNeedingJudges : [Game] = []
     var judgedGame : Game! {
         didSet {
-            loadView()
+            self.loadJudgeView()
         }
     }
     
@@ -29,84 +27,117 @@ class JudgingVC: UIViewController {
         super.viewDidLoad()
 
         // Get games from Parse
-        
-        Game.fetchData { (gameObjects, error) -> Void in
-            if error == nil {
-                if let gameObjects2DArray = gameObjects {
-                    self.gamesWaitingForJudges = gameObjects2DArray[2] as [Game]
-                }
-            } else {
-                
-                print("Error in retrieving \(error)")
-                // TODO: Add Alert view to tell the user about the problem
-            }
-        }
-        
-        // Decide if games need a judge
-        
-        for game in gamesWaitingForJudges {
-            if game.judges.count < 3 {
-                
-                gamesNeedingJudges.append(game)
-            } else if game.judges.count == 3 {
-                
-                print("Already enough judges for \(game)")
-            } else {
-                
-                print("Error game.judges.count = \(game.judges.count)")
-            }
-            
-            game.saveEventually()
-        }
-        
-        func loadView() {
-            
-            // Pick first game from array and setup
 
-            if !gamesNeedingJudges.isEmpty {
-                judgedGame = gamesNeedingJudges.first
+        let queryForGames = PFQuery(className: "Game")
+        queryForGames.whereKey("gameState", equalTo: 1)
+        queryForGames.includeKey("player1")
+        queryForGames.includeKey("player2")
+        
+        queryForGames.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if(error == nil){
                 
-                player1Video.loadWithVideoId(judgedGame.player1SongID)
-                player1SongNameLabel.text = judgedGame.player1SongDetails[0]
-                player1ChannelNameLabel.text = judgedGame.player1SongDetails[1]
-                //        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
+                if let gameObjects = objects as? [Game] {     // Safe unpacking of array
+                    
+                    for game in gameObjects {
+                        
+                        if (game.player1 != User.currentUser() && game.player2 != User.currentUser()) {
+                            if game.judges?.count < 3 {
+                                
+                                self.judgedGame = game
+                                
+                            } else if game.judges.count == 3 {
+                                
+                                print("Already enough judges for \(game)")
+                                
+                            } else {
+                                
+                                print("Error game.judges.count = \(game.judges.count)")
+                                
+                            }
+                            
+                            game.saveEventually()
+                            
+                        } else {
+                            
+                           self.noGamesNeedJudgesAlert()
+                            
+                        }
+                    }
+                    
+                    print("Games waitingForJudgement retrieved")
+                }
+                
             } else {
                 
-                let alertController = UIAlertController(title: "Alert", message: "Sorry, no games to judge!", preferredStyle: .Alert)
+                print("Error in retrieving games \(error)")
+                // TODO: Add Alert view to tell the user about the problem
+            
                 
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                    self.performSegueWithIdentifier("noGamesToJudge", sender: self)
-                    
-                }
-                
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    self.performSegueWithIdentifier("noGamesToJudge", sender: self)
-                    
-                }
-                
-                alertController.addAction(cancelAction)
-                
-                alertController.addAction(OKAction)
-                
-                presentViewController(alertController, animated: true, completion: { () -> Void in
-                    print("Alert was shown")
-                })
             }
+        })
+        
+    }
+    
+    
+    func loadJudgeView() {
+        
+        // Pick first game from array and setup
+        
+        if judgedGame != nil {
+            
+            player1Video.loadWithVideoId(judgedGame.player1SongID)
+            player1SongNameLabel.text = judgedGame.player1SongDetails[0]
+            player1ChannelNameLabel.text = judgedGame.player1SongDetails[1]
+            //        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
+            
+        } else {
+            
+            noGamesNeedJudgesAlert()
+            
         }
     }
+
 
     @IBAction func submitButtonPressed(sender: UIButton) {
         
         // Save player 1 Score
         
         judgedGame.player1Scores.append(ratingControl.rating)
-        
+        judgedGame.judges.append(User.currentUser()!)
         judgedGame.saveEventually()
         
         performSegueWithIdentifier("judgedPlayer1", sender: self)
         
     }
  
+    
+    // MARK: Alert for no games needing Judges
+    
+    func noGamesNeedJudgesAlert() {
+        
+        let alertController = UIAlertController(title: "Alert", message: "Sorry, no games to judge!", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            self.performSegueWithIdentifier("noGamesToJudge", sender: self)
+            
+        }
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            self.performSegueWithIdentifier("noGamesToJudge", sender: self)
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        alertController.addAction(OKAction)
+        
+        presentViewController(alertController, animated: true, completion: { () -> Void in
+            print("Alert was shown")
+        })
+
+        
+    }
     
     // MARK: - Navigation
 

@@ -52,22 +52,25 @@ class SubmitSongVC: UIViewController {
             newGame.player1 = User.currentUser()
             newGame.player2 = friend
 
-            newGame.player1Scores = [0,0,0]
-            newGame.player2Scores = [0,0,0]
+            newGame.player1Scores = []
+            newGame.player2Scores = []
             
             newGame.player1SongID = videoID
             
-            newGame.player1SongDetails = ["","",""]
-            newGame.player2SongDetails = ["","",""]
+            newGame.player1SongDetails = []
+            newGame.player2SongDetails = []
 
+            newGame.judges = []
+            
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
                     
-                    newGame.player1SongDetails[0] = (self.videoDetails["title"] as! String)
-                    newGame.player1SongDetails[1] = (self.videoDetails["channelTitle"] as! String)
-//                    newGame.player1SongDetails[2] = (self.videoDetails["viewCount"] as! String)
+                    newGame.player1SongDetails.append(self.videoDetails["title"] as! String)
+                    newGame.player1SongDetails.append(self.videoDetails["channelTitle"] as! String)
+//                    newGame.player1SongDetails.append(self.videoDetails["viewCount"] as! String)
                     newGame.saveEventually()
+                    NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                     print("Did save player 1 data? \(success)")
                 } else {
                     print("Error \(error)")
@@ -79,15 +82,15 @@ class SubmitSongVC: UIViewController {
             game.gameState = 1
             game.player2SongID = videoID
             
-
-            
             game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
                     
-                    self.game.player2SongDetails[0] = (self.videoDetails["title"] as? String)!
-                    self.game.player2SongDetails[1] = (self.videoDetails["channelTitle"] as? String)!
-//                    self.game.player2SongDetails[2] = (self.videoDetails["viewCount"] as? String)!
+                    self.game.player2SongDetails.append(self.videoDetails["title"] as! String)
+                    self.game.player2SongDetails.append(self.videoDetails["channelTitle"] as! String)
+//                    self.game.player2SongDetails.append(self.videoDetails["viewCount"] as! String)
+                    self.game.saveEventually()
+                    NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                     print("Did save player 2 data? \(success)")
                 } else {
                     print("Error \(error)")

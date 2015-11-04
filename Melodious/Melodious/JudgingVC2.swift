@@ -34,28 +34,30 @@ class JudgingVC2: UIViewController {
         // Save player 2 Score
         
         judgedGame.player2Scores.append(ratingControl.rating)
-        if (judgedGame.player1Scores.count == 3 && judgedGame.player2Scores.count > 3) {
-            
-            judgedGame.gameState = 2
-            
-        } else {
-            print("Need more judges to give scores")
-        }
         
-        judgedGame.saveEventually()
+        judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            
+            if error == nil {
+                if (self.judgedGame.player1Scores.count == 3 && self.judgedGame.player2Scores.count == 3) {
+                    
+                    self.judgedGame.gameState = 2
+                    
+                    self.judgedGame.saveEventually()
+                    
+                } else {
+                    
+                    print("Need more judges to give scores")
+                }
+                
+            } else {
+                
+                print("Error: \(error)")
+                
+            }
+        }
         
         performSegueWithIdentifier("judgedPlayer2", sender: self)
         
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "judgedPlayer2" {
-            
-            let judgingVC2 = segue.destinationViewController as! JudgingVC2
-            judgingVC2.judgedGame = judgedGame
-        }
     }
     
     

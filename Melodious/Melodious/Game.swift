@@ -119,7 +119,7 @@ class Game: PFObject, PFSubclassing {
     
     // MARK: Parse
     
-    // Fetch data from Parse
+    // Fetch Games from Parse
     
     typealias GameResultsBlock = (games:[[Game]]?, error:NSError?) -> Void
     
