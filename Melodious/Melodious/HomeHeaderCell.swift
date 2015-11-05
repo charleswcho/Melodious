@@ -15,7 +15,13 @@ class HomeHeaderCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // Creating color for headers
+        let headerColor = UIColor(red: 74/255, green: 145/255, blue: 226/255, alpha: 1.0)
+        
+        self.backgroundColor = headerColor
+        self.headerLabel.textColor = UIColor.whiteColor()
+        
     }
 
     @IBAction func trashButtonPressed(sender: AnyObject) {

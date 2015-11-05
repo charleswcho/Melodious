@@ -20,7 +20,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     let permissions = ["public_profile", "user_friends"]
     
     var games : [[Game]] = [] // Saving results of .fetchData to local array
-    var rowsInSection : [Int]!
+//    var rowsInSection : [Int]!
     
     
     override func viewDidLoad() {
@@ -146,7 +146,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             return 3
         } else if games.count > 0 {
             
-            rowsInSection.append(games[section-1].count)
+//            rowsInSection?.append(games[section-1].count)
             return games[section-1].count
         } else {
             return 0
@@ -157,6 +157,12 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+//        if games[section-1].count == 0 {
+//            
+//            return 0.0
+//        }
+        
         return 30
     }
     
@@ -167,11 +173,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
         // Array of titles
         let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games"]
 
-        // Creating color for headers
-        let headerColor = UIColor(red: 74/255, green: 145/255, blue: 226/255, alpha: 1.0)
-        
-        homeHeaderCell.backgroundColor = headerColor
-        homeHeaderCell.headerLabel.textColor = UIColor.whiteColor()
         homeHeaderCell.headerLabel.text = titleArray[section]
         
         if section != 4 {
@@ -180,11 +181,15 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             
         }
         
-        if rowsInSection[section] == 0 {
+        if tableView.numberOfRowsInSection(section) == 0 {
             
+            return nil
+            
+        } else {
+            
+            return homeHeaderCell
         }
-        
-        return homeHeaderCell
+    
     }
     
     
