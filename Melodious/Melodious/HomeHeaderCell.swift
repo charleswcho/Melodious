@@ -11,12 +11,18 @@ import UIKit
 class HomeHeaderCell: UITableViewCell {
 
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet var trashButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func trashButtonPressed(sender: AnyObject) {
+        print("Button pressed")
+    }
+    
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

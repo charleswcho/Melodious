@@ -20,6 +20,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     let permissions = ["public_profile", "user_friends"]
     
     var games : [[Game]] = [] // Saving results of .fetchData to local array
+    var rowsInSection : [Int]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,15 +146,18 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             return 3
         } else if games.count > 0 {
             
+            rowsInSection.append(games[section-1].count)
             return games[section-1].count
         } else {
             return 0
         }
         
+        
+        
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 25
+        return 30
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -169,8 +174,20 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
         homeHeaderCell.headerLabel.textColor = UIColor.whiteColor()
         homeHeaderCell.headerLabel.text = titleArray[section]
         
+        if section != 4 {
+            
+            homeHeaderCell.trashButton.hidden = true
+            
+        }
+        
+        if rowsInSection[section] == 0 {
+            
+        }
+        
         return homeHeaderCell
     }
+    
+    
     
     // MARK: Cell Delegate methods
         
