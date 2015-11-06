@@ -17,6 +17,7 @@ class User: PFUser {
     @NSManaged var wins: NSNumber!
     @NSManaged var losses: NSNumber!
     @NSManaged var ties: NSNumber!
+    @NSManaged var points: NSNumber!
     
     override func isEqual(object: AnyObject?) -> Bool {
         if let user = object as? User {

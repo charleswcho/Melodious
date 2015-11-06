@@ -65,6 +65,7 @@ class JudgingVC: UIViewController {
                         }
                     }
                     
+                    self.noGamesNeedJudgesAlert()
                     print("Games waitingForJudgement retrieved")
                 }
                 

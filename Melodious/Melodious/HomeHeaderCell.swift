@@ -24,11 +24,6 @@ class HomeHeaderCell: UITableViewCell {
         
     }
 
-    @IBAction func trashButtonPressed(sender: AnyObject) {
-        print("Button pressed")
-    }
-    
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

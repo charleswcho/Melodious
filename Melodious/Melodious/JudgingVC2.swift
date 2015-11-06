@@ -31,8 +31,12 @@ class JudgingVC2: UIViewController {
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-        // Save player 2 Score
+        // Give Judge 1 point for judging a game
         
+        User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 1
+        
+        // Save player 2 Score
+
         judgedGame.player2Scores.append(ratingControl.rating)
         
         judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in

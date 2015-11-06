@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import ParseFacebookUtilsV4
 
-class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
     // Implement PFLogin
     var logInVC: PFLogInViewController! = LoginVC()
@@ -33,8 +33,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             // MARK: Facebook
             
             self.logInVC.facebookPermissions = permissions
-            
-            // TODO: Need to create a custom PFLoginViewController to customize
             
             self.logInVC.delegate = self
             
@@ -122,13 +120,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         print("Failed to login")
     }
-    
-    // MARK: Parse Signup
-    
-    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-        print("\(User.currentUser())")
-        
-    }
 
 
     // MARK: - Table view data source
@@ -151,9 +142,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
         } else {
             return 0
         }
-        
-        
-        
+
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -192,6 +181,43 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
     
     }
     
+    @IBAction func trashButtonPressed(sender: UIButton) {
+        print("Button pressed")
+        
+        let alertController = UIAlertController(title: "Alert", message: "Do you want to delete all recent games?", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            
+        }
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        
+            for game in self.games[3] {
+                game.deleteInBackgroundWithBlock({ (success, error) -> Void in
+                    if error == nil {
+                        
+                        print("Did delete game? \(success)")
+                        
+                    }
+                    
+                    self.tableView.reloadData()
+
+                })
+                
+                self.tableView.reloadData()
+            }
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+        
+        
+        presentViewController(alertController, animated: true, completion: { () -> Void in
+            print("Alert was shown")
+        })
+        
+    }
     
     
     // MARK: Cell Delegate methods
@@ -207,7 +233,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             cell.label.text = buttonTitleArray[indexPath.row]
             
             return cell
-
             
         } else {
         //grab array by section title
@@ -237,10 +262,24 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
         
         print("\(indexPath.row)")
         
-        let segueArray0 = ["FriendGame", "RandomGame", "JudgeGame"]
+        let segueArray = ["FriendGame", "RandomGame", "JudgeGame"]
         
         if indexPath.section == 0 {
-            performSegueWithIdentifier(segueArray0[indexPath.row], sender: self)
+            
+            if indexPath.row == 2 {
+                performSegueWithIdentifier(segueArray[2], sender: self)
+
+            } else {
+                
+                if Int((User.currentUser()?.points)!) >= 3 {
+                    
+                    performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
+                    
+                } else {
+                    
+                    notEnoughPointsAlert()
+                }
+            }
 
         } else if indexPath.section == 1 {
             
@@ -267,6 +306,23 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate, PFSignUpVie
             let gameDetail = segue.destinationViewController as! GameDetailVC
             gameDetail.game = (games[section-1][selectedIndex])
         }
+    }
+    
+    // MARK: Alerts
+    
+    func notEnoughPointsAlert() {
+        let alertController = UIAlertController(title: "Alert", message: "You don't have enough points to play a game! Go judge some games!", preferredStyle: .Alert)
+
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            
+        }
+        
+        alertController.addAction(OKAction)
+        
+        presentViewController(alertController, animated: true, completion: { () -> Void in
+            print("Alert was shown")
+        })
+    
     }
     
     
