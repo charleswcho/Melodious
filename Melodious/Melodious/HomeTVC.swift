@@ -81,17 +81,15 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
-            if ((error) != nil)
-            {
+            if ((error) != nil) {
                 // Process error
                 print("Error: \(error)")
             } else {
                 
                 print("fetched user: \(result)")
+                
                 let currentUserName = result.valueForKey("name") as! String
-                print("User Name is: \(currentUserName)")
                 let currentUserFBID = result.valueForKey("id") as! String
-                print("User FBID is: \(currentUserFBID)")
 
                 User.currentUser()?.name = currentUserName
                 User.currentUser()?.facebookID = currentUserFBID as String
@@ -103,7 +101,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                         NSLog("%@", error!)
                     }
                 })
-                
             }
         })
     }
@@ -206,7 +203,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 
                 self.tableView.reloadData()
             }
-            
         }
         
         alertController.addAction(cancelAction)
@@ -271,7 +267,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
             } else {
                 
-                if Int((User.currentUser()?.points)!) >= 3 {
+                if User.currentUser()?.points.integerValue >= 3 {
                     
                     performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
                     
