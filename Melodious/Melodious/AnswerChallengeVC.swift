@@ -18,33 +18,26 @@ class AnswerChallengeVC: UIViewController {
     @IBOutlet var acceptGameButton: UIButton!
     @IBOutlet var declineGameButton: UIButton!
     
+    var game : Game!
     
-    var game : Game! {
-        didSet {
-        }
-    }
-
-    func updateViewForGame() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         opponentNameLabel.text = game.opponent?.name
         
         // Get user profile pic
         opponentProfilePic.profileID = game.opponent?.facebookID
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.updateViewForGame()
-        
+        // Add corners and border
+        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+        opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
+        opponentProfilePic.layer.borderWidth = 1.0
+        opponentProfilePic.clipsToBounds = true
     }
     
     @IBAction func acceptGame(sender: UIButton) {
         
         performSegueWithIdentifier("selectSong", sender: self)
-        
-        
     }
     
     @IBAction func declineGame(sender: UIButton) {

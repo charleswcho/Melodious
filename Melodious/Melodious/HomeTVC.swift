@@ -20,8 +20,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     let permissions = ["public_profile", "user_friends"]
     
     var games : [[Game]] = [] // Saving results of .fetchData to local array
-//    var rowsInSection : [Int]!
-    
+    var rowEmpty : Bool = false
+    var currentSection : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +64,14 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     }
     
     deinit {
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // Reload table
     
     func reloadTable() {
+        
         print("Home Table received notification")
         self.tableView.reloadData()
     }
@@ -136,12 +138,15 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
+            
             return 3
+            
         } else if games.count > 0 {
             
-//            rowsInSection?.append(games[section-1].count)
             return games[section-1].count
+            
         } else {
+            
             return 0
         }
 
@@ -149,14 +154,15 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        // TODO: Need to remove the space left by invisible headers
+        if (rowEmpty == true && section == currentSection) {
+            
+            return 30
+            
+        } else {
+            
+            return 30
+        }
         
-//        if games[section-1].count == 0 {
-//            
-//            return 0.0
-//        }
-        
-        return 30
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -176,6 +182,9 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         if tableView.numberOfRowsInSection(section) == 0 {
             
+            
+            rowEmpty = true
+            currentSection = section
             return nil
             
         } else {

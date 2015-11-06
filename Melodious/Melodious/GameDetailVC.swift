@@ -50,6 +50,16 @@ class GameDetailVC: UIViewController {
         currentUserVideoChannel.text = game.mySongDetails[1] as String!
 //        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
 
+        
+        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+        opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
+        opponentProfilePic.layer.borderWidth = 1.0
+        opponentProfilePic.clipsToBounds = true
+        
+        currentUserProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+        currentUserProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
+        currentUserProfilePic.layer.borderWidth = 1.0
+        currentUserProfilePic.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

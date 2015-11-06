@@ -119,18 +119,11 @@ class JudgingVC: UIViewController {
         
         let alertController = UIAlertController(title: "Alert", message: "Sorry, no games to judge!", preferredStyle: .Alert)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            self.performSegueWithIdentifier("noGamesToJudge", sender: self)
-            
-        }
-        
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             self.performSegueWithIdentifier("noGamesToJudge", sender: self)
             
         }
-        
-        alertController.addAction(cancelAction)
-        
+                
         alertController.addAction(OKAction)
         
         presentViewController(alertController, animated: true, completion: { () -> Void in
