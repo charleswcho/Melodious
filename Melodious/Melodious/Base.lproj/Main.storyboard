@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="100" id="bHN-gc-gQU" userLabel="GameCell" customClass="GameCell" customModule="Melodious" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" rowHeight="100" id="bHN-gc-gQU" userLabel="GameCell" customClass="FriendCell" customModule="Melodious" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHN-gc-gQU" id="EbL-Rc-aMF">
@@ -51,9 +51,15 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="opponentNameLabel" destination="48Z-PI-5sS" id="Sia-zq-MjE"/>
-                                    <outlet property="opponentProfilePic" destination="ASm-DX-IXd" id="yZj-az-F2J"/>
+                                    <outlet property="friendNameLabel" destination="48Z-PI-5sS" id="wgJ-i1-Jf8"/>
+                                    <outlet property="friendProfilePicture" destination="ASm-DX-IXd" id="mDQ-CC-LGU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -894,7 +900,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="C891659C-DF54-4C2E-A55D-B01624F8E201" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="D95E941F-025D-4E34-8E62-B8B03DF3A645" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1225,7 +1231,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C891659C-DF54-4C2E-A55D-B01624F8E201" width="33" height="33">
+        <image name="D95E941F-025D-4E34-8E62-B8B03DF3A645" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1357,6 +1363,6 @@ BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
     <inferredMetricsTieBreakers>
         <segue reference="dEs-ex-W3Z"/>
         <segue reference="D6X-3P-aXc"/>
-        <segue reference="B64-Da-TPd"/>
+        <segue reference="HVp-2j-YYS"/>
     </inferredMetricsTieBreakers>
 </document>

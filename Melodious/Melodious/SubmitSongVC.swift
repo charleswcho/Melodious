@@ -62,6 +62,9 @@ class SubmitSongVC: UIViewController {
 
             newGame.judges = []
             
+            User.currentUser()?.points = (User.currentUser()?.points.integerValue)! - 3
+            User.currentUser()?.saveEventually()
+            
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {

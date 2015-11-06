@@ -20,24 +20,13 @@ class GameCell: UITableViewCell {
         }
     }
     
-    var friend : User! {
-        didSet {
-            self.updateView()
-        }
-    }
-    
+
     func updateView() {
         
-        if (self.game == nil && self.friend != nil || self.game != nil && self.friend != nil) {
-            opponentNameLabel.text = self.friend.name
-            opponentProfilePic.profileID = self.friend.facebookID
-            
-        } else if (self.game != nil && self.friend == nil || self.game != nil && self.friend != nil) {
-            
-            opponentNameLabel.text = self.game.opponent.name
-            // Get user profile pic
-            opponentProfilePic.profileID = self.game.opponent.facebookID
-            
+        if self.game != nil {
+            opponentNameLabel.text = game.opponent.name
+            opponentProfilePic.profileID = game.opponent.facebookID
+
         } else {
             
             print("Error: No games or users")
@@ -47,7 +36,12 @@ class GameCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+        opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
+        opponentProfilePic.layer.borderWidth = 1.0
+        opponentProfilePic.clipsToBounds = true
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

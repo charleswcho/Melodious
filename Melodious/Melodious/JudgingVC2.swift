@@ -34,6 +34,7 @@ class JudgingVC2: UIViewController {
         // Give Judge 1 point for judging a game
         
         User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 1
+        User.currentUser()?.saveEventually()
         
         // Save player 2 Score
 

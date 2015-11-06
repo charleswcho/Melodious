@@ -71,7 +71,7 @@ class FriendSearchTVC: UITableViewController, UISearchBarDelegate, UISearchResul
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! FriendCell
         
         if (self.resultSearchController.active) {
             

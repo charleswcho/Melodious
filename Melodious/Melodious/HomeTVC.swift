@@ -94,6 +94,11 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 User.currentUser()?.name = currentUserName
                 User.currentUser()?.facebookID = currentUserFBID as String
                 
+                if User.currentUser()?.points == nil {
+                    User.currentUser()?.points = 3
+
+                }
+                
                 User.currentUser()?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                     if success {
                         NSLog("Current User name and fbID saved")
@@ -144,6 +149,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
+        // TODO: Need to remove the space left by invisible headers
+        
 //        if games[section-1].count == 0 {
 //            
 //            return 0.0
@@ -193,21 +200,22 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 game.deleteInBackgroundWithBlock({ (success, error) -> Void in
                     if error == nil {
                         
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            self.tableView.reloadData()
+                        })
+                      
                         print("Did delete game? \(success)")
+                    } else {
                         
+                        print("Error: \(error)")
                     }
-                    
-                    self.tableView.reloadData()
-
                 })
-                
-                self.tableView.reloadData()
             }
         }
         
         alertController.addAction(cancelAction)
         alertController.addAction(OKAction)
-        
         
         presentViewController(alertController, animated: true, completion: { () -> Void in
             print("Alert was shown")
@@ -269,6 +277,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 
                 if User.currentUser()?.points.integerValue >= 3 {
                     
+                    selectedIndex = indexPath.row
                     performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
                     
                 } else {
@@ -287,7 +296,9 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             section = indexPath.section
             selectedIndex = indexPath.row
             performSegueWithIdentifier("GameDetail", sender: self)
-        }        
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
         
     }
     

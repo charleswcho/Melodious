@@ -22,30 +22,33 @@ class ProfileCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        currentUserNameLabel.text = User.currentUser()?.name
+        // Make image round and have white border
+        currentUserProfilePic.layer.masksToBounds = true
+        currentUserProfilePic.layer.cornerRadius = currentUserProfilePic.frame.size.width / 2
+        currentUserProfilePic.layer.borderColor = UIColor.whiteColor().CGColor
+        currentUserProfilePic.layer.borderWidth = 1.0
         
+        currentUserNameLabel.text = User.currentUser()?.name
+        currentUserPoints.text = User.currentUser()?.points.stringValue
+
         if User.currentUser()?.wins == nil {
             // Set default scores to 0
             User.currentUser()?.wins = 0
             User.currentUser()?.losses = 0
             User.currentUser()?.ties = 0
-            User.currentUser()?.points = 3
             
             User.currentUser()?.saveInBackground()
             
             currentUserWLabel.text = "0"
             currentUserLLabel.text = "0"
             currentUserTLabel.text = "0"
-            currentUserPoints.text = "3"
             
         } else {
             
             currentUserWLabel.text = User.currentUser()?.wins.stringValue
             currentUserLLabel.text = User.currentUser()?.losses.stringValue
             currentUserTLabel.text = User.currentUser()?.ties.stringValue
-            currentUserPoints.text = User.currentUser()?.points.stringValue
         }
-
         
         // Get user profile pic
         currentUserProfilePic.profileID = User.currentUser()!.facebookID
