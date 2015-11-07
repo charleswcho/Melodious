@@ -35,22 +35,10 @@ class GameDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        opponentProfilePic.profileID = game.opponent?.facebookID
-        opponentNameLabel.text = game.opponent?.name
-        opponentTotalScore.text = String(game.opponentTotalScore)
-        opponentVideo.loadWithVideoId(game.player2SongID)
-        opponentVideoName.text = game.opponentSongDetails[0] as String!
-        opponentVideoChannel.text = game.opponentSongDetails[1] as String!
-//        opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
+        setOpponent()
+        setCurrentUser()
 
-        currentUserProfilePic.profileID = game.currentUser.facebookID
-        currentUserTotalScore.text = String(game.myTotalScore)
-        currentUserVideo.loadWithVideoId(game.mySongID)
-        currentUserVideoName.text = game.mySongDetails[0] as String!
-        currentUserVideoChannel.text = game.mySongDetails[1] as String!
-//        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
-
-        
+        // Create corners and borders
         opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
         opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
         opponentProfilePic.layer.borderWidth = 1.0
@@ -62,6 +50,38 @@ class GameDetailVC: UIViewController {
         currentUserProfilePic.clipsToBounds = true
     }
 
+    func setOpponent() {
+        
+        opponentProfilePic.profileID = game.opponent?.facebookID
+        opponentNameLabel.text = game.opponent?.name
+        opponentTotalScore.text = String(game.opponentTotalScore)
+        
+        if game.opponentSongID == nil && game.opponentSongDetails.isEmpty != true {
+            
+            opponentVideo.loadWithVideoId(game.opponentSongID)
+
+            opponentVideoName.text = game.opponentSongDetails[0] as String!
+            opponentVideoChannel.text = game.opponentSongDetails[1] as String!
+            //        opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
+            
+        } else {
+            print("Opponent hasn't picked a video yet")
+            
+        }
+    }
+    
+    func setCurrentUser() {
+        
+        currentUserProfilePic.profileID = game.currentUser.facebookID
+        currentUserTotalScore.text = String(game.myTotalScore)
+        currentUserVideo.loadWithVideoId(game.mySongID)
+        currentUserVideoName.text = game.mySongDetails[0] as String!
+        currentUserVideoChannel.text = game.mySongDetails[1] as String!
+        //        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
