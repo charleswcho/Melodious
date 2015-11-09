@@ -94,6 +94,8 @@ class JudgingVC: UIViewController {
             
         } else {
             
+            User.currentUser()?.points = 9
+            User.currentUser()?.saveEventually()
             noGamesNeedJudgesAlert()
             
         }
