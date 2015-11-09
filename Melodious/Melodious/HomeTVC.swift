@@ -15,28 +15,29 @@ import ParseFacebookUtilsV4
 
 class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
-    // Implement PFLogin
-    var logInVC: PFLogInViewController! = LoginVC()
-    let permissions = ["public_profile", "user_friends"]
     
     var games : [[Game]] = [] // Saving results of .fetchData to local array
-    var rowEmpty : Bool = false
-    var currentSection : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if (PFUser.currentUser() == nil) {
             
-            self.logInVC.fields = PFLogInFields.Facebook
+            // Implement PFLogin
+            
+            let logInVC: PFLogInViewController! = LoginVC()
+
+            logInVC.fields = PFLogInFields.Facebook
             
             // MARK: Facebook
             
-            self.logInVC.facebookPermissions = permissions
+            let permissions = ["public_profile", "user_friends"]
+
+            logInVC.facebookPermissions = permissions
             
-            self.logInVC.delegate = self
+            logInVC.delegate = self
             
-            self.presentViewController(self.logInVC, animated: true, completion: nil)
+            self.presentViewController(logInVC, animated: true, completion: nil)
             
             self.tableView.reloadData()
             
@@ -153,15 +154,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if (rowEmpty == true && section == currentSection) {
             
-            return 30
-            
-        } else {
-            
-            return 30
-        }
+        return 30
         
     }
     
@@ -169,10 +163,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         let homeHeaderCell = tableView.dequeueReusableCellWithIdentifier("HomeHeaderCell") as! HomeHeaderCell
         
-        // Array of titles
-        let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games"]
-
-        homeHeaderCell.headerLabel.text = titleArray[section]
+        homeHeaderCell.section = section
         
         if section != 4 {
             
@@ -181,10 +172,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         }
         
         if tableView.numberOfRowsInSection(section) == 0 {
-            
-            
-            rowEmpty = true
-            currentSection = section
+
             return nil
             
         } else {
@@ -241,9 +229,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
             
-            let buttonTitleArray : [String] = ["Friends", "Random", "Judge"]
-            // Configure cell
-            cell.label.text = buttonTitleArray[indexPath.row]
+            cell.row = indexPath.row
             
             return cell
             
@@ -284,15 +270,15 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
             } else {
                 
-                if User.currentUser()?.points.integerValue >= 3 {
-                    
+//                if User.currentUser()?.points.integerValue >= 3 {
+                
                     selectedIndex = indexPath.row
                     performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
                     
-                } else {
-                    
-                    notEnoughPointsAlert()
-                }
+//                } else {
+//                    
+//                    notEnoughPointsAlert()
+//                }
             }
 
         } else if indexPath.section == 1 {

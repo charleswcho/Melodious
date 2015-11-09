@@ -109,10 +109,12 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         searchBar.resignFirstResponder()
         
+        var text = searchBar.text!
         // Form the request URL string.
-//        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id,snippet(title,channelTitle,thumbnails))&order=viewCount&q=\(searchBar.text)&type=video&maxResults=25&key=\(apiKey)"
+        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id,snippet(title,channelTitle,thumbnails))&order=viewCount&q=\(text)&type=video&maxResults=25&key=\(apiKey)"
         
-        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchBar.text)&key=\(apiKey)"
+        
+//        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=taylor&key=\(apiKey)"
         
         urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         

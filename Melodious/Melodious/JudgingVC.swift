@@ -93,14 +93,11 @@ class JudgingVC: UIViewController {
             //        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
             
         } else {
-            
-            User.currentUser()?.points = 9
-            User.currentUser()?.saveEventually()
+
             noGamesNeedJudgesAlert()
             
         }
     }
-
 
     @IBAction func submitButtonPressed(sender: UIButton) {
         
@@ -113,7 +110,6 @@ class JudgingVC: UIViewController {
         performSegueWithIdentifier("judgedPlayer1", sender: self)
         
     }
- 
     
     // MARK: Alert for no games needing Judges
     
@@ -144,6 +140,48 @@ class JudgingVC: UIViewController {
             judgingVC2.judgedGame = judgedGame
         }
     }
+    
+    
+    // TODO: Refactor fetch games code
+    
+//    Game.fetchData { (gameObjects, error) -> Void in
+//    if error == nil {
+//    self.games = gameObjects!
+//    
+//    } else {
+//    
+//    print("Error in retrieving \(error)")
+//    // TODO: Add Alert view to tell the user about the problem
+//    }
+//    }
+//    
+//    let gamesWaitingForJudge = games[2]
+//    
+//    for game in gamesWaitingForJudge {
+//    
+//    if (game.player1 != User.currentUser() && game.player2 != User.currentUser()) {
+//    if game.judges?.count < 3 {
+//    
+//    self.judgedGame = game
+//    
+//    } else if game.judges.count == 3 {
+//    
+//    print("Already enough judges for \(game)")
+//    
+//    } else {
+//    
+//    print("Error game.judges.count = \(game.judges.count)")
+//    
+//    }
+//    
+//    game.saveEventually()
+//    
+//    } else {
+//    
+//    self.noGamesNeedJudgesAlert()
+//    
+//    }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
