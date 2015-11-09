@@ -17,15 +17,16 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     var videosArray: Array<Dictionary<NSObject, AnyObject>> = []
     
-    var selectedVideoIndex: Int!
+    var selectedVideoIndex : Int!
+    
+    var row : Int!
     
     var friend : User!
     
-    var game : Game! {
-        didSet {
-        }
-    }
-
+    var game : Game!
+    
+    var videoDetailsDict = Dictionary<NSObject, AnyObject>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,20 +34,6 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         tableView.dataSource = self
         txtSearch.delegate = self
         
-//        self.navigationItem.hidesBackButton = true
-//        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
-//        self.navigationItem.leftBarButtonItem = newBackButton;
-    }
-    
-//    func back(sender: UIBarButtonItem) {
-//        
-//        self.friendID = nil
-//        self.navigationController?.popViewControllerAnimated(true)
-//    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: UITableView method implementation
@@ -61,12 +48,12 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        row = indexPath.row
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SongsCell", forIndexPath: indexPath) as! SongsCell
         
-        let videoDetails = videosArray[indexPath.row]
-
-        cell.videoDetails = videoDetails
+        cell.videoDetails = videosArray[indexPath.row]
         
         return cell
     }
@@ -94,27 +81,15 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
 
     // MARK: UISearchBarDelegate method implementation
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    }
-    
-    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
-        
-        searchBar.resignFirstResponder()
-        tableView.reloadData()
-        
-        return true
-    }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
+        videosArray = []
+        tableView.reloadData()
         searchBar.resignFirstResponder()
         
-        var text = searchBar.text!
         // Form the request URL string.
-        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id,snippet(title,channelTitle,thumbnails))&order=viewCount&q=\(text)&type=video&maxResults=25&key=\(apiKey)"
-        
-        
-//        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=taylor&key=\(apiKey)"
+        var urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id,snippet(title,channelTitle,thumbnails))&order=viewCount&q=\(searchBar.text!)&type=video&maxResults=15&key=\(apiKey)"
         
         urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         
@@ -133,22 +108,19 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 // Loop through all search results and keep just the necessary data.
                 for var i=0; i<items.count; ++i {
                     let snippetDict = items[i]["snippet"] as! Dictionary<NSObject, AnyObject>
-                    //                    let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
                     
-                    // Create a new dictionary to store the video details.
-                    var videoDetailsDict = Dictionary<NSObject, AnyObject>()
-                    videoDetailsDict["title"] = snippetDict["title"]
-                    videoDetailsDict["channelTitle"] = snippetDict["channelTitle"]
-                    videoDetailsDict["thumbnail"] = ((snippetDict["thumbnails"] as! Dictionary<NSObject, AnyObject>)["default"] as! Dictionary<NSObject, AnyObject>)["url"]
-                    videoDetailsDict["videoID"] = (items[i]["id"] as! Dictionary<NSObject, AnyObject>)["videoId"]
-                    //                    videoDetailsDict["viewCount"] = statisticsDict["viewCount"]
+                    self.videoDetailsDict["title"] = snippetDict["title"]
+                    self.videoDetailsDict["channelTitle"] = snippetDict["channelTitle"]
+                    self.videoDetailsDict["thumbnail"] = ((snippetDict["thumbnails"] as! Dictionary<NSObject, AnyObject>)["default"] as! Dictionary<NSObject, AnyObject>)["url"]
+                    self.videoDetailsDict["videoID"] = (items[i]["id"] as! Dictionary<NSObject, AnyObject>)["videoId"]
                     
-                    self.videosArray.append(videoDetailsDict)
-                    
+                    self.videosArray.append(self.videoDetailsDict)
                     // Reload the tableview.
                     self.tableView.reloadData()
                     
                 }
+                
+                self.getStatistics()
                 
             }
             else {
@@ -160,72 +132,51 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
     }
 
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        
-        videosArray = []
-        tableView.reloadData()
-    }
+    func getStatistics() {
 
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        var videoIDs : [String] = []
+
+        for var i=0; i<videosArray.count; ++i {
+            let videoID = videosArray[i]["videoID"] as! String
+            videoIDs.append(videoID)
+
+        }
         
-        return true
+        let IDsAsString = videoIDs.joinWithSeparator(",")
+        
+        print(IDsAsString)
+        var urlString = "https://www.googleapis.com/youtube/v3/videos?part=statistics&fields=items(statistics(viewCount))&id=\(IDsAsString)&key=\(apiKey)"
+        urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
+        // Create a NSURL object based on the above string.
+        let targetURL = NSURL(string: urlString)
+        
+        performGetRequest(targetURL, completion: { (data, HTTPStatusCode, error) -> Void in
+            if HTTPStatusCode == 200 && error == nil {
+                // Convert the JSON data to a dictionary object.
+                let resultsDict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: [])) as! Dictionary<NSObject, AnyObject>
+                
+                // Get all search result items ("items" array).
+                let items: Array<Dictionary<NSObject, AnyObject>> = resultsDict["items"] as! Array<Dictionary<NSObject, AnyObject>>
+                
+                // Loop through all search results and keep just the necessary data.
+                for var i=0; i<items.count; ++i {
+                    let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
+                    
+                    self.videosArray[self.row]["viewCount"] = statisticsDict["viewCount"]
+                    
+                    // Reload the tableview.
+                    self.tableView.reloadData()
+                    
+                }
+                
+            } else {
+                print("HTTP Status Code = \(HTTPStatusCode)")
+                print("Error while loading channel videos: \(error)")
+            }
+            
+        })
     }
-    
-//    func getStatistics() {
-//        
-//        for var i=0; i<videosArray.count; ++i {
-//            let videoID = videosArray[i]["videoID"] as! String
-//            var videoIDs : [String] = []
-//            
-//            videoIDs.append(videoID)
-//            let IDsAsString = videoIDs.description
-//            print(IDsAsString)
-//            var urlString = "https://www.googleapis.com/youtube/v3/videospart=statistics&id=\(IDsAsString)&key=\(apiKey)"
-//            urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-//
-//            // Create a NSURL object based on the above string.
-//            let targetURL = NSURL(string: urlString)
-//            
-//            performGetRequest(targetURL, completion: { (data, HTTPStatusCode, error) -> Void in
-//                if HTTPStatusCode == 200 && error == nil {
-//                    // Convert the JSON data to a dictionary object.
-//                    let resultsDict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: [])) as! Dictionary<NSObject, AnyObject>
-//                    
-//                    // Get all search result items ("items" array).
-//                    let items: Array<Dictionary<NSObject, AnyObject>> = resultsDict["items"] as! Array<Dictionary<NSObject, AnyObject>>
-//                    
-//                    // Loop through all search results and keep just the necessary data.
-//                    for var i=0; i<items.count; ++i {
-//                        let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
-//                        
-//                        // Create a new dictionary to store the video details.
-//                        var videoDetailsDict = Dictionary<NSObject, AnyObject>()
-//
-//                        videoDetailsDict["viewCount"] = statisticsDict["viewCount"]
-//                        
-//                        self.videosArray.append(videoDetailsDict)
-//                        
-//                        // Reload the tableview.
-//                        self.tblVideos.reloadData()
-//                        
-//                    }
-//                    
-//                }
-//                else {
-//                    print("HTTP Status Code = \(HTTPStatusCode)")
-//                    print("Error while loading channel videos: \(error)")
-//                }
-//                
-//            })
-//
-//        }
-//    }
     
     
     // MARK: Custom method implementation
@@ -247,4 +198,10 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         task.resume()
     }
 
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }

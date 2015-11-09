@@ -865,6 +865,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ujs-OX-Mh0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Kii-HF-TFo" id="hl5-Oh-uWG"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dfl-RD-iUT">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
@@ -958,7 +961,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="BDF2AE35-8112-434F-BAD4-BBCEDEAB19C6" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="CC5BE056-FE93-4AB7-895B-8784B4F45BAB" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1295,7 +1298,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BDF2AE35-8112-434F-BAD4-BBCEDEAB19C6" width="33" height="33">
+        <image name="CC5BE056-FE93-4AB7-895B-8784B4F45BAB" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
