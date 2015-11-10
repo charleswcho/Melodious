@@ -35,10 +35,15 @@ class SongsCell: UITableViewCell {
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .DecimalStyle
         
-        let formatedString = numberFormatter.stringFromNumber(NSNumber(integer: Int(videoDetails["viewCount"] as! String)!))
-        
-        numberOfViewsLabel.text = formatedString
-        
+        if let unformatedString = videoDetails["viewCount"] as? String {
+            let intFromString = Int(unformatedString)
+            let formatedString = numberFormatter.stringFromNumber(NSNumber(integer: intFromString!))
+            numberOfViewsLabel.text = formatedString
+            
+        } else {
+            
+            print("viewCount not set yet")
+        }
     }
 
 

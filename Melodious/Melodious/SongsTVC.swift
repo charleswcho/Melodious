@@ -163,7 +163,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 for var i=0; i<items.count; ++i {
                     let statisticsDict = items[i]["statistics"] as! Dictionary<NSObject, AnyObject>
                     
-                    self.videosArray[i]["viewCount"] = statisticsDict["viewCount"]
+                    self.videosArray[i]["viewCount"] = statisticsDict["viewCount"] // Go through array of Videos and add the new key viewCount and its value
                     
                     // Reload the tableview.
                     self.tableView.reloadData()

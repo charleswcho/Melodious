@@ -31,12 +31,30 @@ class SubmitSongVC: UIViewController {
         
         songNameLabel.text = videoDetails["title"] as? String
         channelNameLabel.text = videoDetails["channelTitle"] as? String
-        numberOfViewsLabel.text = videoDetails["viewCount"] as? String
+        numberOfViewsLabel.text = convertToFormattedViewCount()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let queryForGames = PFQuery(className: "Game")
+        queryForGames.whereKey("gameState", equalTo: 0)
+        queryForGames.includeKey("player1")
+        queryForGames.includeKey("player2")
+        
+        queryForGames.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if(error == nil){
+                
+                if let gameObjects = objects as? [Game] {     // Safe unpacking of array
+                    
+                    for game in gameObjects {
+                        
+                    }
+                }
+            }
+        })
         
         self.updateView()
         playerView.loadWithVideoId(videoID)
@@ -50,6 +68,13 @@ class SubmitSongVC: UIViewController {
         if (game?.player1 == nil && game?.player2 == nil) {
             newGame.gameState = 0
             newGame.player1 = User.currentUser()
+            
+            if friend == nil {
+            
+                
+            }
+            
+            
             newGame.player2 = friend
 
             newGame.player1Scores = []
@@ -71,7 +96,7 @@ class SubmitSongVC: UIViewController {
                     
                     newGame.player1SongDetails.append(self.videoDetails["title"] as! String)
                     newGame.player1SongDetails.append(self.videoDetails["channelTitle"] as! String)
-//                    newGame.player1SongDetails.append(self.videoDetails["viewCount"] as! String)
+                    newGame.player1SongDetails.append(self.convertToFormattedViewCount())
                     newGame.saveEventually()
                     NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                     print("Did save player 1 data? \(success)")
@@ -91,7 +116,7 @@ class SubmitSongVC: UIViewController {
                     
                     self.game.player2SongDetails.append(self.videoDetails["title"] as! String)
                     self.game.player2SongDetails.append(self.videoDetails["channelTitle"] as! String)
-//                    self.game.player2SongDetails.append(self.videoDetails["viewCount"] as! String)
+                    self.game.player2SongDetails.append(self.convertToFormattedViewCount())
                     self.game.saveEventually()
                     NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                     print("Did save player 2 data? \(success)")
@@ -99,7 +124,6 @@ class SubmitSongVC: UIViewController {
                     print("Error \(error)")
                 }
             }
-            
         }
         
         // Create notification that homeTVC needs to be reloaded
@@ -110,6 +134,33 @@ class SubmitSongVC: UIViewController {
         performSegueWithIdentifier("submittedSong", sender: self)
 
     }
+    
+    // Function to format viewCount
+    
+    func convertToFormattedViewCount() -> String {
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        
+        if let unformatedString = self.videoDetails["viewCount"] as? String {
+            let intFromString = Int(unformatedString)
+            let formatedString = numberFormatter.stringFromNumber(NSNumber(integer: intFromString!))
+            numberOfViewsLabel.text = formatedString
+            return formatedString!
+            
+        } else {
+            
+            print("viewCount not set yet")
+            return ""
+        }
+    }
+    
+    
+    func getRandomGamesThatNeedOpponent() {
+  
+
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
