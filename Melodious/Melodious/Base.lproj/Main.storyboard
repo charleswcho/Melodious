@@ -316,7 +316,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kfv-DT-GoA">
-                                <rect key="frame" x="20" y="335" width="160" height="197"/>
+                                <rect key="frame" x="20" y="334" width="160" height="198"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4T-rb-QGi" customClass="YTPlayerView">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="121"/>
@@ -332,37 +332,46 @@
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name Of Video" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRJ-qM-zKR">
-                                        <rect key="frame" x="0.0" y="131" width="116" height="20"/>
+                                        <rect key="frame" x="0.0" y="131" width="116" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aU-r1-K9a">
-                                        <rect key="frame" x="0.0" y="161" width="41" height="13"/>
+                                        <rect key="frame" x="0.0" y="162" width="41" height="13"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNw-PA-Xvq">
-                                        <rect key="frame" x="0.0" y="184" width="57" height="13"/>
+                                        <rect key="frame" x="0.0" y="185" width="57" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="57" id="ahK-O9-BeZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ahK-O9-BeZ"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="oRJ-qM-zKR" secondAttribute="trailing" constant="44" id="BPK-dr-lEP"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="oRJ-qM-zKR" secondAttribute="trailing" id="O3Y-vE-O1W"/>
                                     <constraint firstAttribute="trailing" secondItem="oRJ-qM-zKR" secondAttribute="trailing" id="cOU-Wn-fk4"/>
                                     <constraint firstAttribute="trailing" secondItem="z4T-rb-QGi" secondAttribute="trailing" id="dgU-aC-Ure"/>
+                                    <constraint firstItem="oRJ-qM-zKR" firstAttribute="leading" secondItem="Kfv-DT-GoA" secondAttribute="leadingMargin" id="yC4-qG-o2j"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="dgU-aC-Ure"/>
                                         <exclude reference="BPK-dr-lEP"/>
+                                        <exclude reference="O3Y-vE-O1W"/>
                                         <exclude reference="cOU-Wn-fk4"/>
+                                        <exclude reference="yC4-qG-o2j"/>
                                     </mask>
                                 </variation>
                             </stackView>
@@ -436,7 +445,7 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y2F-0G-1YT">
-                                <rect key="frame" x="195" y="334" width="160" height="197"/>
+                                <rect key="frame" x="195" y="334" width="160" height="198"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fof-3K-hHx" customClass="YTPlayerView">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="121"/>
@@ -452,24 +461,34 @@
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name Of Video" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ej-UR-IzL">
-                                        <rect key="frame" x="0.0" y="131" width="116" height="20"/>
+                                        <rect key="frame" x="0.0" y="131" width="116" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7q-QW-hJV">
-                                        <rect key="frame" x="0.0" y="161" width="41" height="13"/>
+                                        <rect key="frame" x="0.0" y="162" width="41" height="13"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-uC-K8x">
-                                        <rect key="frame" x="0.0" y="184" width="57" height="13"/>
+                                        <rect key="frame" x="0.0" y="185" width="57" height="13"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8Ej-UR-IzL" secondAttribute="trailing" id="iDG-YJ-J92"/>
+                                    <constraint firstItem="8Ej-UR-IzL" firstAttribute="leading" secondItem="Y2F-0G-1YT" secondAttribute="leading" id="v3V-bd-fcD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="iDG-YJ-J92"/>
+                                        <exclude reference="v3V-bd-fcD"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -485,6 +504,7 @@
                             <constraint firstItem="sKA-gF-SLe" firstAttribute="top" secondItem="Xb7-Vy-0Ie" secondAttribute="bottom" constant="50" id="Ak7-zF-OBU"/>
                             <constraint firstItem="5Nw-XS-pkR" firstAttribute="top" secondItem="2UG-LF-s6k" secondAttribute="bottom" constant="89" id="B4l-zA-JUR"/>
                             <constraint firstItem="gEZ-Tj-1Ip" firstAttribute="top" secondItem="Y2F-0G-1YT" secondAttribute="bottom" constant="135" id="Bs9-lW-6fx"/>
+                            <constraint firstItem="MQn-xr-bW5" firstAttribute="centerY" secondItem="5Nw-XS-pkR" secondAttribute="centerY" id="ELs-Z8-HnH"/>
                             <constraint firstItem="5Nw-XS-pkR" firstAttribute="centerX" secondItem="lqR-2K-KKb" secondAttribute="centerX" id="Lu7-Dx-hbq"/>
                             <constraint firstItem="JUd-hY-Z2Y" firstAttribute="top" secondItem="MQn-xr-bW5" secondAttribute="bottom" constant="50" id="MEr-9D-Sho"/>
                             <constraint firstAttribute="trailing" secondItem="MQn-xr-bW5" secondAttribute="trailing" constant="50" id="N3f-RA-TLZ"/>
@@ -497,7 +517,7 @@
                             <constraint firstItem="Kfv-DT-GoA" firstAttribute="leading" secondItem="lqR-2K-KKb" secondAttribute="leading" constant="20" id="duY-dP-nM8"/>
                             <constraint firstItem="MQn-xr-bW5" firstAttribute="top" secondItem="2UG-LF-s6k" secondAttribute="bottom" constant="50" id="gSp-RA-Y9C"/>
                             <constraint firstAttribute="trailing" secondItem="Y2F-0G-1YT" secondAttribute="trailing" constant="20" id="gWc-6a-Amk"/>
-                            <constraint firstItem="Kfv-DT-GoA" firstAttribute="top" secondItem="sKA-gF-SLe" secondAttribute="bottom" constant="50.5" id="hyY-5a-epz"/>
+                            <constraint firstItem="Kfv-DT-GoA" firstAttribute="top" secondItem="sKA-gF-SLe" secondAttribute="bottom" constant="50" id="hyY-5a-epz"/>
                             <constraint firstItem="gEZ-Tj-1Ip" firstAttribute="top" secondItem="Kfv-DT-GoA" secondAttribute="bottom" constant="135" id="ijH-ZH-CMa"/>
                             <constraint firstItem="Y2F-0G-1YT" firstAttribute="centerX" secondItem="MQn-xr-bW5" secondAttribute="centerX" id="kcp-bn-AGK"/>
                             <constraint firstItem="JUd-hY-Z2Y" firstAttribute="centerX" secondItem="MQn-xr-bW5" secondAttribute="centerX" id="lru-tQ-Zcw"/>
@@ -518,6 +538,8 @@
                                 <exclude reference="AHI-E7-Q7C"/>
                                 <exclude reference="MEr-9D-Sho"/>
                                 <exclude reference="RhV-LN-Adv"/>
+                                <exclude reference="2dL-J1-1wg"/>
+                                <exclude reference="2y3-9N-W9u"/>
                                 <exclude reference="71I-UD-VDI"/>
                                 <exclude reference="duY-dP-nM8"/>
                                 <exclude reference="PHc-fa-b7D"/>
@@ -1013,7 +1035,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="44AE0291-7249-4009-B188-11AD12B53E9B" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="5C0E1453-0130-4961-9B45-639312E3DA47" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1368,7 +1390,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="44AE0291-7249-4009-B188-11AD12B53E9B" width="33" height="33">
+        <image name="5C0E1453-0130-4961-9B45-639312E3DA47" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

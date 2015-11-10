@@ -31,7 +31,13 @@ class SongsCell: UITableViewCell {
         thumbnailPic.image = UIImage(data: NSData(contentsOfURL: NSURL(string: (videoDetails["thumbnail"] as? String)!)!)!)
         songNameLabel.text = videoDetails["title"] as? String
         channelNameLabel.text = videoDetails["channelTitle"] as? String
-        numberOfViewsLabel.text = videoDetails["viewCount"] as? String
+        
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        
+        let formatedString = numberFormatter.stringFromNumber(NSNumber(integer: Int(videoDetails["viewCount"] as! String)!))
+        
+        numberOfViewsLabel.text = formatedString
         
     }
 
