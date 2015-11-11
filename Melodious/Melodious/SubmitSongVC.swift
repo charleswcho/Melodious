@@ -20,10 +20,9 @@ class SubmitSongVC: UIViewController {
     
     var videoID : String!
     var friend : User!
-    var game : Game! {
-        didSet {
-        }
-    }
+    var randomOpponent : User!
+    var game : Game!
+    var randomGameAsOpponent : Game!
     
     var videoDetails : NSDictionary!
     
@@ -47,12 +46,22 @@ class SubmitSongVC: UIViewController {
             
             if(error == nil){
                 
-                if let gameObjects = objects as? [Game] {     // Safe unpacking of array
-                    
+                if let gameObjects = objects as? [Game] {
                     for game in gameObjects {
                         
+                        if game.player2 == nil { // Random game is open for opponent
+                            
+                            self.randomGameAsOpponent = game
+                            self.randomOpponent = game.player1
+                            
+                            break
+                        }
                     }
                 }
+                
+            } else {
+                
+                print("Error \(error)")
             }
         })
         
@@ -64,19 +73,45 @@ class SubmitSongVC: UIViewController {
     @IBAction func submitSong(sender: UIButton) {
         
         let newGame = Game()
-        
-        if (game?.player1 == nil && game?.player2 == nil) {
+ 
+        if (game == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
             newGame.gameState = 0
-            newGame.player1 = User.currentUser()
             
-            if friend == nil {
-            
+            if friend != nil && self.randomOpponent == nil { // New Game: Friend -> Came from friend list with friend loaded in
                 
+                newGame.player1 = User.currentUser()
+                newGame.player2 = friend
+
+            } else if friend == nil && self.randomOpponent != nil { // New Game: Random -> Random game open for opponent
+                
+                randomGameAsOpponent.gameState = 1
+                randomGameAsOpponent.player2 = User.currentUser()
+                randomGameAsOpponent.player2SongID = videoID
+                randomGameAsOpponent.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                    
+                    if error == nil {
+                        
+                        self.randomGameAsOpponent.player2SongDetails.append(self.videoDetails["title"] as! String)
+                        self.randomGameAsOpponent.player2SongDetails.append(self.videoDetails["channelTitle"] as! String)
+                        self.randomGameAsOpponent.player2SongDetails.append(self.convertToFormattedViewCount())
+                        self.randomGameAsOpponent.saveEventually()
+                        NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
+                        print("Did save random game player 2 data? \(success)")
+                        
+                    } else {
+                        print("Error \(error)")
+                    }
+                    
+                    self.performSegueWithIdentifier("submittedSong", sender: self)
+
+                }
+                
+            } else if friend == nil && self.randomOpponent == nil { // New Game: Random -> No random games open for opponent -> Create new random game
+             
+                newGame.player1 = User.currentUser()
+
             }
             
-            
-            newGame.player2 = friend
-
             newGame.player1Scores = []
             newGame.player2Scores = []
             
@@ -87,8 +122,7 @@ class SubmitSongVC: UIViewController {
 
             newGame.judges = []
             
-            User.currentUser()?.points = (User.currentUser()?.points.integerValue)! - 3
-            User.currentUser()?.saveEventually()
+            newGame.player1?.points = (newGame.player1?.points.integerValue)! - 3
             
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
@@ -105,7 +139,7 @@ class SubmitSongVC: UIViewController {
                 }
             }
             
-        } else if game.player1 != nil {
+        } else if game.player1 != nil { // Came from friend challenge
             
             game.gameState = 1
             game.player2SongID = videoID
@@ -153,14 +187,6 @@ class SubmitSongVC: UIViewController {
             return ""
         }
     }
-    
-    
-    func getRandomGamesThatNeedOpponent() {
-  
-
-        
-    }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

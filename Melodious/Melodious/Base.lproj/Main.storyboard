@@ -91,7 +91,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewGameCell" rowHeight="75" id="qTz-nq-kOs" customClass="NewGameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="113.5" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qTz-nq-kOs" id="sen-CM-gq0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -134,7 +134,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="100" id="fpd-VK-2oF" userLabel="GameCell" customClass="GameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="188.5" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="189" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpd-VK-2oF" id="Fxe-s6-UH4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -175,7 +175,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeHeaderCell" rowHeight="30" id="lK8-Kt-f8B" customClass="HomeHeaderCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="288.5" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="289" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lK8-Kt-f8B" id="tKt-6m-bqR">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -951,7 +951,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jQt-mY-hdJ" id="kkE-pr-qn4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgI-y2-cCF">
@@ -1045,7 +1045,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="990D45E0-4FCD-4487-A728-3655021CABE9" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="4E999165-92E4-4ADC-ACFB-33DECEA9ED21" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1400,7 +1400,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="990D45E0-4FCD-4487-A728-3655021CABE9" width="33" height="33">
+        <image name="4E999165-92E4-4ADC-ACFB-33DECEA9ED21" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

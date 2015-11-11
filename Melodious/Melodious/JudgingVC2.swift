@@ -25,7 +25,7 @@ class JudgingVC2: UIViewController {
         player2Video.loadWithVideoId(judgedGame.player2SongID)
         player2SongNameLabel.text = judgedGame.player2SongDetails[0]
         player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
-//        player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
+        player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
         
     }
     

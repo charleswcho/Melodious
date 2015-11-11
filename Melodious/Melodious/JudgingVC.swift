@@ -45,6 +45,7 @@ class JudgingVC: UIViewController {
                             if game.judges?.count < 3 {
                                 
                                 self.judgedGame = game
+                                break
                                 
                             } else if game.judges.count == 3 {
                                 
@@ -90,7 +91,7 @@ class JudgingVC: UIViewController {
             player1Video.loadWithVideoId(judgedGame.player1SongID)
             player1SongNameLabel.text = judgedGame.player1SongDetails[0]
             player1ChannelNameLabel.text = judgedGame.player1SongDetails[1]
-            //        player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
+            player1VideoViewCountLabel.text = judgedGame.player1SongDetails[2]
             
         } else {
 

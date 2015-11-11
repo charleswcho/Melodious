@@ -24,8 +24,17 @@ class GameCell: UITableViewCell {
     func updateView() {
         
         if self.game != nil {
-            opponentNameLabel.text = game.opponent.name
-            opponentProfilePic.profileID = game.opponent.facebookID
+            
+            if game.opponent == nil {
+                
+                opponentNameLabel.text = "?"
+                opponentProfilePic.profileID = "?"
+                
+            } else {
+                opponentNameLabel.text = game.opponent?.name
+                opponentProfilePic.profileID = game.opponent?.facebookID
+            }
+       
 
         } else {
             
