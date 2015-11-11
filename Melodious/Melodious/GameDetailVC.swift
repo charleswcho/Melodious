@@ -62,7 +62,7 @@ class GameDetailVC: UIViewController {
 
             opponentVideoName.text = game.opponentSongDetails[0] as String!
             opponentVideoChannel.text = game.opponentSongDetails[1] as String!
-            //        opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
+            opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
             
         } else {
             print("Opponent hasn't picked a video yet")
@@ -77,7 +77,7 @@ class GameDetailVC: UIViewController {
         currentUserVideo.loadWithVideoId(game.mySongID)
         currentUserVideoName.text = game.mySongDetails[0] as String!
         currentUserVideoChannel.text = game.mySongDetails[1] as String!
-        //        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
+        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
         
     }
     

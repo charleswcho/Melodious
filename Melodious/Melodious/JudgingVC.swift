@@ -17,6 +17,8 @@ class JudgingVC: UIViewController {
         }
     }
     
+    var games : [Game]!
+    
     @IBOutlet var player1Video: YTPlayerView!
     @IBOutlet weak var player1SongNameLabel: UILabel!
     @IBOutlet weak var player1ChannelNameLabel: UILabel!
@@ -37,50 +39,72 @@ class JudgingVC: UIViewController {
             
             if(error == nil){
                 
-                if let gameObjects = objects as? [Game] {     // Safe unpacking of array
+                if let gameObjects = objects as? [Game] { // Safe unpacking of array
                     
-                    for game in gameObjects {
-                        
-                        if (game.player1 != User.currentUser() && game.player2 != User.currentUser()) {
-                            if game.judges?.count < 3 {
-                                
-                                self.judgedGame = game
-                                break
-                                
-                            } else if game.judges.count == 3 {
-                                
-                                print("Already enough judges for \(game)")
-                                
-                            } else {
-                                
-                                print("Error game.judges.count = \(game.judges.count)")
-                                
-                            }
-                            
-                            game.saveEventually()
-                            
-                        } else {
-                            
-                           self.noGamesNeedJudgesAlert()
-                            
-                        }
-                    }
-                    
-                    self.noGamesNeedJudgesAlert()
-                    print("Games waitingForJudgement retrieved")
+                    self.games = gameObjects
+                    self.checkIfGameNeedsJudge()
                 }
                 
             } else {
                 
                 print("Error in retrieving games \(error)")
                 // TODO: Add Alert view to tell the user about the problem
-            
-                
             }
         })
-        
     }
     
+    func checkIfGameNeedsJudge() {
+        
+        if !games.isEmpty { // There are games that are needing to be judged
+            
+            for game in games {
+                
+                if (game.player1 != User.currentUser() && game.player2 != User.currentUser() && currentUserIsJudge(game) == false) {
+                    if game.judges?.count < 3 {
+                        
+                        self.judgedGame = game
+                        break
+                        
+                    } else {
+                        
+                        print("Error game.judges.count = \(game.judges.count)")
+                        
+                    }
+                    
+                    game.saveEventually()
+                    
+                } else { // The currentUser is either a player or judge in all the judged games
+                    
+                    self.noGamesNeedJudgesAlert()
+                    
+                }
+            }
+            
+        } else { // There are no games that are needing to be judged
+            
+            self.noGamesNeedJudgesAlert()
+            
+        }
+    }
+    
+    func currentUserIsJudge(game: Game) -> Bool {
+        
+        var isJudge : Bool!
+        
+        for judge in game.judges {
+            
+            if judge == User.currentUser() {
+                
+                isJudge = true
+                
+            } else {
+                
+                isJudge = false
+            }
+        }
+        
+        return isJudge
+    }
     
     func loadJudgeView() {
         
@@ -142,40 +166,9 @@ class JudgingVC: UIViewController {
         }
     }
     
-    
-    // TODO: Refactor fetch games code
-    
-//    Game.fetchData { (gameObjects, error) -> Void in
-//    if error == nil {
-//    self.games = gameObjects!
+//    for judge in game.judges {
 //    
-//    } else {
-//    
-//    print("Error in retrieving \(error)")
-//    // TODO: Add Alert view to tell the user about the problem
-//    }
-//    }
-//    
-//    let gamesWaitingForJudge = games[2]
-//    
-//    for game in gamesWaitingForJudge {
-//    
-//    if (game.player1 != User.currentUser() && game.player2 != User.currentUser()) {
-//    if game.judges?.count < 3 {
-//    
-//    self.judgedGame = game
-//    
-//    } else if game.judges.count == 3 {
-//    
-//    print("Already enough judges for \(game)")
-//    
-//    } else {
-//    
-//    print("Error game.judges.count = \(game.judges.count)")
-//    
-//    }
-//    
-//    game.saveEventually()
+//    if judge != User.currentUser() {
 //    
 //    } else {
 //    

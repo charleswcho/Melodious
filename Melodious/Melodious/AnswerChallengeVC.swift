@@ -50,7 +50,7 @@ class AnswerChallengeVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectSong" {
             let songs = segue.destinationViewController as! SongsTVC
-            songs.game = game
+            songs.game = self.game
         }
     }
     
