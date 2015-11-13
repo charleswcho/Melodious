@@ -60,12 +60,13 @@ class ProfileTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            
             return 1
         } else if games.count > 0 {
             
             return games[3].count
         } else {
-            return 1
+            return 0
         }
     }
 
@@ -96,28 +97,32 @@ class ProfileTVC: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 200
-        } else {
+        } else if indexPath.section == 1 {
             return 100
+        } else {
+            return 0
         }
     }
     
+    var selectedIndex : Int!
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        selectedIndex = indexPath.row
         print(indexPath.section)
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showGameDetail" {
+            if let gameDetail = segue.destinationViewController as? GameDetailVC {
+                gameDetail.game = games[3][selectedIndex]
+                
+            }
+        }
     }
-    */
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

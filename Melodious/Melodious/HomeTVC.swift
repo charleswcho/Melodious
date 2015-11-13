@@ -270,15 +270,15 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
             } else {
                 
-//                if User.currentUser()?.points.integerValue >= 3 {
+                if User.currentUser()?.points.integerValue >= 3 {
                 
                     selectedIndex = indexPath.row
                     performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
                     
-//                } else {
-//                    
-//                    notEnoughPointsAlert()
-//                }
+                } else {
+
+                    notEnoughPointsAlert()
+                }
             }
 
         } else if indexPath.section == 1 {

@@ -97,14 +97,13 @@ class FriendSearchTVC: UITableViewController, UISearchBarDelegate, UISearchResul
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSongs" {
-            let pickSong = segue.destinationViewController as! SongsTVC
-            
-            if resultSearchController.active {
-                pickSong.friend = filtered[selectedFriendIndex]
-            } else {
-                pickSong.friend = friendsArray[selectedFriendIndex]
+            if let pickSong = segue.destinationViewController as? SongsTVC {
+                if resultSearchController.active {
+                    pickSong.friend = filtered[selectedFriendIndex]
+                } else {
+                    pickSong.friend = friendsArray[selectedFriendIndex]
+                }
             }
-            
             if (self.resultSearchController.active) {
                 self.resultSearchController.active = false
             }
