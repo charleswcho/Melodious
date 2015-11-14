@@ -109,6 +109,7 @@ class ProfileTVC: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         selectedIndex = indexPath.row
+        performSegueWithIdentifier("showGameDetail", sender: self)
         print(indexPath.section)
     }
 

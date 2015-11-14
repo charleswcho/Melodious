@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class JudgingVC: UIViewController {
+class JudgingVC: UIViewController, YTPlayerViewDelegate {
 
     var judgedGame : Game! {
         didSet {
@@ -19,38 +19,33 @@ class JudgingVC: UIViewController {
     
     var games : [Game]!
     
+    
     @IBOutlet var player1Video: YTPlayerView!
     @IBOutlet weak var player1SongNameLabel: UILabel!
     @IBOutlet weak var player1ChannelNameLabel: UILabel!
     @IBOutlet weak var player1VideoViewCountLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControlView!
+    @IBOutlet var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Get games from Parse
-
-        let queryForGames = PFQuery(className: "Game")
-        queryForGames.whereKey("gameState", equalTo: 1)
-        queryForGames.includeKey("player1")
-        queryForGames.includeKey("player2")
+        player1Video.delegate = self
+        getGames()
         
-        queryForGames.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if(error == nil){
-                
-                if let gameObjects = objects as? [Game] { // Safe unpacking of array
-                    
-                    self.games = gameObjects
-                    self.checkIfGameNeedsJudge()
-                }
-                
-            } else {
-                
-                print("Error in retrieving games \(error)")
-                // TODO: Add Alert view to tell the user about the problem
-            }
-        })
+        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
+
+    }
+    
+    // Can submit song?
+    
+    var canSubmitSong : Bool = false
+
+    func submitSongEnabled() {
+        
+        print("Can press submit")
+        canSubmitSong = true
+        
     }
     
     func checkIfGameNeedsJudge() {
@@ -89,7 +84,7 @@ class JudgingVC: UIViewController {
     
     func currentUserIsJudge(game: Game) -> Bool {
         
-        var isJudge : Bool!
+        var isJudge : Bool = false
         
         for judge in game.judges {
             
@@ -126,19 +121,68 @@ class JudgingVC: UIViewController {
 
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-        // Save player 1 Score
-        
-        judgedGame.player1Scores.append(ratingControl.rating)
-        judgedGame.judges.append(User.currentUser()!)
-        judgedGame.saveEventually()
-        
-        performSegueWithIdentifier("judgedPlayer1", sender: self)
-        
+        if canSubmitSong == false {
+            
+            waitForTimerAlert()
+            
+        } else {
+            
+            // Save player 1 Score
+            
+            judgedGame.player1Scores.append(ratingControl.rating)
+            judgedGame.judges.append(User.currentUser()!)
+            judgedGame.saveEventually()
+            
+            performSegueWithIdentifier("judgedPlayer1", sender: self)
+        }
     }
     
-    // MARK: Alert for no games needing Judges
+    // MARK: Get Games from Parse
     
-    func noGamesNeedJudgesAlert() {
+    func getGames() {
+        
+        let queryForGames = PFQuery(className: "Game")
+        queryForGames.whereKey("gameState", equalTo: 1)
+        queryForGames.includeKey("player1")
+        queryForGames.includeKey("player2")
+        
+        queryForGames.findObjectsInBackgroundWithBlock({ (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if(error == nil){
+                
+                if let gameObjects = objects as? [Game] { // Safe unpacking of array
+                    
+                    self.games = gameObjects
+                    self.checkIfGameNeedsJudge()
+                }
+                
+            } else {
+                
+                print("Error in retrieving games \(error)")
+                // TODO: Add Alert view to tell the user about the problem
+            }
+        })
+    }
+    
+    // MARK: YTPlayerDelegate methods
+    
+    func playerView(playerView: YTPlayerView!, didChangeToState state: YTPlayerState) {
+        switch(state) {
+        case YTPlayerState.Playing:
+            print("Video playing")
+            break
+        case YTPlayerState.Paused:
+            print("Video paused")
+            break
+        default:
+            break
+        }
+        
+    }
+
+    // MARK: Alerts
+    
+    func noGamesNeedJudgesAlert() { // No games needing Judges
         
         let alertController = UIAlertController(title: "Alert", message: "Sorry, no games to judge!", preferredStyle: .Alert)
         
@@ -152,8 +196,21 @@ class JudgingVC: UIViewController {
         presentViewController(alertController, animated: true, completion: { () -> Void in
             print("Alert was shown")
         })
-
+    }
+    
+    func waitForTimerAlert() {
         
+        let alertController = UIAlertController(title: "Alert", message: "Listen to the song!", preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            
+        }
+        
+        alertController.addAction(OKAction)
+        
+        presentViewController(alertController, animated: true, completion: { () -> Void in
+            print("Alert was shown")
+        })
     }
     
     // MARK: - Navigation

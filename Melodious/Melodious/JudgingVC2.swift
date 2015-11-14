@@ -17,6 +17,7 @@ class JudgingVC2: UIViewController {
     @IBOutlet weak var player2ChannelNameLabel: UILabel!
     @IBOutlet weak var player2VideoViewCountLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControlView!
+    @IBOutlet var submitButton: UIButton!
  
     
     override func viewDidLoad() {
@@ -27,42 +28,82 @@ class JudgingVC2: UIViewController {
         player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
         player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
         
+        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
+
+        self.navigationItem.hidesBackButton = true
+        
+    }
+    
+    // Can submit song?
+    
+    var canSubmitSong : Bool = false
+    
+    func submitSongEnabled() {
+        
+        print("Can press submit")
+        canSubmitSong = true
+        
     }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-        // Give Judge 1 point for judging a game
-        
-        User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 1
-        User.currentUser()?.saveEventually()
-        
-        // Save player 2 Score
-
-        judgedGame.player2Scores.append(ratingControl.rating)
-        
-        judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        if canSubmitSong == false {
             
-            if error == nil {
-                if (self.judgedGame.player1Scores.count == 3 && self.judgedGame.player2Scores.count == 3) {
-                    
-                    self.judgedGame.gameState = 2
-                    
-                    self.judgedGame.saveEventually()
+            waitForTimerAlert()
+            
+        } else {
+            
+        // Give Judge 1 point for judging a game
+            
+            User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 1
+            User.currentUser()?.saveEventually()
+            
+            // Save player 2 Score
+
+            judgedGame.player2Scores.append(ratingControl.rating)
+            
+            judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                
+                if error == nil {
+                    if (self.judgedGame.player1Scores.count == 3 && self.judgedGame.player2Scores.count == 3) {
+                        
+                        self.judgedGame.gameState = 2
+                        
+                        self.judgedGame.saveEventually()
+                        
+                    } else {
+                        
+                        print("Need more judges to give scores")
+                    }
                     
                 } else {
                     
-                    print("Need more judges to give scores")
+                    print("Error: \(error)")
+                    
                 }
-                
-            } else {
-                
-                print("Error: \(error)")
-                
             }
+            
+            performSegueWithIdentifier("judgedPlayer2", sender: self)
+            
         }
         
-        performSegueWithIdentifier("judgedPlayer2", sender: self)
+    }
+    
+    // MARK: Alerts
+    
+    func waitForTimerAlert() {
         
+        let alertController = UIAlertController(title: "Alert", message: "Listen to the song!", preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            
+        }
+        
+        alertController.addAction(OKAction)
+        
+        presentViewController(alertController, animated: true, completion: { () -> Void in
+            print("Alert was shown")
+        })
     }
     
     
