@@ -34,6 +34,8 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         tableView.dataSource = self
         txtSearch.delegate = self
         
+        tableView.tableFooterView = UIView(frame:CGRectZero)
+        
     }
     
     // MARK: UITableView method implementation

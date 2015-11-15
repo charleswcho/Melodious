@@ -1047,7 +1047,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="524CB906-39DE-4B3B-A572-89297B3BEB4D" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="5146A165-8CF8-4E3E-A5F7-E416E51ED540" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1402,7 +1402,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="524CB906-39DE-4B3B-A572-89297B3BEB4D" width="33" height="33">
+        <image name="5146A165-8CF8-4E3E-A5F7-E416E51ED540" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1533,8 +1533,8 @@ BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dEs-ex-W3Z"/>
-        <segue reference="B64-Da-TPd"/>
-        <segue reference="HU4-EW-qcc"/>
+        <segue reference="D6X-3P-aXc"/>
+        <segue reference="HVp-2j-YYS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

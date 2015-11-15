@@ -35,6 +35,8 @@ class FriendSearchTVC: UITableViewController, UISearchBarDelegate, UISearchResul
             return controller
         })()
         
+        self.tableView.tableFooterView = UIView(frame:CGRectZero)
+
         self.tableView.reloadData()
         
     }

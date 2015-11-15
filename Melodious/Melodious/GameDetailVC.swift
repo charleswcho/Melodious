@@ -56,7 +56,7 @@ class GameDetailVC: UIViewController {
         opponentNameLabel.text = game.opponent?.name
         opponentTotalScore.text = String(game.opponentTotalScore)
         
-        if game.opponentSongID == nil && game.opponentSongDetails.isEmpty != true {
+        if game.opponentSongID != nil && game.opponentSongDetails.isEmpty != true {
             
             opponentVideo.loadWithVideoId(game.opponentSongID)
 

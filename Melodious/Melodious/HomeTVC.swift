@@ -230,7 +230,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             let cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
             
             cell.row = indexPath.row
-            
+
             return cell
             
         } else {
@@ -238,7 +238,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
 
             cell.game = (games[indexPath.section - 1][indexPath.row])
-                
+            
             return cell
 
         }
