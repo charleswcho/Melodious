@@ -36,21 +36,36 @@ class ProfileTVC: UITableViewController {
 
     // MARK: - Table view data source
     
+    // Section Delegate methods
+    
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
         } else {
-            return 25
+            return 30
         }
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let homeHeaderCell = tableView.dequeueReusableCellWithIdentifier("HomeHeaderCell") as! HomeHeaderCell
+        
+        homeHeaderCell.trashButton.hidden = true
+
         if section == 1 {
-            return "Match History"
-        } else {
-            return ""
+            
+            homeHeaderCell.section = 5
         }
+        
+        if tableView.numberOfRowsInSection(section) == 0 {
+            
+            return nil
+            
+        } else {
+            
+            return homeHeaderCell
+        }
+        
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,6 +98,19 @@ class ProfileTVC: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
             
             cell.game = (games[3][indexPath.row])
+            
+            if cell.game.winner == User.currentUser() {
+                
+                cell.backgroundColor = UIColor(red: 72/255, green: 211/255, blue: 33/255, alpha: 1.0)
+                
+            } else if cell.game.winner != User.currentUser() {
+                
+                cell.backgroundColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1.0)
+
+            } else {
+                
+                print("It was a tie or game.winner is nil in error")
+            }
             
             return cell
             

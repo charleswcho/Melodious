@@ -22,6 +22,10 @@ class ProfileCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // Set background image
+        
+        self.backgroundView = UIImageView(image: UIImage(named: "profileBackground"))
+        
         // Make image round and have white border
         currentUserProfilePic.layer.masksToBounds = true
         currentUserProfilePic.layer.cornerRadius = currentUserProfilePic.frame.size.width / 2

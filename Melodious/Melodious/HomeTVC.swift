@@ -129,7 +129,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
     // MARK: - Table view data source
 
-    // MARK: Section Delegate methods
+    // Section Delegate methods
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "musical_notes.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "checkmark_filled.png",
       "scale" : "2x"
     },
     {

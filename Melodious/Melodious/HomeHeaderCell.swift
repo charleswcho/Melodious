@@ -29,7 +29,7 @@ class HomeHeaderCell: UITableViewCell {
     
     func setTitles() {
         // Array of titles
-        let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games"]
+        let titleArray : [String] = ["New Game", "Challenges", "Waiting for Opponent", "Waiting for Judge", "Recent Games", "Match History"]
         
         headerLabel.text = titleArray[section]
         
@@ -37,12 +37,13 @@ class HomeHeaderCell: UITableViewCell {
     
     func setColors() {
         // Creating color for headers
-        let headerRedColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.73)
-        let headerOrangeColor = UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1.0)
-        let headerGreenColor = UIColor(red: 71/255, green: 211/255, blue: 33/255, alpha: 0.85)
-        let headerBlueColor = UIColor(red: 74/255, green: 222/255, blue: 226/255, alpha: 1.0)
+        let redColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.73)
+        let orangeColor = UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1.0)
+        let greenColor = UIColor(red: 71/255, green: 211/255, blue: 33/255, alpha: 0.85)
+        let lightBlueColor = UIColor(red: 74/255, green: 222/255, blue: 226/255, alpha: 1.0)
+        let blueColor = UIColor(red: 74/255, green: 145/255, blue: 226/255, alpha: 1.0)
         
-        let colorArray = [UIColor.clearColor(), headerRedColor, headerOrangeColor, headerGreenColor, headerBlueColor]
+        let colorArray = [UIColor.clearColor(), redColor, orangeColor, greenColor, lightBlueColor, blueColor]
         
         self.backgroundColor = colorArray[section]
         
