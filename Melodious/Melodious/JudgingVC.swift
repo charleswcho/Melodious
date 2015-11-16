@@ -202,6 +202,7 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
         
         let alertController = UIAlertController(title: "Alert", message: "Listen to the song!", preferredStyle: .Alert)
         
+        
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             
         }
