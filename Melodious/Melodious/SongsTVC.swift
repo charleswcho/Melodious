@@ -66,6 +66,7 @@ class SongsTVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
 
         selectedVideoIndex = indexPath.row
         performSegueWithIdentifier("idSeguePlayer", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
     

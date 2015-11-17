@@ -46,17 +46,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             print("\(User.currentUser()) already logged in")
         }
         
-        Game.fetchData { (gameObjects, error) -> Void in
-            if error == nil {
-                self.games = gameObjects!
-                self.tableView.reloadData()
-                
-            } else {
-                
-                print("Error in retrieving \(error)")
-                // TODO: Add Alert view to tell the user about the problem
-            }
-        }
+        fetchData()
         
         // Notifications
         
@@ -75,6 +65,23 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         print("Home Table received notification")
         self.tableView.reloadData()
+    }
+    
+    // Get Game data from Parse
+    
+    func fetchData() {
+        
+        Game.fetchData { (gameObjects, error) -> Void in
+            if error == nil {
+                self.games = gameObjects!
+                self.tableView.reloadData()
+                
+            } else {
+                
+                print("Error in retrieving \(error)")
+                // TODO: Add Alert view to tell the user about the problem
+            }
+        }
     }
     
     // Get Facebook info from current User
@@ -98,7 +105,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 User.currentUser()?.facebookID = currentUserFBID as String
                 
                 if User.currentUser()?.points == nil {
-                    User.currentUser()?.points = 3
+                    User.currentUser()?.points = 2
 
                 }
                 
@@ -196,16 +203,17 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             for game in self.games[3] {
                 game.deleteInBackgroundWithBlock({ (success, error) -> Void in
                     if error == nil {
+
+                        print("Did delete game? \(success)")
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            
-                            self.tableView.reloadData()
+                            self.fetchData()
                         })
-                      
-                        print("Did delete game? \(success)")
+                        
                     } else {
                         
                         print("Error: \(error)")
+                        
                     }
                 })
             }
@@ -270,14 +278,17 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
             } else {
                 
-                if User.currentUser()?.points.integerValue >= 3 {
+                if User.currentUser()?.points.integerValue >= 2 {
                 
                     selectedIndex = indexPath.row
                     performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
                     
                 } else {
 
-                    notEnoughPointsAlert()
+                    let alertController = AlertHelper.notEnoughPointsAlert()
+                    presentViewController(alertController, animated: true, completion: { () -> Void in
+                        print("Alert was shown")
+                    })
                 }
             }
 
@@ -308,23 +319,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             let gameDetail = segue.destinationViewController as! GameDetailVC
             gameDetail.game = (games[section-1][selectedIndex])
         }
-    }
-    
-    // MARK: Alerts
-    
-    func notEnoughPointsAlert() {
-        let alertController = UIAlertController(title: "Alert", message: "You don't have enough points to play a game! Go judge some games!", preferredStyle: .Alert)
-
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            
-        }
-        
-        alertController.addAction(OKAction)
-        
-        presentViewController(alertController, animated: true, completion: { () -> Void in
-            print("Alert was shown")
-        })
-    
     }
     
     

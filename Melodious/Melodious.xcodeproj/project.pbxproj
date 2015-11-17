@@ -48,6 +48,8 @@
 		BAC591AD1BE8567000D3C8CC /* RatingControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */; };
 		BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACD55061BBDF4780071C22B /* HomeTVC.swift */; };
 		BAD1C9DF1BCDED3F00A49E72 /* AnswerChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */; };
+		BAE640521BFA814800A5CCF2 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE640511BFA814800A5CCF2 /* AlertHelper.swift */; };
+		BAE640541BFAA2AB00A5CCF2 /* PointsFromViewCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE640531BFAA2AB00A5CCF2 /* PointsFromViewCount.swift */; };
 		BAE668301BCEC4A100C3FFE2 /* SubmitSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE6682F1BCEC4A100C3FFE2 /* SubmitSongVC.swift */; };
 		BAE6683C1BCECC6700C3FFE2 /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE6683B1BCECC6700C3FFE2 /* SongsCell.swift */; };
 		BAE668471BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = BAE668441BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html */; };
@@ -110,6 +112,8 @@
 		BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControlVC.swift; sourceTree = "<group>"; };
 		BACD55061BBDF4780071C22B /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		BAD1C9DE1BCDED3F00A49E72 /* AnswerChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerChallengeVC.swift; sourceTree = "<group>"; };
+		BAE640511BFA814800A5CCF2 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		BAE640531BFAA2AB00A5CCF2 /* PointsFromViewCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsFromViewCount.swift; sourceTree = "<group>"; };
 		BAE6682F1BCEC4A100C3FFE2 /* SubmitSongVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitSongVC.swift; sourceTree = "<group>"; };
 		BAE6683B1BCECC6700C3FFE2 /* SongsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
 		BAE6683F1BCEDD6900C3FFE2 /* Melodious-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Melodious-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -307,6 +311,7 @@
 		BAC0A0F61BC2FA3000A114E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BAE640501BFA807C00A5CCF2 /* Helper Classes */,
 				BA50C98B1BC48C7500305108 /* Profile */,
 				BADE0B5B1BB9B30800C633EA /* Home */,
 				BA50C9971BC4D39700305108 /* New Game */,
@@ -344,6 +349,15 @@
 				BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		BAE640501BFA807C00A5CCF2 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BAE640511BFA814800A5CCF2 /* AlertHelper.swift */,
+				BAE640531BFAA2AB00A5CCF2 /* PointsFromViewCount.swift */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 		BAE6682E1BCEC48400C3FFE2 /* Submit Song */ = {
@@ -486,10 +500,12 @@
 				BAE668481BCEDD7900C3FFE2 /* YTPlayerView.m in Sources */,
 				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
 				BA9431361BED2B5000E680D0 /* FriendCell.swift in Sources */,
+				BAE640541BFAA2AB00A5CCF2 /* PointsFromViewCount.swift in Sources */,
 				BACD55071BBDF4780071C22B /* HomeTVC.swift in Sources */,
 				BAE668301BCEC4A100C3FFE2 /* SubmitSongVC.swift in Sources */,
 				BA8BDC501BDD6B2E008AE258 /* HomeHeaderCell.swift in Sources */,
 				BA50C9821BC4782D00305108 /* User.swift in Sources */,
+				BAE640521BFA814800A5CCF2 /* AlertHelper.swift in Sources */,
 				BA8482AC1BA338EF00A3CE99 /* AppDelegate.swift in Sources */,
 				BA5CC42C1BD170E9003A9642 /* GameDetailVC.swift in Sources */,
 				BA8BDC521BDDCE19008AE258 /* FriendsSearchTVC.swift in Sources */,

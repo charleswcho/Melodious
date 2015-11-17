@@ -55,7 +55,7 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
             for game in games {
                 
                 if (game.player1 != User.currentUser() && game.player2 != User.currentUser() && currentUserIsJudge(game) == false) {
-                    if game.judges?.count < 3 {
+                    if game.judges?.count < 2 {
                         
                         self.judgedGame = game
                         break
@@ -123,13 +123,19 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
         
         if canSubmitSong == false {
             
-            waitForTimerAlert()
+            let alertController = AlertHelper.waitForTimerAlert()
+            presentViewController(alertController, animated: true, completion: { () -> Void in
+                print("Alert was shown")
+            })
             
         } else {
             
+            if judgedGame.player1Scores.isEmpty {
+                judgedGame.player1Scores.append(PointsFromViewCount.calculate(judgedGame.player1SongDetails[2]))
+
+            }
             // Save player 1 Score
-            
-            judgedGame.player1Scores.append(ratingControl.rating)
+            judgedGame.player1Scores.append(ratingControl.rating * 5)
             judgedGame.judges.append(User.currentUser()!)
             judgedGame.saveEventually()
             
@@ -197,23 +203,7 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
             print("Alert was shown")
         })
     }
-    
-    func waitForTimerAlert() {
-        
-        let alertController = UIAlertController(title: "Alert", message: "Listen to the song!", preferredStyle: .Alert)
-        
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            
-        }
-        
-        alertController.addAction(OKAction)
-        
-        presentViewController(alertController, animated: true, completion: { () -> Void in
-            print("Alert was shown")
-        })
-    }
-    
+
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -223,17 +213,6 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
             judgingVC2.judgedGame = judgedGame
         }
     }
-    
-//    for judge in game.judges {
-//    
-//    if judge != User.currentUser() {
-//    
-//    } else {
-//    
-//    self.noGamesNeedJudgesAlert()
-//    
-//    }
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

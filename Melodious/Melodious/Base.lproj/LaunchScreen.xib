@@ -10,17 +10,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Listening Music" translatesAutoresizingMaskIntoConstraints="NO" id="9al-Ov-zKp">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abB-AY-IeS">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.2901960784" green="0.56862745100000001" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem id="IJX-Hd-beN">
+                            <barButtonItem key="leftBarButtonItem" image="Profile" id="pcs-5K-to6">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oU5-El-a84">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.2901960784" green="0.56862745100000001" blue="0.8862745098" alpha="0.85999999999999999" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="abB-AY-IeS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="9pl-i3-JZs"/>
+                <constraint firstItem="oU5-El-a84" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DWl-Vz-Y2b"/>
+                <constraint firstAttribute="trailing" secondItem="abB-AY-IeS" secondAttribute="trailing" id="FFd-aa-ie9"/>
+                <constraint firstItem="abB-AY-IeS" firstAttribute="top" secondItem="oU5-El-a84" secondAttribute="bottom" id="fTy-Np-fG6"/>
+                <constraint firstItem="oU5-El-a84" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lbr-U3-RFj"/>
+                <constraint firstItem="abB-AY-IeS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n3b-dd-TzL"/>
+                <constraint firstAttribute="trailing" secondItem="oU5-El-a84" secondAttribute="trailing" id="u4w-Kk-E7h"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="547.5" y="454.5"/>
         </view>
     </objects>
     <resources>
-        <image name="Listening Music" width="526" height="609"/>
+        <image name="Profile" width="33" height="33"/>
     </resources>
 </document>

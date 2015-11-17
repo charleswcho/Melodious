@@ -27,10 +27,6 @@ class ProfileTVC: UITableViewController {
                 // TODO: Add Alert view to tell the user about the problem
             }
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
     }
 
 
@@ -56,16 +52,9 @@ class ProfileTVC: UITableViewController {
             
             homeHeaderCell.section = 5
         }
-        
-        if tableView.numberOfRowsInSection(section) == 0 {
-            
-            return nil
-            
-        } else {
             
             return homeHeaderCell
-        }
-        
+
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

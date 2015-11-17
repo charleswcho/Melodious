@@ -49,7 +49,10 @@ class JudgingVC2: UIViewController {
         
         if canSubmitSong == false {
             
-            waitForTimerAlert()
+            let alertController = AlertHelper.waitForTimerAlert()
+            presentViewController(alertController, animated: true, completion: { () -> Void in
+                print("Alert was shown")
+            })
             
         } else {
             
@@ -60,12 +63,17 @@ class JudgingVC2: UIViewController {
             
             // Save player 2 Score
 
+            if judgedGame.player2Scores.isEmpty {
+                judgedGame.player2Scores.append(PointsFromViewCount.calculate(judgedGame.player2SongDetails[2]))
+                
+            }
+            
             judgedGame.player2Scores.append(ratingControl.rating)
             
             judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
-                    if (self.judgedGame.player1Scores.count == 3 && self.judgedGame.player2Scores.count == 3) {
+                    if (self.judgedGame.player1Scores.count == 4 && self.judgedGame.player2Scores.count == 4) {
                         
                         self.judgedGame.gameState = 2
                         
@@ -87,23 +95,6 @@ class JudgingVC2: UIViewController {
             
         }
         
-    }
-    
-    // MARK: Alerts
-    
-    func waitForTimerAlert() {
-        
-        let alertController = UIAlertController(title: "Alert", message: "Listen to the song!", preferredStyle: .Alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            
-        }
-        
-        alertController.addAction(OKAction)
-        
-        presentViewController(alertController, animated: true, completion: { () -> Void in
-            print("Alert was shown")
-        })
     }
     
     
