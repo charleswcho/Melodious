@@ -73,7 +73,7 @@ class JudgingVC2: UIViewController {
             judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
-                    if (self.judgedGame.player1Scores.count == 4 && self.judgedGame.player2Scores.count == 4) {
+                    if (self.judgedGame.player1Scores.count == 3 && self.judgedGame.player2Scores.count == 3) {
                         
                         self.judgedGame.gameState = 2
                         

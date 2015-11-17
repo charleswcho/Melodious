@@ -70,7 +70,12 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
                     
                 } else { // The currentUser is either a player or judge in all the judged games
                     
-                    self.noGamesNeedJudgesAlert()
+                    if game == games.last { // If at end of array an User.currentUser() is in all games as player or judge
+                        
+                        self.noGamesNeedJudgesAlert()
+                    }
+                    
+                    print("User.currentUser() is either a player or judge in this \(game)")
                     
                 }
             }

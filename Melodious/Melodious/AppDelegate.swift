@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 import Parse
 import Bolts
 import FBSDKCoreKit

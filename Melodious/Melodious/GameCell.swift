@@ -31,8 +31,8 @@ class GameCell: UITableViewCell {
                 opponentProfilePic.profileID = "?"
                 
             } else {
-                opponentNameLabel.text = game.opponent?.name
-                opponentProfilePic.profileID = game.opponent?.facebookID
+                opponentNameLabel.text = game.opponent.name!
+                opponentProfilePic.profileID = game.opponent.facebookID!
             }
        
 

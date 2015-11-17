@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA15E9CD1BFBB3AF0036B7D7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA15E9CB1BFBB3AF0036B7D7 /* Fabric.framework */; };
+		BA15E9CE1BFBB3AF0036B7D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA15E9CC1BFBB3AF0036B7D7 /* Crashlytics.framework */; };
 		BA1B80DA1BEC103700400C10 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80D91BEC103700400C10 /* ParseFacebookUtilsV4.framework */; };
 		BA1B80DC1BEC104E00400C10 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80DB1BEC104E00400C10 /* Bolts.framework */; };
 		BA1B80DE1BEC106E00400C10 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80DD1BEC106E00400C10 /* FBSDKLoginKit.framework */; };
@@ -67,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA15E9CB1BFBB3AF0036B7D7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		BA15E9CC1BFBB3AF0036B7D7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		BA1B80D91BEC103700400C10 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		BA1B80DB1BEC104E00400C10 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		BA1B80DD1BEC106E00400C10 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -130,8 +134,10 @@
 				BA1B80E21BEC109B00400C10 /* ParseUI.framework in Frameworks */,
 				BABED5751BEBF784001F1958 /* FBSDKCoreKit.framework in Frameworks */,
 				BA1B80DE1BEC106E00400C10 /* FBSDKLoginKit.framework in Frameworks */,
+				BA15E9CD1BFBB3AF0036B7D7 /* Fabric.framework in Frameworks */,
 				BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */,
 				BA8482E21BA33BEE00A3CE99 /* Accounts.framework in Frameworks */,
+				BA15E9CE1BFBB3AF0036B7D7 /* Crashlytics.framework in Frameworks */,
 				BA8482E01BA33BE700A3CE99 /* libsqlite3.dylib in Frameworks */,
 				BA8482DE1BA33BDD00A3CE99 /* libz.dylib in Frameworks */,
 				BA8482DC1BA33BCD00A3CE99 /* SystemConfiguration.framework in Frameworks */,
@@ -371,6 +377,8 @@
 		BAE668431BCEDD7900C3FFE2 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				BA15E9CB1BFBB3AF0036B7D7 /* Fabric.framework */,
+				BA15E9CC1BFBB3AF0036B7D7 /* Crashlytics.framework */,
 				BAE668441BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html */,
 				BAE668451BCEDD7900C3FFE2 /* YTPlayerView.h */,
 				BAE668461BCEDD7900C3FFE2 /* YTPlayerView.m */,
@@ -397,6 +405,7 @@
 				BA8482A21BA338EF00A3CE99 /* Sources */,
 				BA8482A31BA338EF00A3CE99 /* Frameworks */,
 				BA8482A41BA338EF00A3CE99 /* Resources */,
+				BA15E9CA1BFBB3640036B7D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -486,6 +495,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BA15E9CA1BFBB3640036B7D7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 9740c50f2f0dde9f4cfdd7b927f6086b47c47c14 4d2cd8fabfd53ee0f1ee7d1d7f51128d8278996e2003ccf4a13c33d9474b7bc6";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA8482A21BA338EF00A3CE99 /* Sources */ = {
@@ -651,6 +676,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Melodious",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Melodious/Assets",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -673,6 +699,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Melodious",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Melodious/Assets",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
