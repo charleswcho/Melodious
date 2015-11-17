@@ -12,7 +12,9 @@ class PointsFromViewCount: NSObject {
     
     static func calculate(viewCountAsString: String) -> Int {
         
-        let v = Int(viewCountAsString)!
+        let stringWithoutCommas = viewCountAsString.stringByReplacingOccurrencesOfString(",", withString: "")
+        
+        let v = Int(stringWithoutCommas)!
         var points : Int!
         
         if v >= 1000000000 {

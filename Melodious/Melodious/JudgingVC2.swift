@@ -68,7 +68,7 @@ class JudgingVC2: UIViewController {
                 
             }
             
-            judgedGame.player2Scores.append(ratingControl.rating)
+            judgedGame.player2Scores.append(ratingControl.rating * 5)
             
             judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 

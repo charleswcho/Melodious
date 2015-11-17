@@ -64,6 +64,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     func reloadTable() {
         
         print("Home Table received notification")
+        fetchData()
         self.tableView.reloadData()
     }
     
