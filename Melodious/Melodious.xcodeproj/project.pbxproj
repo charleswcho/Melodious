@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA15E9CD1BFBB3AF0036B7D7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA15E9CB1BFBB3AF0036B7D7 /* Fabric.framework */; };
-		BA15E9CE1BFBB3AF0036B7D7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA15E9CC1BFBB3AF0036B7D7 /* Crashlytics.framework */; };
 		BA1B80DA1BEC103700400C10 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80D91BEC103700400C10 /* ParseFacebookUtilsV4.framework */; };
 		BA1B80DC1BEC104E00400C10 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80DB1BEC104E00400C10 /* Bolts.framework */; };
 		BA1B80DE1BEC106E00400C10 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80DD1BEC106E00400C10 /* FBSDKLoginKit.framework */; };
 		BA1B80E01BEC108600400C10 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80DF1BEC108600400C10 /* Parse.framework */; };
 		BA1B80E21BEC109B00400C10 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B80E11BEC109B00400C10 /* ParseUI.framework */; };
+		BA41600A1BFBB66A008086B3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4160081BFBB66A008086B3 /* Fabric.framework */; };
+		BA41600B1BFBB66A008086B3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4160091BFBB66A008086B3 /* Crashlytics.framework */; };
 		BA50C9821BC4782D00305108 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9811BC4782D00305108 /* User.swift */; };
 		BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50C9911BC48D9400305108 /* ProfileTVC.swift */; };
 		BA50C9A01BC4F36100305108 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA50C99F1BC4F36100305108 /* Default-568h@2x.png */; };
@@ -69,13 +69,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BA15E9CB1BFBB3AF0036B7D7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		BA15E9CC1BFBB3AF0036B7D7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		BA1B80D91BEC103700400C10 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		BA1B80DB1BEC104E00400C10 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		BA1B80DD1BEC106E00400C10 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BA1B80DF1BEC108600400C10 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BA1B80E11BEC109B00400C10 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		BA4160081BFBB66A008086B3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		BA4160091BFBB66A008086B3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		BA50C9811BC4782D00305108 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BA50C9911BC48D9400305108 /* ProfileTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		BA50C99F1BC4F36100305108 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -134,10 +134,10 @@
 				BA1B80E21BEC109B00400C10 /* ParseUI.framework in Frameworks */,
 				BABED5751BEBF784001F1958 /* FBSDKCoreKit.framework in Frameworks */,
 				BA1B80DE1BEC106E00400C10 /* FBSDKLoginKit.framework in Frameworks */,
-				BA15E9CD1BFBB3AF0036B7D7 /* Fabric.framework in Frameworks */,
+				BA41600A1BFBB66A008086B3 /* Fabric.framework in Frameworks */,
 				BA8482E41BA33BFA00A3CE99 /* Social.framework in Frameworks */,
 				BA8482E21BA33BEE00A3CE99 /* Accounts.framework in Frameworks */,
-				BA15E9CE1BFBB3AF0036B7D7 /* Crashlytics.framework in Frameworks */,
+				BA41600B1BFBB66A008086B3 /* Crashlytics.framework in Frameworks */,
 				BA8482E01BA33BE700A3CE99 /* libsqlite3.dylib in Frameworks */,
 				BA8482DE1BA33BDD00A3CE99 /* libz.dylib in Frameworks */,
 				BA8482DC1BA33BCD00A3CE99 /* SystemConfiguration.framework in Frameworks */,
@@ -272,6 +272,8 @@
 		BA8482E51BA33C2400A3CE99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA4160081BFBB66A008086B3 /* Fabric.framework */,
+				BA4160091BFBB66A008086B3 /* Crashlytics.framework */,
 				BA1B80E11BEC109B00400C10 /* ParseUI.framework */,
 				BA1B80DF1BEC108600400C10 /* Parse.framework */,
 				BA1B80DD1BEC106E00400C10 /* FBSDKLoginKit.framework */,
@@ -377,8 +379,6 @@
 		BAE668431BCEDD7900C3FFE2 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				BA15E9CB1BFBB3AF0036B7D7 /* Fabric.framework */,
-				BA15E9CC1BFBB3AF0036B7D7 /* Crashlytics.framework */,
 				BAE668441BCEDD7900C3FFE2 /* YTPlayerView-iframe-player.html */,
 				BAE668451BCEDD7900C3FFE2 /* YTPlayerView.h */,
 				BAE668461BCEDD7900C3FFE2 /* YTPlayerView.m */,
@@ -405,7 +405,7 @@
 				BA8482A21BA338EF00A3CE99 /* Sources */,
 				BA8482A31BA338EF00A3CE99 /* Frameworks */,
 				BA8482A41BA338EF00A3CE99 /* Resources */,
-				BA15E9CA1BFBB3640036B7D7 /* ShellScript */,
+				BA4160071BFBB650008086B3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -497,7 +497,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BA15E9CA1BFBB3640036B7D7 /* ShellScript */ = {
+		BA4160071BFBB650008086B3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -677,6 +677,7 @@
 					"$(PROJECT_DIR)/Melodious",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Melodious/Assets",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -700,6 +701,7 @@
 					"$(PROJECT_DIR)/Melodious",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Melodious/Assets",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Melodious/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

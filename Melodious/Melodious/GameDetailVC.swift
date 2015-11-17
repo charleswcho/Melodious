@@ -75,9 +75,19 @@ class GameDetailVC: UIViewController {
         currentUserProfilePic.profileID = game.currentUser.facebookID
         currentUserTotalScore.text = String(game.myTotalScore)
         currentUserVideo.loadWithVideoId(game.mySongID)
-        currentUserVideoName.text = game.mySongDetails[0] as String!
-        currentUserVideoChannel.text = game.mySongDetails[1] as String!
-        currentUserVideoViewCount.text = game.mySongDetails[2] as String!
+        
+        if game.mySongID != nil && game.mySongDetails.isEmpty != true {
+            
+            currentUserVideo.loadWithVideoId(game.mySongID)
+            
+            currentUserVideoName.text = game.mySongDetails[0] as String!
+            currentUserVideoChannel.text = game.mySongDetails[1] as String!
+            currentUserVideoViewCount.text = game.mySongDetails[2] as String!
+            
+        } else {
+            print("Opponent hasn't picked a video yet")
+            
+        }
         
     }
     

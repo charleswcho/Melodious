@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+
 import Parse
 import Bolts
 import FBSDKCoreKit
@@ -42,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        // Initialize Crashlytics
+        
+        Fabric.with([Crashlytics.self])
 
         return true
     }

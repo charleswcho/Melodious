@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 import Parse
 import ParseUI
 import FBSDKCoreKit
@@ -127,6 +128,12 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         returnUserData()
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        Answers.logLoginWithMethod("Digits",
+            success: true,
+            customAttributes: [
+                "User Name": "\(User.currentUser()?.name)",
+            ])
         
     }
     
