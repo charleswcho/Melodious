@@ -53,18 +53,19 @@ class GameDetailVC: UIViewController {
     func setOpponent() {
         
         opponentProfilePic.profileID = game.opponent?.facebookID
-        opponentNameLabel.text = game.opponent?.name
         opponentTotalScore.text = String(game.opponentTotalScore)
-        
-        if game.opponentSongID != nil && game.opponentSongDetails.isEmpty != true {
+
+        if game.opponentSongID != nil && game.opponent.name != nil && game.opponentSongDetails.isEmpty != true {
             
             opponentVideo.loadWithVideoId(game.opponentSongID)
-
+            opponentNameLabel.text = game.opponent?.name
             opponentVideoName.text = game.opponentSongDetails[0] as String!
             opponentVideoChannel.text = game.opponentSongDetails[1] as String!
             opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
             
         } else {
+            
+            opponentNameLabel.text = "Random Opponent"
             print("Opponent hasn't picked a video yet")
             
         }
@@ -76,9 +77,7 @@ class GameDetailVC: UIViewController {
         currentUserTotalScore.text = String(game.myTotalScore)
         currentUserVideo.loadWithVideoId(game.mySongID)
         
-        if game.mySongID != nil && game.mySongDetails.isEmpty != true {
-            
-            currentUserVideo.loadWithVideoId(game.mySongID)
+        if game.mySongDetails.isEmpty != true {
             
             currentUserVideoName.text = game.mySongDetails[0] as String!
             currentUserVideoChannel.text = game.mySongDetails[1] as String!

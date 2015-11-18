@@ -27,8 +27,8 @@ class GameCell: UITableViewCell {
             
             if game.opponent == nil {
                 
-                opponentNameLabel.text = "?"
-                opponentProfilePic.profileID = "?"
+                opponentNameLabel.text = "Random opponent"
+                opponentProfilePic.profileID = nil
                 
             } else {
                 opponentNameLabel.text = game.opponent.name!

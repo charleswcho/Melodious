@@ -19,7 +19,6 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
     
     var games : [Game]!
     
-    
     @IBOutlet var player1Video: YTPlayerView!
     @IBOutlet weak var player1SongNameLabel: UILabel!
     @IBOutlet weak var player1ChannelNameLabel: UILabel!
@@ -30,7 +29,7 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        player1Video.delegate = self
+//        player1Video.delegate = self
         getGames()
         
         _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
@@ -175,21 +174,21 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
         })
     }
     
-    // MARK: YTPlayerDelegate methods
-    
-    func playerView(playerView: YTPlayerView!, didChangeToState state: YTPlayerState) {
-        switch(state) {
-        case YTPlayerState.Playing:
-            print("Video playing")
-            break
-        case YTPlayerState.Paused:
-            print("Video paused")
-            break
-        default:
-            break
-        }
-        
-    }
+//    // MARK: YTPlayerDelegate methods
+//    
+//    func playerView(playerView: YTPlayerView!, didChangeToState state: YTPlayerState) {
+//        switch(state) {
+//        case YTPlayerState.Playing:
+//            print("Video playing")
+//            break
+//        case YTPlayerState.Paused:
+//            print("Video paused")
+//            break
+//        default:
+//            break
+//        }
+//        
+//    }
 
     // MARK: Alerts
     
@@ -216,6 +215,11 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
             
             let judgingVC2 = segue.destinationViewController as! JudgingVC2
             judgingVC2.judgedGame = judgedGame
+            
+            UIView.setAnimationsEnabled(false)
+            self.navigationItem.prompt = nil
+            UIView.setAnimationsEnabled(true)
+            
         }
     }
     
