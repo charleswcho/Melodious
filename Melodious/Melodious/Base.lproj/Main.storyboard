@@ -614,6 +614,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-gS-tLV">
+                                <rect key="frame" x="16" y="567" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.56862745100000001" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jpk-w3-a4b"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitSong:" destination="3rd-iL-WZd" eventType="touchUpInside" id="B74-co-uEn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -623,10 +637,14 @@
                             <constraint firstAttribute="trailing" secondItem="0ZG-ey-Boa" secondAttribute="trailing" id="Oah-eS-Gsn"/>
                             <constraint firstItem="0ZG-ey-Boa" firstAttribute="top" secondItem="NhF-ta-gND" secondAttribute="bottom" id="Tm5-rY-Y0I"/>
                             <constraint firstItem="0ZG-ey-Boa" firstAttribute="leading" secondItem="NQA-ZY-C6a" secondAttribute="leading" id="WYb-Df-8qp"/>
+                            <constraint firstItem="aJg-fY-E5Z" firstAttribute="top" secondItem="RR1-gS-tLV" secondAttribute="bottom" constant="50" id="Z5m-l9-IY7"/>
                             <constraint firstAttribute="trailing" secondItem="YTg-u6-5tk" secondAttribute="trailing" constant="20" id="jCf-HA-oO3"/>
                             <constraint firstItem="YTg-u6-5tk" firstAttribute="top" secondItem="0ZG-ey-Boa" secondAttribute="bottom" constant="30" id="naM-mD-9AT"/>
                             <constraint firstItem="uTo-fK-NI4" firstAttribute="leading" secondItem="NQA-ZY-C6a" secondAttribute="leading" constant="30" id="rOV-Hg-n08"/>
+                            <constraint firstAttribute="trailing" secondItem="RR1-gS-tLV" secondAttribute="trailing" constant="16" id="seL-0v-kDu"/>
                             <constraint firstItem="uTo-fK-NI4" firstAttribute="top" secondItem="YXJ-EP-ff5" secondAttribute="bottom" constant="8" id="wFb-iU-w3Q"/>
+                            <constraint firstItem="RR1-gS-tLV" firstAttribute="centerX" secondItem="NQA-ZY-C6a" secondAttribute="centerX" id="xBR-Xy-zs9"/>
+                            <constraint firstItem="RR1-gS-tLV" firstAttribute="leading" secondItem="NQA-ZY-C6a" secondAttribute="leading" constant="16" id="yfs-Lo-7aA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Player 1" id="T2b-G2-THc"/>
@@ -635,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNA-c7-JE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1373.5" y="953.5"/>
+            <point key="canvasLocation" x="1259.5" y="677.5"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="mIH-vG-pDY">
@@ -753,7 +771,6 @@
         <!--Judging-->
         <scene sceneID="uzP-Yw-5nz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Sh-60-I18" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Judging" id="ClV-LN-7bn" customClass="JudgingVC" customModule="Melodious" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KFJ-fY-tWp"/>
@@ -896,6 +913,7 @@
                         <segue destination="CT4-hi-fn9" kind="show" identifier="noGamesToJudge" id="lRl-hJ-dn9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Sh-60-I18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1881.5" y="488.5"/>
         </scene>
@@ -1131,7 +1149,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="09126F5E-9047-4158-BB42-BAF1AF4918B7" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="3DD34D5E-E3AE-4462-8EBB-67B736F44F0B" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1588,7 +1606,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="09126F5E-9047-4158-BB42-BAF1AF4918B7" width="33" height="33">
+        <image name="3DD34D5E-E3AE-4462-8EBB-67B736F44F0B" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
