@@ -77,7 +77,7 @@ class SubmitSongVC: UIViewController {
         if (game == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
             newGame.gameState = 0
             
-            if friend != nil && self.randomOpponent == nil { // New Game: Friend -> Came from friend list with friend loaded in
+            if friend != nil && self.randomOpponent != nil || friend != nil && self.randomOpponent == nil { // New Game: Friend -> Came from friend list with friend loaded in
                 
                 newGame.player1 = User.currentUser()
                 newGame.player2 = friend

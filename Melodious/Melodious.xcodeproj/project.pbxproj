@@ -184,8 +184,8 @@
 		BA50C9971BC4D39700305108 /* New Game */ = {
 			isa = PBXGroup;
 			children = (
-				BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */,
 				BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */,
+				BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */,
 				BA50C9981BC4D3B200305108 /* Cells */,
 			);
 			name = "New Game";

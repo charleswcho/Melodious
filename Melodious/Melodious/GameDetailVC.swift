@@ -55,17 +55,28 @@ class GameDetailVC: UIViewController {
         opponentProfilePic.profileID = game.opponent?.facebookID
         opponentTotalScore.text = String(game.opponentTotalScore)
 
-        if game.opponentSongID != nil && game.opponent.name != nil && game.opponentSongDetails.isEmpty != true {
+        if game.opponent.name != nil {
+            
+            opponentNameLabel.text = game.opponent.name
+
+        } else if game.opponent == nil {
+            
+            opponentNameLabel.text = "Random Opponent"
+            
+        } else  {
+            
+            opponentNameLabel.text = "???"
+        }
+        
+        if game.opponentSongID != nil && game.opponentSongDetails.isEmpty != true {
             
             opponentVideo.loadWithVideoId(game.opponentSongID)
-            opponentNameLabel.text = game.opponent?.name
             opponentVideoName.text = game.opponentSongDetails[0] as String!
             opponentVideoChannel.text = game.opponentSongDetails[1] as String!
             opponentVideoViewCount.text = game.opponentSongDetails[2] as String!
             
         } else {
             
-            opponentNameLabel.text = "Random Opponent"
             print("Opponent hasn't picked a video yet")
             
         }
