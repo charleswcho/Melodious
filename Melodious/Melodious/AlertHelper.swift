@@ -10,6 +10,22 @@ import UIKit
 
 class AlertHelper: NSObject {
     
+    // MARK: HomeTVC
+    
+    static func noInternetConnection() -> UIAlertController {
+        
+        let alertController = UIAlertController(title: "Alert", message: "No internet connection!", preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            
+        }
+        
+        alertController.addAction(OKAction)
+        
+        return alertController
+        
+    }
+    
     static func notEnoughPointsAlert() -> UIAlertController {
         
         let alertController = UIAlertController(title: "Alert", message: "You don't have enough points to play a game! Go judge some games!", preferredStyle: .Alert)

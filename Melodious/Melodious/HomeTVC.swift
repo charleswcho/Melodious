@@ -22,6 +22,9 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 200
+//        User.currentUser()?.saveEventually()
+        
         if (PFUser.currentUser() == nil) {
             
             // Implement PFLogin
@@ -79,9 +82,17 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 self.tableView.reloadData()
                 
             } else {
+            
+                if Reachability.isConnectedToNetwork() != true {
+                    let alertController = AlertHelper.noInternetConnection()
+                    
+                    self.presentViewController(alertController, animated: true, completion: { () -> Void in
+                        print("Alert was shown")
+                    })
+                }
                 
                 print("Error in retrieving \(error)")
-                // TODO: Add Alert view to tell the user about the problem
+
             }
         }
     }
@@ -106,8 +117,9 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 User.currentUser()?.name = currentUserName
                 User.currentUser()?.facebookID = currentUserFBID as String
                 
+                
                 if User.currentUser()?.points == nil {
-                    User.currentUser()?.points = 2
+                    User.currentUser()?.points = 200
 
                 }
                 

@@ -10,8 +10,6 @@ import UIKit
 import Parse
 
 class JudgingVC: UIViewController, YTPlayerViewDelegate {
-
-    @IBOutlet var topContraint: NSLayoutConstraint!
     
     var judgedGame : Game! {
         didSet {
@@ -26,7 +24,6 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
     @IBOutlet weak var player1ChannelNameLabel: UILabel!
     @IBOutlet weak var player1VideoViewCountLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControlView!
-    @IBOutlet var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,6 +183,10 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
 //        case YTPlayerState.Paused:
 //            print("Video paused")
 //            break
+//        case YTPlayerState.Queued:
+//            print("Ready to play")
+//            break
+//            
 //        default:
 //            break
 //        }
@@ -217,10 +218,6 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
             
             let judgingVC2 = segue.destinationViewController as! JudgingVC2
             judgingVC2.judgedGame = judgedGame
-            
-            UIView.setAnimationsEnabled(false)
-            self.navigationItem.prompt = nil
-            UIView.setAnimationsEnabled(true)
             
         }
     }

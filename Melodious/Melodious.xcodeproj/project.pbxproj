@@ -40,6 +40,7 @@
 		BA8482F61BA34F2100A3CE99 /* SongsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */; };
 		BA8BDC501BDD6B2E008AE258 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */; };
 		BA8BDC521BDDCE19008AE258 /* FriendsSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */; };
+		BA90B2051BFCFCF7008A77D2 /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90B2041BFCFCF7008A77D2 /* ReachabilityHelper.swift */; };
 		BA9431361BED2B5000E680D0 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9431351BED2B5000E680D0 /* FriendCell.swift */; };
 		BA9D11761BE9432F002F6C08 /* JudgingVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D11751BE9432F002F6C08 /* JudgingVC2.swift */; };
 		BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165441BBF3A420078C280 /* NewGameCell.swift */; };
@@ -106,6 +107,7 @@
 		BA8482F51BA34F2100A3CE99 /* SongsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTVC.swift; sourceTree = "<group>"; };
 		BA8BDC4F1BDD6B2E008AE258 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		BA8BDC511BDDCE19008AE258 /* FriendsSearchTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchTVC.swift; sourceTree = "<group>"; };
+		BA90B2041BFCFCF7008A77D2 /* ReachabilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
 		BA9431351BED2B5000E680D0 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		BA9D11751BE9432F002F6C08 /* JudgingVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JudgingVC2.swift; sourceTree = "<group>"; };
 		BAB165441BBF3A420078C280 /* NewGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			children = (
 				BAE640511BFA814800A5CCF2 /* AlertHelper.swift */,
 				BAE640531BFAA2AB00A5CCF2 /* PointsFromViewCount.swift */,
+				BA90B2041BFCFCF7008A77D2 /* ReachabilityHelper.swift */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				BA50C9921BC48D9400305108 /* ProfileTVC.swift in Sources */,
 				BA8482F61BA34F2100A3CE99 /* SongsTVC.swift in Sources */,
 				BA5CC4321BD18B12003A9642 /* GameCell.swift in Sources */,
+				BA90B2051BFCFCF7008A77D2 /* ReachabilityHelper.swift in Sources */,
 				BAC591AD1BE8567000D3C8CC /* RatingControlVC.swift in Sources */,
 				BAE668481BCEDD7900C3FFE2 /* YTPlayerView.m in Sources */,
 				BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */,
