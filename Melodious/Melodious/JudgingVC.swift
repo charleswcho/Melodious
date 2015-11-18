@@ -11,6 +11,8 @@ import Parse
 
 class JudgingVC: UIViewController, YTPlayerViewDelegate {
 
+    @IBOutlet var topContraint: NSLayoutConstraint!
+    
     var judgedGame : Game! {
         didSet {
             self.loadJudgeView()

@@ -16,7 +16,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" rowHeight="75" id="bHN-gc-gQU" userLabel="GameCell" customClass="FriendCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHN-gc-gQU" id="EbL-Rc-aMF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -91,7 +91,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewGameCell" rowHeight="75" id="qTz-nq-kOs" customClass="NewGameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qTz-nq-kOs" id="sen-CM-gq0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -134,7 +134,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="100" id="fpd-VK-2oF" userLabel="GameCell" customClass="GameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="189" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpd-VK-2oF" id="Fxe-s6-UH4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -175,7 +175,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeHeaderCell" rowHeight="30" id="lK8-Kt-f8B" customClass="HomeHeaderCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="289" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="225" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lK8-Kt-f8B" id="tKt-6m-bqR">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -623,8 +623,8 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="8rA-3k-reo"/>
-                                                <exclude reference="Mgr-Hz-n4g"/>
                                                 <exclude reference="DDG-0l-eLY"/>
+                                                <exclude reference="Mgr-Hz-n4g"/>
                                                 <exclude reference="rN5-qL-pFu"/>
                                             </mask>
                                         </variation>
@@ -649,9 +649,9 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="RGu-Rz-UBP"/>
-                                                <exclude reference="ldd-0X-zfX"/>
-                                                <exclude reference="hP0-So-DHn"/>
                                                 <exclude reference="a4B-tu-nlc"/>
+                                                <exclude reference="hP0-So-DHn"/>
+                                                <exclude reference="ldd-0X-zfX"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -811,6 +811,7 @@
                         <outlet property="player1VideoViewCountLabel" destination="ZdH-i2-rbh" id="hBY-cP-urv"/>
                         <outlet property="ratingControl" destination="D06-WS-UGs" id="1tW-wj-WeX"/>
                         <outlet property="submitButton" destination="fdN-SM-dnS" id="Ejb-Rs-FkL"/>
+                        <outlet property="topContraint" destination="su7-R2-I4v" id="j4J-Fu-yrx"/>
                         <segue destination="Kep-2F-qMO" kind="show" identifier="judgedPlayer1" id="M96-uE-Nro"/>
                         <segue destination="CT4-hi-fn9" kind="show" identifier="noGamesToJudge" id="lRl-hJ-dn9"/>
                     </connections>
@@ -1046,7 +1047,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="9CE3F57A-647A-4D08-9691-C4DC2978B709" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="E9ED57EB-6902-4FCF-9786-935D6A7D14F6" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1172,7 +1173,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="200" id="6lI-yd-xmU" customClass="ProfileCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lI-yd-xmU" id="sJz-xe-r88">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -1319,7 +1320,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeHeaderCell" rowHeight="30" id="I1w-dP-c4X" customClass="HomeHeaderCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="286" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="222" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I1w-dP-c4X" id="l33-7W-7Sv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -1417,7 +1418,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GameCell" rowHeight="100" id="3ZV-zu-ich" userLabel="GameCell" customClass="GameCell" customModule="Melodious" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="316" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="252" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ZV-zu-ich" id="Zsg-dH-3RZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -1503,7 +1504,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9CE3F57A-647A-4D08-9691-C4DC2978B709" width="33" height="33">
+        <image name="E9ED57EB-6902-4FCF-9786-935D6A7D14F6" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
