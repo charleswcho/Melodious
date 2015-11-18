@@ -13,6 +13,8 @@ class GameCell: UITableViewCell {
 
     @IBOutlet weak var opponentNameLabel: UILabel!
     @IBOutlet var opponentProfilePic: FBSDKProfilePictureView!
+    @IBOutlet weak var myScoreLabel: UILabel!
+    @IBOutlet weak var opponentScoreLabel: UILabel!
     
     var game : Game! {
         didSet {
@@ -25,17 +27,21 @@ class GameCell: UITableViewCell {
         
         if self.game != nil {
             
+            myScoreLabel.text = String(game.myTotalScore)
+            
             if game.opponent == nil {
                 
                 opponentNameLabel.text = "Random opponent"
                 opponentProfilePic.profileID = nil
+                opponentScoreLabel.text = "?"
                 
             } else {
+                
                 opponentNameLabel.text = game.opponent.name!
                 opponentProfilePic.profileID = game.opponent.facebookID!
+                opponentScoreLabel.text = String(game.opponentTotalScore)
             }
        
-
         } else {
             
             print("Error: No games or users")
@@ -45,7 +51,7 @@ class GameCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
         opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
         opponentProfilePic.layer.borderWidth = 1.0
