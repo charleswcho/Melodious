@@ -1054,7 +1054,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="14A52789-3740-4014-AA6B-EDF0DABAA08A" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="98BC1203-F130-4346-A4F4-83360296F0E3" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1507,7 +1507,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="14A52789-3740-4014-AA6B-EDF0DABAA08A" width="33" height="33">
+        <image name="98BC1203-F130-4346-A4F4-83360296F0E3" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
