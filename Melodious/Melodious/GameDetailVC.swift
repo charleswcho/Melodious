@@ -46,7 +46,7 @@ class GameDetailVC: UIViewController {
         opponentProfilePic.layer.borderWidth = 1.0
         opponentProfilePic.clipsToBounds = true
         
-        currentUserProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+        currentUserProfilePic.layer.cornerRadius = currentUserProfilePic.frame.size.width / 2
         currentUserProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
         currentUserProfilePic.layer.borderWidth = 1.0
         currentUserProfilePic.clipsToBounds = true

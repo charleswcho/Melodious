@@ -119,7 +119,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 
                 
                 if User.currentUser()?.points == nil {
-                    User.currentUser()?.points = 200
+                    User.currentUser()?.points = 2
 
                 }
                 

@@ -22,7 +22,6 @@ class GameCell: UITableViewCell {
         }
     }
     
-
     func updateView() {
         
         if self.game != nil {
