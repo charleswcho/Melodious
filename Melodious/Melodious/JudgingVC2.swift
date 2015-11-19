@@ -10,8 +10,6 @@ import UIKit
 
 class JudgingVC2: UIViewController {
     
-    var judgedGame : Game!
-    
     @IBOutlet var player2Video: YTPlayerView!
     @IBOutlet weak var player2SongNameLabel: UILabel!
     @IBOutlet weak var player2ChannelNameLabel: UILabel!
@@ -19,6 +17,7 @@ class JudgingVC2: UIViewController {
     @IBOutlet weak var ratingControl: RatingControlView!
     @IBOutlet var submitButton: UIButton!
  
+    var judgedGame : Game!
     
     override func viewDidLoad() {
         super.viewDidLoad()

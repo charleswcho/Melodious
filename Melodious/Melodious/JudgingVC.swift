@@ -10,6 +10,12 @@ import UIKit
 import Parse
 
 class JudgingVC: UIViewController, YTPlayerViewDelegate {
+
+    @IBOutlet var player1Video: YTPlayerView!
+    @IBOutlet weak var player1SongNameLabel: UILabel!
+    @IBOutlet weak var player1ChannelNameLabel: UILabel!
+    @IBOutlet weak var player1VideoViewCountLabel: UILabel!
+    @IBOutlet weak var ratingControl: RatingControlView!
     
     var judgedGame : Game! {
         didSet {
@@ -18,12 +24,6 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
     }
     
     var games : [Game]!
-    
-    @IBOutlet var player1Video: YTPlayerView!
-    @IBOutlet weak var player1SongNameLabel: UILabel!
-    @IBOutlet weak var player1ChannelNameLabel: UILabel!
-    @IBOutlet weak var player1VideoViewCountLabel: UILabel!
-    @IBOutlet weak var ratingControl: RatingControlView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
