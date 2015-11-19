@@ -27,6 +27,8 @@ class GameDetailVC: UIViewController {
     @IBOutlet var currentUserVideoChannel: UILabel!
     @IBOutlet var currentUserVideoViewCount: UILabel!
     
+    @IBOutlet weak var opponentStackView: UIStackView!
+    
     var game : Game! {
         didSet {
         }
@@ -77,6 +79,7 @@ class GameDetailVC: UIViewController {
             
         } else {
             
+            opponentStackView.alignment = .Center
             print("Opponent hasn't picked a video yet")
             
         }
