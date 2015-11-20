@@ -754,10 +754,10 @@
                                     <constraint firstAttribute="width" constant="300" id="u4o-aK-p2z"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-As-Qis">
-                                <rect key="frame" x="93" y="432" width="188" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-As-Qis">
+                                <rect key="frame" x="20" y="432" width="335" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.2901960784" green="0.56470588239999997" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkz-Yg-2YC">
@@ -822,8 +822,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="N6J-As-Qis" firstAttribute="leading" secondItem="wtH-XV-ByH" secondAttribute="leading" constant="20" id="3gs-32-v3j"/>
                             <constraint firstAttribute="trailing" secondItem="mkz-Yg-2YC" secondAttribute="trailing" id="Cwf-78-cpb"/>
                             <constraint firstItem="mkz-Yg-2YC" firstAttribute="leading" secondItem="wtH-XV-ByH" secondAttribute="leading" id="K5x-mF-rtd"/>
+                            <constraint firstAttribute="trailing" secondItem="N6J-As-Qis" secondAttribute="trailing" constant="20" id="Ke5-Ns-nOj"/>
                             <constraint firstItem="c7z-BR-yAE" firstAttribute="top" secondItem="WnA-fm-Rhv" secondAttribute="bottom" constant="38" id="U7A-9z-JoX"/>
                             <constraint firstItem="c7z-BR-yAE" firstAttribute="centerX" secondItem="wtH-XV-ByH" secondAttribute="centerX" id="a4K-0x-AoJ"/>
                             <constraint firstItem="2eC-Xq-73m" firstAttribute="top" secondItem="mkz-Yg-2YC" secondAttribute="bottom" constant="50" id="b6Z-oV-IhC"/>
@@ -1079,7 +1081,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="9A5B1374-C05D-4AD7-A2B8-A67D57EEF9C0" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="DE65FCE4-4EA8-4C16-B2CD-71C4ACDEF924" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1526,7 +1528,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9A5B1374-C05D-4AD7-A2B8-A67D57EEF9C0" width="33" height="33">
+        <image name="DE65FCE4-4EA8-4C16-B2CD-71C4ACDEF924" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1658,9 +1660,9 @@ BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
         <image name="waste_filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5z8-hJ-XVF"/>
-        <segue reference="D6X-3P-aXc"/>
-        <segue reference="HVp-2j-YYS"/>
+        <segue reference="ZvT-mF-HX7"/>
+        <segue reference="VqI-cw-gyA"/>
+        <segue reference="B64-Da-TPd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
