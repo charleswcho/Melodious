@@ -16,7 +16,6 @@ import ParseFacebookUtilsV4
 
 class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
 
-    
     var games : [[Game]] = [] // Saving results of .fetchData to local array
     
     override func viewDidLoad() {
@@ -147,6 +146,8 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                 "User Name": "\(User.currentUser()?.name)",
             ])
         
+        self.tableView.reloadData()
+        
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -181,8 +182,27 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
             
-        return 30
+            return 30
+            
+        } else if games.count > 0 {
+            
+            print(section)
+            
+            if games[section-1].count > 0 {
+                print("Section: \(section)")
+                print("Row count: \(games[section-1].count)")
+                return 30
+            }
+            
+            return 0
+            
+        } else {
+            
+            return 0
+        }
         
     }
     

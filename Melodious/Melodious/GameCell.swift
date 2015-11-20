@@ -26,7 +26,12 @@ class GameCell: UITableViewCell {
         
         if self.game != nil {
             
-            myScoreLabel.text = String(game.myTotalScore)
+            if game.player1Scores.isEmpty && game.player2Scores.isEmpty {
+            
+                myScoreLabel.text = "0"
+            }
+            
+            myScoreLabel?.text = String(game.myTotalScore)
             
             if game.opponent == nil {
                 
