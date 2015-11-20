@@ -17,11 +17,16 @@ class SubmitSongVC: UIViewController {
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var numberOfViewsLabel: UILabel!
+    @IBOutlet var submitButton: UIButton!
     
     var videoID : String!
     var friend : User!
     var randomOpponent : User!
-    var game : Game!
+    var game : Game! {
+        didSet {
+            activateSubmitButton()
+        }
+    }
     var randomGameAsOpponent : Game!
     
     var videoDetails : NSDictionary!
@@ -36,6 +41,12 @@ class SubmitSongVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        submitButton.enabled = false
+        
+        if gamesLoading != true {
+            submitButton.enabled = true
+        }
         
         let queryForGames = PFQuery(className: "Game")
         queryForGames.whereKey("gameState", equalTo: 0)
@@ -70,11 +81,20 @@ class SubmitSongVC: UIViewController {
 
     }
     
+    var gamesLoading = true
+    
+    func activateSubmitButton() -> Bool { // Activate Submit button when game is set
+        
+        gamesLoading = false
+        
+        return gamesLoading
+    }
+    
     @IBAction func submitSong(sender: UIButton) {
         
         let newGame = Game()
- 
-        if (game == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
+        
+        if (game == nil && game.player1 == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
             newGame.gameState = 0
             
             if friend != nil && self.randomOpponent != nil || friend != nil && self.randomOpponent == nil { // New Game: Friend -> Came from friend list with friend loaded in
@@ -122,7 +142,8 @@ class SubmitSongVC: UIViewController {
 
             newGame.judges = []
             
-            newGame.player1?.points = (newGame.player1?.points.integerValue)! - 2
+            User.currentUser()?.points = (User.currentUser()?.points.integerValue)! - 2
+            User.currentUser()?.saveEventually()
             
             newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
@@ -161,10 +182,11 @@ class SubmitSongVC: UIViewController {
         }
         
         // Create notification that homeTVC needs to be reloaded
-        NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
         
         print("Home Table needs to reload")
-            
+
+        NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
+        
         performSegueWithIdentifier("submittedSong", sender: self)
 
     }

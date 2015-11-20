@@ -57,7 +57,7 @@ class GameDetailVC: UIViewController {
         opponentProfilePic.profileID = game.opponent?.facebookID
         opponentTotalScore.text = String(game.opponentTotalScore)
 
-        if game.opponent.name != nil {
+        if game.opponent?.name != nil {
             
             opponentNameLabel.text = game.opponent.name
 

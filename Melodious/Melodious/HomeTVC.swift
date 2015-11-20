@@ -189,11 +189,11 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             
         } else if games.count > 0 {
             
-            print(section)
+//            print(section)
             
             if games[section-1].count > 0 {
-                print("Section: \(section)")
-                print("Row count: \(games[section-1].count)")
+//                print("Section: \(section)")
+//                print("Row count: \(games[section-1].count)")
                 return 30
             }
             
@@ -248,6 +248,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.fetchData()
+                            self.tableView.reloadData()
                         })
                         
                     } else {

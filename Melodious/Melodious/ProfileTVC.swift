@@ -91,10 +91,12 @@ class ProfileTVC: UITableViewController {
             if cell.game.winner == User.currentUser() {
                 
                 cell.backgroundColor = UIColor(red: 72/255, green: 211/255, blue: 33/255, alpha: 1.0)
+                cell.myScoreLabel.textColor = UIColor.whiteColor()
                 
             } else if cell.game.winner != User.currentUser() {
                 
                 cell.backgroundColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1.0)
+                cell.opponentScoreLabel.textColor = UIColor.whiteColor()
 
             } else {
                 
