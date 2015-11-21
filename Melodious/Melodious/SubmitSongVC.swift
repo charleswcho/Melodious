@@ -28,16 +28,9 @@ class SubmitSongVC: UIViewController {
         }
     }
     var randomGameAsOpponent : Game!
-    
     var videoDetails : NSDictionary!
+    var gamesLoading = true
     
-    func updateView() {
-        
-        songNameLabel.text = videoDetails["title"] as? String
-        channelNameLabel.text = videoDetails["channelTitle"] as? String
-        numberOfViewsLabel.text = convertToFormattedViewCount()
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +74,13 @@ class SubmitSongVC: UIViewController {
 
     }
     
-    var gamesLoading = true
+    func updateView() {
+        
+        songNameLabel.text = videoDetails["title"] as? String
+        channelNameLabel.text = videoDetails["channelTitle"] as? String
+        numberOfViewsLabel.text = convertToFormattedViewCount()
+        
+    }
     
     func activateSubmitButton() -> Bool { // Activate Submit button when game is set
         
@@ -94,9 +93,18 @@ class SubmitSongVC: UIViewController {
         
         let newGame = Game()
         
-        if (game == nil && game.player1 == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
-            newGame.gameState = 0
-            
+        
+        
+        if (game == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
+        
+//            switch (Bool,Bool)() {
+//                
+//            case (friend != nil),(self.randomOpponent != nil):
+//                break
+//                
+//            default:
+//                break
+//            }
             if friend != nil && self.randomOpponent != nil || friend != nil && self.randomOpponent == nil { // New Game: Friend -> Came from friend list with friend loaded in
                 
                 newGame.player1 = User.currentUser()
@@ -119,6 +127,7 @@ class SubmitSongVC: UIViewController {
                         print("Did save random game player 2 data? \(success)")
                         
                     } else {
+                        
                         print("Error \(error)")
                     }
                     
@@ -132,6 +141,7 @@ class SubmitSongVC: UIViewController {
 
             }
             
+            newGame.gameState = 0
             newGame.player1Scores = []
             newGame.player2Scores = []
             
