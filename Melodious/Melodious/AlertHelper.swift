@@ -40,6 +40,44 @@ class AlertHelper: NSObject {
         
     }
     
+    static func trashButtonPressedAlert(games: [Game]) -> UIAlertController {
+        
+        let alertController = UIAlertController(title: "Alert", message: "Do you want to delete all recent games?", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            
+        }
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            
+            for game in games {
+                game.deleteInBackgroundWithBlock({ (success, error) -> Void in
+                    if error == nil {
+                        
+                        print("Did delete game? \(success)")
+                        
+                        // Create notification that homeTVC needs to be reloaded
+                        
+                        print("Home Table needs to reload")
+                        
+                        NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
+                        
+                    } else {
+                        
+                        print("Error: \(error)")
+                        
+                    }
+                })
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+        
+        return alertController
+        
+    }
+    
     // JudgingVC
     
     static func waitForTimerAlert() -> UIAlertController {

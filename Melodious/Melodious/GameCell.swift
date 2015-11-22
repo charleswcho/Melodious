@@ -15,6 +15,7 @@ class GameCell: UITableViewCell {
     @IBOutlet var opponentProfilePic: FBSDKProfilePictureView!
     @IBOutlet weak var myScoreLabel: UILabel!
     @IBOutlet weak var opponentScoreLabel: UILabel!
+    @IBOutlet weak var winnerLoserLabel: UILabel!
     
     var game : Game! {
         didSet {

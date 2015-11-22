@@ -67,6 +67,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     func reloadTable() {
         
         print("Home Table received notification")
+        self.games = []
         fetchData()
         self.tableView.reloadData()
     }
@@ -95,14 +96,12 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             }
         }
     }
-    
 
-    
-    
     // MARK: Parse Login
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        User.returnUserData()
+        
+        User().returnUserData()
         self.dismissViewControllerAnimated(true, completion: nil)
         
         Answers.logLoginWithMethod("Digits",
@@ -197,41 +196,11 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     @IBAction func trashButtonPressed(sender: UIButton) {
         print("Button pressed")
         
-        let alertController = UIAlertController(title: "Alert", message: "Do you want to delete all recent games?", preferredStyle: .Alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            
-        }
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-        
-            for game in self.games[3] {
-                game.deleteInBackgroundWithBlock({ (success, error) -> Void in
-                    if error == nil {
-
-                        print("Did delete game? \(success)")
-                        
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.fetchData()
-                            self.tableView.reloadData()
-                        })
-                        
-                    } else {
-                        
-                        print("Error: \(error)")
-                        
-                    }
-                })
-            }
-        }
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(OKAction)
+        let alertController = AlertHelper.trashButtonPressedAlert(self.games[3])
         
         presentViewController(alertController, animated: true, completion: { () -> Void in
             print("Alert was shown")
         })
-        
     }
     
     

@@ -12,7 +12,6 @@ class RatingControlView: UIView {
     
     var rating = 0 {
         didSet {
-            print(rating)
             setNeedsLayout()
         }
     }
