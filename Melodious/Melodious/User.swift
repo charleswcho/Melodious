@@ -31,6 +31,41 @@ class User: PFUser {
         return false
     }
     
+    func returnUserData() {    // Get Facebook info from current User
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil) {
+                // Process error
+                print("Error: \(error)")
+            } else {
+                
+                print("fetched user: \(result)")
+                
+                let currentUserName = result.valueForKey("name") as! String
+                let currentUserFBID = result.valueForKey("id") as! String
+                
+                User.currentUser()?.name = currentUserName
+                User.currentUser()?.facebookID = currentUserFBID as String
+                
+                
+                if User.currentUser()?.points == nil {
+                    User.currentUser()?.points = 2
+                    
+                }
+                
+                User.currentUser()?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                    if success {
+                        NSLog("Current User name and fbID saved")
+                    } else {
+                        NSLog("%@", error!)
+                    }
+                })
+            }
+        })
+    }
+    
     func getUsersFriends(block: PFQueryArrayResultBlock?) {
         FBSDKGraphRequest(graphPath: "me/friends", parameters: ["fields":"id"]).startWithCompletionHandler ({ (connection, result, error) -> Void in
             if result != nil {

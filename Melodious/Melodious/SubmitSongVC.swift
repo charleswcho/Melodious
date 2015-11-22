@@ -89,28 +89,30 @@ class SubmitSongVC: UIViewController {
         return gamesLoading
     }
     
+  
     @IBAction func submitSong(sender: UIButton) {
         
         let newGame = Game()
         
-        
-        
         if (game == nil) { // New Game: Friend|Random -> Either came from friend list or starting random game
         
-//            switch (Bool,Bool)() {
-//                
-//            case (friend != nil),(self.randomOpponent != nil):
-//                break
-//                
-//            default:
-//                break
-//            }
-            if friend != nil && self.randomOpponent != nil || friend != nil && self.randomOpponent == nil { // New Game: Friend -> Came from friend list with friend loaded in
+            switch (friend != nil, randomOpponent != nil) {
+                
+            case (true,true): // New Game: Friend -> Came from friend list with friend loaded in (Random opponent available)
+
+                newGame.player1 = User.currentUser()
+                newGame.player2 = friend
+                self.createNewGame(newGame)
+                break
+                
+            case(true,false): // New Game: Friend -> Came from friend list with friend loaded in (Random opponent NOT available)
                 
                 newGame.player1 = User.currentUser()
                 newGame.player2 = friend
-
-            } else if friend == nil && self.randomOpponent != nil { // New Game: Random -> Random game open for opponent
+                self.createNewGame(newGame)
+                break
+                
+            case(false, true): // New Game: Random -> Random game open for opponent
                 
                 randomGameAsOpponent.gameState = 1
                 randomGameAsOpponent.player2 = User.currentUser()
@@ -132,43 +134,18 @@ class SubmitSongVC: UIViewController {
                     }
                     
                     self.performSegueWithIdentifier("submittedSong", sender: self)
-
-                }
-                
-            } else if friend == nil && self.randomOpponent == nil { // New Game: Random -> No random games open for opponent -> Create new random game
-             
-                newGame.player1 = User.currentUser()
-
-            }
-            
-            newGame.gameState = 0
-            newGame.player1Scores = []
-            newGame.player2Scores = []
-            
-            newGame.player1SongID = videoID
-            
-            newGame.player1SongDetails = []
-            newGame.player2SongDetails = []
-
-            newGame.judges = []
-            
-            User.currentUser()?.points = (User.currentUser()?.points.integerValue)! - 2
-            User.currentUser()?.saveEventually()
-            
-            newGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-                
-                if error == nil {
                     
-                    newGame.player1SongDetails.append(self.videoDetails["title"] as! String)
-                    newGame.player1SongDetails.append(self.videoDetails["channelTitle"] as! String)
-                    newGame.player1SongDetails.append(self.convertToFormattedViewCount())
-                    newGame.saveEventually()
-                    NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
-                    print("Did save player 1 data? \(success)")
-                } else {
-                    print("Error \(error)")
                 }
+                break
+                
+            case(false, false): // New Game: Random -> No random games open for opponent -> Create new random game
+                
+                newGame.player1 = User.currentUser()
+                self.createNewGame(newGame)
+                break
+                
             }
+            
             
         } else if game.player1 != nil { // Came from friend challenge
             
@@ -199,6 +176,40 @@ class SubmitSongVC: UIViewController {
         
         performSegueWithIdentifier("submittedSong", sender: self)
 
+    }
+    
+    // Create New Game
+    
+    func createNewGame(game: Game) {
+        
+        game.gameState = 0
+        game.player1Scores = []
+        game.player2Scores = []
+        
+        game.player1SongID = videoID
+        
+        game.player1SongDetails = []
+        game.player2SongDetails = []
+        
+        game.judges = []
+        
+        User.currentUser()?.points = (User.currentUser()?.points.integerValue)! - 2
+        User.currentUser()?.saveEventually()
+        
+        game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            
+            if error == nil {
+                
+                game.player1SongDetails.append(self.videoDetails["title"] as! String)
+                game.player1SongDetails.append(self.videoDetails["channelTitle"] as! String)
+                game.player1SongDetails.append(self.convertToFormattedViewCount())
+                game.saveEventually()
+                NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
+                print("Did save player 1 data? \(success)")
+            } else {
+                print("Error \(error)")
+            }
+        }
     }
     
     // Function to format viewCount
