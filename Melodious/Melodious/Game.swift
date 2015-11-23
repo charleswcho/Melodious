@@ -117,6 +117,19 @@ class Game: PFObject, PFSubclassing {
         }
     }
     
+    var loser : User? {
+        
+        if myTotalScore < opponentTotalScore {
+            return currentUser
+            
+        } else if myTotalScore == opponentTotalScore {
+            return nil
+            
+        } else {
+            return opponent
+        }
+    }
+    
     // MARK: Parse
     
     // Fetch Games from Parse

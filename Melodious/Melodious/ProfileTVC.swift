@@ -94,15 +94,16 @@ class ProfileTVC: UITableViewController {
                 cell.winnerLoserLabel.text = "Win"
                 cell.myScoreLabel.textColor = UIColor.whiteColor()
                 
-            } else if cell.game.winner != User.currentUser() {
+            } else if cell.game.loser == User.currentUser() {
                 
                 cell.backgroundColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1.0)
                 cell.winnerLoserLabel.text = "Loss"
                 cell.opponentScoreLabel.textColor = UIColor.whiteColor()
 
-            } else {
+            } else if cell.game.winner == nil {
                 
                 cell.backgroundColor = UIColor.lightGrayColor()
+                cell.winnerLoserLabel.text = "Tie"
                 print("It was a tie or game.winner is nil in error")
             }
             

@@ -160,20 +160,23 @@
                                             </variation>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAS-qs-ckf">
-                                            <rect key="frame" x="339" y="5" width="20" height="20"/>
+                                            <rect key="frame" x="329" y="0.0" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="7zw-Zc-QpX"/>
                                                 <constraint firstAttribute="width" constant="20" id="AdZ-Oy-C4R"/>
                                                 <constraint firstAttribute="width" constant="20" id="J1k-KH-94J"/>
                                                 <constraint firstAttribute="width" secondItem="UAS-qs-ckf" secondAttribute="height" multiplier="1:1" id="SDV-gO-2a7"/>
+                                                <constraint firstAttribute="width" constant="30" id="WyE-J3-e17"/>
                                                 <constraint firstAttribute="height" constant="20" id="zao-dL-o4q"/>
                                             </constraints>
+                                            <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                             <state key="normal" title="Button" image="waste"/>
                                             <state key="highlighted" image="waste_filled"/>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="7zw-Zc-QpX"/>
                                                     <exclude reference="AdZ-Oy-C4R"/>
+                                                    <exclude reference="J1k-KH-94J"/>
                                                     <exclude reference="SDV-gO-2a7"/>
                                                     <exclude reference="zao-dL-o4q"/>
                                                 </mask>
@@ -187,7 +190,9 @@
                                         <constraint firstItem="UAS-qs-ckf" firstAttribute="leading" secondItem="n0R-BH-sLR" secondAttribute="trailing" constant="39" id="0Qg-Ph-sZX"/>
                                         <constraint firstItem="n0R-BH-sLR" firstAttribute="leading" secondItem="tKt-6m-bqR" secondAttribute="leading" constant="8" id="1Ad-iV-D31"/>
                                         <constraint firstAttribute="bottom" secondItem="n0R-BH-sLR" secondAttribute="bottom" constant="5" id="1ir-Da-qPD"/>
+                                        <constraint firstAttribute="bottom" secondItem="UAS-qs-ckf" secondAttribute="bottom" id="8te-Ld-sGE"/>
                                         <constraint firstItem="n0R-BH-sLR" firstAttribute="top" secondItem="tKt-6m-bqR" secondAttribute="top" constant="5" id="Ahx-vI-NTU"/>
+                                        <constraint firstItem="UAS-qs-ckf" firstAttribute="top" secondItem="tKt-6m-bqR" secondAttribute="top" id="Bn6-Zr-9Ol"/>
                                         <constraint firstItem="n0R-BH-sLR" firstAttribute="top" secondItem="tKt-6m-bqR" secondAttribute="topMargin" constant="-5" id="ETx-b6-JBC"/>
                                         <constraint firstAttribute="trailing" secondItem="UAS-qs-ckf" secondAttribute="trailing" constant="8" id="GHW-Yb-SPM"/>
                                         <constraint firstItem="n0R-BH-sLR" firstAttribute="leading" secondItem="tKt-6m-bqR" secondAttribute="leading" constant="16" id="ON6-6I-se7"/>
@@ -204,6 +209,7 @@
                                         <constraint firstItem="UAS-qs-ckf" firstAttribute="top" secondItem="tKt-6m-bqR" secondAttribute="topMargin" constant="-5" id="dpV-r4-Bjt"/>
                                         <constraint firstAttribute="bottom" secondItem="UAS-qs-ckf" secondAttribute="bottom" constant="2" id="eN1-Nv-k5i"/>
                                         <constraint firstAttribute="trailing" secondItem="UAS-qs-ckf" secondAttribute="trailing" constant="8" id="v0F-OI-pWz"/>
+                                        <constraint firstAttribute="trailing" secondItem="UAS-qs-ckf" secondAttribute="trailing" constant="16" id="yZ5-69-Myq"/>
                                         <constraint firstItem="n0R-BH-sLR" firstAttribute="top" secondItem="tKt-6m-bqR" secondAttribute="top" constant="6" id="z9D-pD-rjv"/>
                                     </constraints>
                                     <variation key="default">
@@ -217,6 +223,9 @@
                                             <exclude reference="z9D-pD-rjv"/>
                                             <exclude reference="0Qg-Ph-sZX"/>
                                             <exclude reference="GHW-Yb-SPM"/>
+                                            <exclude reference="Oag-IS-sG3"/>
+                                            <exclude reference="Pqo-2d-hkt"/>
+                                            <exclude reference="QbI-Ch-viS"/>
                                             <exclude reference="QhA-lX-0t9"/>
                                             <exclude reference="buu-sh-XT1"/>
                                             <exclude reference="dL6-2F-dKR"/>
@@ -1098,7 +1107,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="15D43BD3-9334-4F81-B681-850856B529A6" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="4B2A83C5-7C31-4636-8735-17F4A021B253" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1596,7 +1605,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="15D43BD3-9334-4F81-B681-850856B529A6" width="33" height="33">
+        <image name="4B2A83C5-7C31-4636-8735-17F4A021B253" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1728,9 +1737,9 @@ BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
         <image name="waste_filled" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZvT-mF-HX7"/>
+        <segue reference="D6X-3P-aXc"/>
         <segue reference="5z8-hJ-XVF"/>
-        <segue reference="B64-Da-TPd"/>
+        <segue reference="HVp-2j-YYS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
