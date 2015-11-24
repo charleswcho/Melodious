@@ -27,7 +27,7 @@ class GameCell: UITableViewCell {
         
         if self.game != nil {
             
-            if game.player1Scores.isEmpty && game.player2Scores.isEmpty {
+            if game.player1Scores.isEmpty && game.player2Scores.isEmpty { // Game hasn't been judged yet
             
                 myScoreLabel.text = "0"
             }

@@ -55,6 +55,9 @@ class GameDetailVC: UIViewController {
     func setOpponent() {
         
         opponentProfilePic.profileID = game.opponent?.facebookID
+        
+        print(game.opponent.facebookID)
+        
         opponentTotalScore.text = String(game.opponentTotalScore)
 
         if game.opponent?.name != nil {
@@ -88,6 +91,9 @@ class GameDetailVC: UIViewController {
     func setCurrentUser() {
         
         currentUserProfilePic.profileID = game.currentUser.facebookID
+        
+        print(game.currentUser.facebookID)
+        
         currentUserTotalScore.text = String(game.myTotalScore)
         currentUserVideo.loadWithVideoId(game.mySongID)
         
