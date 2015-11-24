@@ -33,6 +33,8 @@ class AnswerChallengeVC: UIViewController {
         opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
         opponentProfilePic.layer.borderWidth = 1.0
         opponentProfilePic.clipsToBounds = true
+        
+        setupButtons()
     }
     
     @IBAction func acceptGame(sender: UIButton) {
@@ -59,6 +61,27 @@ class AnswerChallengeVC: UIViewController {
             let songs = segue.destinationViewController as! SongsTVC
             songs.game = self.game
         }
+    }
+    
+    // Setup buttons
+    
+    func setupButtons() {
+        
+        acceptGameButton.addTarget(self, action: "highlightBorder", forControlEvents: .TouchDown)
+        acceptGameButton.layer.cornerRadius = 5
+        acceptGameButton.layer.borderWidth = 2
+        acceptGameButton.layer.borderColor = UIColor(red: 71/255, green: 211/255, blue: 33/255, alpha: 0.85).CGColor
+
+        declineGameButton.layer.cornerRadius = 5
+        declineGameButton.layer.borderWidth = 2
+        declineGameButton.layer.borderColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.73).CGColor
+
+        
+    }
+    
+    func highlightBorder() {
+        
+        acceptGameButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     }
     
     
