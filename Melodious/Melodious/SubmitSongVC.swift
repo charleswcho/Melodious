@@ -132,9 +132,6 @@ class SubmitSongVC: UIViewController {
                         
                         print("Error \(error)")
                     }
-                    
-                    self.performSegueWithIdentifier("submittedSong", sender: self)
-                    
                 }
                 break
                 

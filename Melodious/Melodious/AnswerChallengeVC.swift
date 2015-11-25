@@ -67,23 +67,34 @@ class AnswerChallengeVC: UIViewController {
     
     func setupButtons() {
         
-        acceptGameButton.addTarget(self, action: "highlightBorder", forControlEvents: .TouchDown)
-        acceptGameButton.layer.cornerRadius = 5
-        acceptGameButton.layer.borderWidth = 2
-        acceptGameButton.layer.borderColor = UIColor(red: 71/255, green: 211/255, blue: 33/255, alpha: 0.85).CGColor
-
-        declineGameButton.layer.cornerRadius = 5
-        declineGameButton.layer.borderWidth = 2
-        declineGameButton.layer.borderColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.73).CGColor
+        acceptGameButton.addTarget(self, action: "highlightAcceptBorder", forControlEvents: .TouchDown)
+        acceptGameButton.addTarget(self, action: "unhighlightAcceptBorder", forControlEvents: .TouchUpInside)
+        acceptGameButton.layer.borderColor = Colors().greenColor.CGColor
+        
+        declineGameButton.addTarget(self, action: "highlightDeclineBorder", forControlEvents: .TouchDown)
+        declineGameButton.addTarget(self, action: "unhighlightDeclineBorder", forControlEvents: .TouchUpInside)
+        declineGameButton.layer.borderColor = Colors().redColor.CGColor
 
         
     }
     
-    func highlightBorder() {
+    func highlightAcceptBorder() { // Selected State for Accept Button
         
-        acceptGameButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        acceptGameButton.layer.borderColor = Colors().selectedGreen.CGColor
     }
     
+    func unhighlightAcceptBorder() {
+        acceptGameButton.layer.borderColor = Colors().greenColor.CGColor
+    }
+    
+    func highlightDeclineBorder() { // Selected State for Decline Button
+        
+        declineGameButton.layer.borderColor = Colors().selectedRed.CGColor
+    }
+    
+    func unhighlightDeclineBorder() {
+        declineGameButton.layer.borderColor = Colors().redColor.CGColor
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

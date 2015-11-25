@@ -56,7 +56,7 @@ class GameDetailVC: UIViewController {
         
         opponentProfilePic.profileID = game.opponent?.facebookID
         
-        print(game.opponent.facebookID)
+//        print(game.opponent.facebookID)
         
         opponentTotalScore.text = String(game.opponentTotalScore)
 

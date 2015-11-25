@@ -26,11 +26,8 @@ class ProfileCell: UITableViewCell {
         
         self.backgroundView = UIImageView(image: UIImage(named: "profileBackground"))
         
-        // Make image round and have white border
-        currentUserProfilePic.layer.masksToBounds = true
-        currentUserProfilePic.layer.cornerRadius = currentUserProfilePic.frame.size.width / 2
+        // Make white border
         currentUserProfilePic.layer.borderColor = UIColor.whiteColor().CGColor
-        currentUserProfilePic.layer.borderWidth = 1.0
         
         currentUserNameLabel.text = User.currentUser()?.name
         currentUserPoints.text = User.currentUser()?.points.stringValue

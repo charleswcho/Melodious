@@ -132,7 +132,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         if section == 0 {
             
-            return 3
+            return 6
             
         } else if games.count > 0 {
             
@@ -210,14 +210,23 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         if indexPath.section == 0 {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
-            
-            cell.row = indexPath.row
-
-            return cell
+            if indexPath.row % 2 == 1 {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("SpacerCell", forIndexPath: indexPath)
+                
+                return cell
+            } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("NewGameCell", forIndexPath: indexPath) as! NewGameCell
+                
+                cell.row = indexPath.row
+                
+                return cell
+            }
             
         } else {
-        //grab array by section title
+            //grab array by section title
+                        
             let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as! GameCell
 
             cell.game = (games[indexPath.section - 1][indexPath.row])
@@ -229,7 +238,11 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 75
+            
+            if indexPath.row % 2 == 1 {
+                return 20
+            }
+            return 50
         } else {
             return 100
         }
@@ -248,25 +261,43 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
         
         if indexPath.section == 0 {
             
-            if indexPath.row == 2 {
-                performSegueWithIdentifier(segueArray[2], sender: self)
-
-            } else {
-                
+            switch indexPath.row {
+            case 0:
                 if User.currentUser()?.points.integerValue >= 2 {
-                
-                    selectedIndex = indexPath.row
-                    performSegueWithIdentifier(segueArray[indexPath.row], sender: self)
+                    
+                    performSegueWithIdentifier(segueArray[0], sender: self)
                     
                 } else {
-
+                    
                     let alertController = AlertHelper.notEnoughPointsAlert()
                     presentViewController(alertController, animated: true, completion: { () -> Void in
                         print("Alert was shown")
                     })
                 }
-            }
 
+                break
+            case 2:
+                
+                if User.currentUser()?.points.integerValue >= 2 {
+                    
+                    performSegueWithIdentifier(segueArray[1], sender: self)
+                    
+                } else {
+                    
+                    let alertController = AlertHelper.notEnoughPointsAlert()
+                    presentViewController(alertController, animated: true, completion: { () -> Void in
+                        print("Alert was shown")
+                    })
+                }
+
+                break
+            case 4:
+                performSegueWithIdentifier(segueArray[2], sender: self)
+                break
+            default:
+                break
+            }
+            
         } else if indexPath.section == 1 {
             
             selectedIndex = indexPath.row

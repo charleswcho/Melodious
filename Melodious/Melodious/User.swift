@@ -51,7 +51,7 @@ class User: PFUser {
                 
                 
                 if User.currentUser()?.points == nil {
-                    User.currentUser()?.points = 2
+                    User.currentUser()?.points = 6
                     
                 }
                 

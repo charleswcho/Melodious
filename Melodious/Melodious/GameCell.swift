@@ -57,10 +57,8 @@ class GameCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+//        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
         opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
-        opponentProfilePic.layer.borderWidth = 1.0
-        opponentProfilePic.clipsToBounds = true
 
     }
 

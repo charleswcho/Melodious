@@ -36,16 +36,8 @@ class HomeHeaderCell: UITableViewCell {
     }
     
     func setColors() {
-        // Creating color for headers
-        let redColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 0.73)
-        let orangeColor = UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1.0)
-        let greenColor = UIColor(red: 71/255, green: 211/255, blue: 33/255, alpha: 0.85)
-        let lightBlueColor = UIColor(red: 74/255, green: 222/255, blue: 226/255, alpha: 1.0)
-        let blueColor = UIColor(red: 74/255, green: 145/255, blue: 226/255, alpha: 1.0)
         
-        let colorArray = [UIColor.clearColor(), redColor, orangeColor, greenColor, lightBlueColor, blueColor]
-        
-        self.backgroundColor = colorArray[section]
+        self.backgroundColor = Colors().setColors(section)
         
         if section == 0 {
             headerLabel.textColor = UIColor(red: 74/255, green: 144/255, blue: 226/255, alpha: 1.0)
@@ -53,7 +45,6 @@ class HomeHeaderCell: UITableViewCell {
         }
     }
     
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -94,5 +94,23 @@ class AlertHelper: NSObject {
         return alertController
         
     }
+    
+    static func earnedPointAlert() -> UIAlertController {
+        
+        let alertController = UIAlertController(title: "Alert", message: "You earned 1 energy!", preferredStyle: .Alert)
+        
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        
+        }
+        
+        alertController.addAction(OKAction)
+        
+        return alertController
+        
+    }
+    
+    
+    
 
 }

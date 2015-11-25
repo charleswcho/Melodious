@@ -9,23 +9,38 @@
 import UIKit
 
 class NewGameCell: UITableViewCell {
-
+    
+    @IBOutlet weak var label: UILabel!
+    var inset : CGFloat = 16.0
     var row : Int! {
         didSet {
             setButtonTitle()
         }
     }
     
-    @IBOutlet weak var label: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.contentView.layer.borderWidth = 1
+        self.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        
+    }
+    
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            frame.origin.x += self.inset
+            frame.size.width -= 2 * self.inset
+            super.frame = frame
+        }
     }
     
     func setButtonTitle() { // Set the title of the rows in the first section
         
-        let buttonTitleArray : [String] = ["Friends", "Random", "Judge"]
+        let buttonTitleArray : [String] = ["Friends","", "Random","", "Judge",""]
         label.text = buttonTitleArray[row]
     }
     
