@@ -28,5 +28,15 @@ class Colors: NSObject {
         return colorArray[section]
     }
     
+//    func makeGradient() -> CAGradientLayer {
+//        
+//        let gradient = CAGradientLayer()
+//        
+//        gradient.colors = [blueColor, lightBlueColor]
+//        gradient.locations = [0.0, 1.0]
+//     
+//        return gradient
+//    }
+    
     
 }

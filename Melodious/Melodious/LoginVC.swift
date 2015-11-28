@@ -16,10 +16,10 @@ class LoginVC: PFLogInViewController {
 
         self.logInView?.logo = UIImageView.init(image: UIImage(named: "Melodious Logo"))
         
-        let backgroundImage = UIImage(named: "Listening Music")
+        let backgroundImage = UIImage(named: "Login")
         
         self.logInView?.backgroundColor = UIColor(patternImage: backgroundImage!)
-
+        
     }
 
     override func didReceiveMemoryWarning() {
