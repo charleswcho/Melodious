@@ -44,15 +44,16 @@ class AnswerChallengeVC: UIViewController {
     
     @IBAction func declineGame(sender: UIButton) {
         
-        game.deleteEventually()
-        
-        // Create notification that homeTVC needs to be reloaded
-        print("Home Table needs to reload")
+        game.deleteInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            
+            // Create notification that homeTVC needs to be reloaded
+            print("Home Table needs to reload")
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
+            
+            self.performSegueWithIdentifier("declineGame", sender: self)
 
-        NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
-                
-        performSegueWithIdentifier("declineGame", sender: self)
-
+        }
     }
     
     

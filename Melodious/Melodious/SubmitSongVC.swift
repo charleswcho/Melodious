@@ -103,14 +103,12 @@ class SubmitSongVC: UIViewController {
                 newGame.player1 = User.currentUser()
                 newGame.player2 = friend
                 self.createNewGame(newGame)
-                break
                 
             case(true,false): // New Game: Friend -> Came from friend list with friend loaded in (Random opponent NOT available)
                 
                 newGame.player1 = User.currentUser()
                 newGame.player2 = friend
                 self.createNewGame(newGame)
-                break
                 
             case(false, true): // New Game: Random -> Random game open for opponent
                 
@@ -133,13 +131,11 @@ class SubmitSongVC: UIViewController {
                         print("Error \(error)")
                     }
                 }
-                break
                 
             case(false, false): // New Game: Random -> No random games open for opponent -> Create new random game
                 
                 newGame.player1 = User.currentUser()
                 self.createNewGame(newGame)
-                break
                 
             }
             
@@ -151,12 +147,12 @@ class SubmitSongVC: UIViewController {
             
             game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
+            self.game.player2SongDetails.append(self.videoDetails["title"] as! String)
+            self.game.player2SongDetails.append(self.videoDetails["channelTitle"] as! String)
+            self.game.player2SongDetails.append(self.convertToFormattedViewCount())
+                
                 if error == nil {
                     
-                    self.game.player2SongDetails.append(self.videoDetails["title"] as! String)
-                    self.game.player2SongDetails.append(self.videoDetails["channelTitle"] as! String)
-                    self.game.player2SongDetails.append(self.convertToFormattedViewCount())
-                    self.game.saveEventually()
                     NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                     print("Did save player 2 data? \(success)")
                 } else {
@@ -193,14 +189,14 @@ class SubmitSongVC: UIViewController {
         User.currentUser()?.points = (User.currentUser()?.points.integerValue)! - 2
         User.currentUser()?.saveEventually()
         
+        game.player1SongDetails.append(self.videoDetails["title"] as! String)
+        game.player1SongDetails.append(self.videoDetails["channelTitle"] as! String)
+        game.player1SongDetails.append(self.convertToFormattedViewCount())
+        
         game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             
             if error == nil {
-                
-                game.player1SongDetails.append(self.videoDetails["title"] as! String)
-                game.player1SongDetails.append(self.videoDetails["channelTitle"] as! String)
-                game.player1SongDetails.append(self.convertToFormattedViewCount())
-                game.saveEventually()
+              
                 NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                 print("Did save player 1 data? \(success)")
             } else {

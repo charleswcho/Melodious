@@ -92,7 +92,7 @@ class GameDetailVC: UIViewController {
         
         currentUserProfilePic.profileID = game.currentUser.facebookID
         
-        print(game.currentUser.facebookID)
+//        print(game.currentUser.facebookID)
         
         currentUserTotalScore.text = String(game.myTotalScore)
         currentUserVideo.loadWithVideoId(game.mySongID)
