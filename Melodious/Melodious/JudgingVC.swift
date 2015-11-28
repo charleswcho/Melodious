@@ -61,6 +61,7 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
                     } else {
                         
                         print("Error game.judges.count = \(game.judges.count)")
+                        self.noGamesNeedJudgesAlert()
                         
                     }
                     

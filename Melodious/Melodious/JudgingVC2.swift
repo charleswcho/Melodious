@@ -73,46 +73,38 @@ class JudgingVC2: UIViewController {
                 
                 self.judgedGame.gameState = 2
 
-                if self.judgedGame.winner != nil && self.judgedGame.loser != nil { // Winner and Loser were calculated
+                self.judgedGame.saveInBackgroundWithBlock({ (sucess:Bool, error:NSError?) -> Void in
                     
-                    self.judgedGame.winner?.wins = (self.judgedGame.winner?.wins.integerValue)! + 1
-                    self.judgedGame.loser?.losses = (self.judgedGame.loser?.losses.integerValue)! + 1
-                    self.judgedGame.saveEventually()
-                    
-                } else { // Winner or loser or both are nil therefore it was a tie
-                    
-                    self.judgedGame.player1.ties = self.judgedGame.player1.ties.integerValue + 1
-                    self.judgedGame.player2.ties = self.judgedGame.player2.ties.integerValue + 1
-                    self.judgedGame.gameState = 2
-                    self.judgedGame.saveEventually()
-                }
-                
-                //                        self.judgedGame.gameState = 2
-                //                        self.judgedGame.saveEventually()
+                    if error == nil {
+                        if self.judgedGame.winner != nil && self.judgedGame.loser != nil { // Winner and Loser were calculated
+                            
+                            self.judgedGame.winner?.wins = (self.judgedGame.winner?.wins.integerValue)! + 1
+                            self.judgedGame.loser?.losses = (self.judgedGame.loser?.losses.integerValue)! + 1
+                            self.judgedGame.saveEventually()
+                            
+                        } else { // Winner or loser or both are nil therefore it was a tie
+                            
+                            self.judgedGame.player1.ties = self.judgedGame.player1.ties.integerValue + 1
+                            self.judgedGame.player2.ties = self.judgedGame.player2.ties.integerValue + 1
+                            
+                        }
+                        
+                    } else {
+                        
+                        print("Error \(error)")
+                    }
+                })
                 
             } else {
                 
                 print("Need more judges to give scores")
             }
-            
-            judgedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-                
-                if error == nil {
-             
-                    
-                } else {
-                    
-                    print("Error: \(error)")
-                    
-                }
-            }
-            
+                        
             performSegueWithIdentifier("judgedPlayer2", sender: self)
             
         }
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

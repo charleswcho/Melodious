@@ -144,11 +144,11 @@ class SubmitSongVC: UIViewController {
             game.gameState = 1
             game.player2SongID = videoID
             
-            game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-                
             self.game.player2SongDetails.append(self.videoDetails["title"] as! String)
             self.game.player2SongDetails.append(self.videoDetails["channelTitle"] as! String)
             self.game.player2SongDetails.append(self.convertToFormattedViewCount())
+            
+            game.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 
                 if error == nil {
                     

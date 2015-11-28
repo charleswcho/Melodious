@@ -34,8 +34,6 @@ class Game: PFObject, PFSubclassing {
     @NSManaged var player1SongDetails: [String]!
     @NSManaged var player2SongDetails: [String]!
     @NSManaged var judges: [User]!
-
-
     
     var state : GameState {
         get {
@@ -106,27 +104,27 @@ class Game: PFObject, PFSubclassing {
     
     var winner : User? {
         
-        if myTotalScore > opponentTotalScore {
-            return currentUser
+        if player1Scores.reduce(0, combine: +) > player2Scores.reduce(0, combine: +) {
+            return player1
         
-        } else if myTotalScore == opponentTotalScore {
+        } else if player1Scores.reduce(0, combine: +) == player2Scores.reduce(0, combine: +) {
             return nil
             
         } else {
-            return opponent
+            return player2
         }
     }
     
     var loser : User? {
         
-        if myTotalScore < opponentTotalScore {
-            return currentUser
+        if player1Scores.reduce(0, combine: +) < player2Scores.reduce(0, combine: +) {
+            return player1
             
-        } else if myTotalScore == opponentTotalScore {
+        } else if player1Scores.reduce(0, combine: +) == player2Scores.reduce(0, combine: +) {
             return nil
             
         } else {
-            return opponent
+            return player2
         }
     }
     
