@@ -27,34 +27,34 @@ class JudgingVC2: UIViewController {
         player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
         player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
+//        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
 
         self.navigationItem.hidesBackButton = true
         
     }
     
-    // Can submit song?
-    
-    var canSubmitSong : Bool = false
-    
-    func submitSongEnabled() {
-        
-        print("Can press submit")
-        canSubmitSong = true
-        
-    }
+//    // Can submit song?
+//    
+//    var canSubmitSong : Bool = false
+//    
+//    func submitSongEnabled() {
+//        
+//        print("Can press submit")
+//        canSubmitSong = true
+//        
+//    }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-        if canSubmitSong == false {
-            
-            let alertController = AlertHelper.waitForTimerAlert()
-            presentViewController(alertController, animated: true, completion: { () -> Void in
-                print("Alert was shown")
-            })
-            
-        } else {
-            
+//        if canSubmitSong == false {
+//            
+//            let alertController = AlertHelper.waitForTimerAlert()
+//            presentViewController(alertController, animated: true, completion: { () -> Void in
+//                print("Alert was shown")
+//            })
+//            
+//        } else {
+        
         // Give Judge 1 point for judging a game
             
             User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 1
@@ -68,35 +68,78 @@ class JudgingVC2: UIViewController {
             }
             
             judgedGame.player2Scores.append(ratingControl.rating * 5)
-            
+
             if (judgedGame.player1Scores.count == 3 && judgedGame.player2Scores.count == 3) {
                 
                 judgedGame.gameState = 2
-
-                if judgedGame.winner != nil && judgedGame.loser != nil { // Winner and Loser were calculated
+                
+                if judgedGame.player1Scores.reduce(0, combine: +) > judgedGame.player2Scores.reduce(0, combine: +) {
                     
-                    judgedGame.winner!.wins = (judgedGame.winner?.wins.integerValue)! + 1
-                    judgedGame.loser!.losses = (judgedGame.loser?.losses.integerValue)! + 1
                     
-                } else { // Winner or loser or both are nil therefore it was a tie
+//                    judgedGame.player1.wins = judgedGame.player1.wins.integerValue + 1
+//                    judgedGame.player2.losses = judgedGame.player2.losses.integerValue + 1
+//                    judgedGame.player1.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+//                        if success {
+//                            print("Success")
+//                        } else if (error != nil) {
+//                            print("Error \(error)")
+//                        }
+//                    })
                     
-                    judgedGame.player1.ties = judgedGame.player1.ties.integerValue + 1
-                    judgedGame.player2.ties = judgedGame.player2.ties.integerValue + 1
+                } else {
+                    
+//                    judgedGame.player1.losses = judgedGame.player1.losses.integerValue + 1
+//                    judgedGame.player2.wins = judgedGame.player2.wins.integerValue + 1
                     
                 }
+//                judgedGame.winner?.wins = (self.judgedGame.winner?.wins.integerValue)! + 1
                 
-                judgedGame.saveEventually()
+//                if judgedGame.winner != nil && judgedGame.loser != nil { // Winner and Loser were calculated
+//                    
+//                    print(judgedGame.winner?.wins!)
+//                    self.judgedGame.winner!.wins! = (self.judgedGame.winner?.wins.integerValue)! + 1
+//                    print(judgedGame.winner?.wins!)
+//                    
+//                    print(judgedGame.loser?.losses!)
+//                    self.judgedGame.loser!.losses! = (self.judgedGame.loser?.losses.integerValue)! + 1
+//                    print(judgedGame.loser?.losses!)
+//                    
+//                    self.judgedGame.saveEventually()
+//
+//                } else { // Winner or loser or both are nil therefore it was a tie
+//                    
+//                    judgedGame.player1.ties = judgedGame.player1.ties.integerValue + 1
+//                    judgedGame.player2.ties = judgedGame.player2.ties.integerValue + 1
+//                    self.judgedGame.saveEventually()
+//
+//                }
+//                judgedGame.player1.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+//                    if success {
+//                        print("Success")
+//                    } else if (error != nil) {
+//                        print("Error \(error)")
+//                    }
+//                })
                 
+//                self.judgedGame.saveEventually()
+
             } else {
                 
                 print("Need more judges to give scores")
             }
-            
-            judgedGame.saveEventually()
-            
+        
+            self.judgedGame.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                if success {
+                    print("Success")
+                } else if (error != nil) {
+                    print("Error \(error)")
+                }
+            })
+//            self.judgedGame.saveEventually()
+        
             performSegueWithIdentifier("judgedPlayer2", sender: self)
             
-        }
+//        }
         
     }
     
