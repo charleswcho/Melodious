@@ -86,42 +86,7 @@ class JudgingVC2: UIViewController {
 //                        }
 //                    })
                     
-                } else {
-                    
-//                    judgedGame.player1.losses = judgedGame.player1.losses.integerValue + 1
-//                    judgedGame.player2.wins = judgedGame.player2.wins.integerValue + 1
-                    
                 }
-//                judgedGame.winner?.wins = (self.judgedGame.winner?.wins.integerValue)! + 1
-                
-//                if judgedGame.winner != nil && judgedGame.loser != nil { // Winner and Loser were calculated
-//                    
-//                    print(judgedGame.winner?.wins!)
-//                    self.judgedGame.winner!.wins! = (self.judgedGame.winner?.wins.integerValue)! + 1
-//                    print(judgedGame.winner?.wins!)
-//                    
-//                    print(judgedGame.loser?.losses!)
-//                    self.judgedGame.loser!.losses! = (self.judgedGame.loser?.losses.integerValue)! + 1
-//                    print(judgedGame.loser?.losses!)
-//                    
-//                    self.judgedGame.saveEventually()
-//
-//                } else { // Winner or loser or both are nil therefore it was a tie
-//                    
-//                    judgedGame.player1.ties = judgedGame.player1.ties.integerValue + 1
-//                    judgedGame.player2.ties = judgedGame.player2.ties.integerValue + 1
-//                    self.judgedGame.saveEventually()
-//
-//                }
-//                judgedGame.player1.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-//                    if success {
-//                        print("Success")
-//                    } else if (error != nil) {
-//                        print("Error \(error)")
-//                    }
-//                })
-                
-//                self.judgedGame.saveEventually()
 
             } else {
                 
@@ -135,7 +100,6 @@ class JudgingVC2: UIViewController {
                     print("Error \(error)")
                 }
             })
-//            self.judgedGame.saveEventually()
         
             performSegueWithIdentifier("judgedPlayer2", sender: self)
             
