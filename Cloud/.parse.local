@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Melodius": {
+      "applicationId": "ert9Xm9hkX0xlUbo0bQaeK7mMfvQCB9P3Ey4e8iN"
+    },
+    "_default": {
+      "link": "Melodius"
+    }
+  }
+}
