@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class JudgingVC2: UIViewController {
     
@@ -73,20 +74,16 @@ class JudgingVC2: UIViewController {
                 
                 judgedGame.gameState = 2
                 
-                if judgedGame.player1Scores.reduce(0, combine: +) > judgedGame.player2Scores.reduce(0, combine: +) {
+                // Adding to winner win count
+                PFCloud.callFunctionInBackground("editUser", withParameters: ["userId" : judgedGame.winner!], block: { (result: AnyObject?, error: NSError?) -> Void in
                     
-                    
-//                    judgedGame.player1.wins = judgedGame.player1.wins.integerValue + 1
-//                    judgedGame.player2.losses = judgedGame.player2.losses.integerValue + 1
-//                    judgedGame.player1.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-//                        if success {
-//                            print("Success")
-//                        } else if (error != nil) {
-//                            print("Error \(error)")
-//                        }
-//                    })
-                    
-                }
+                    if (error == nil) {
+                        
+                    } else {
+                        
+                    }
+                })
+                
 
             } else {
                 
