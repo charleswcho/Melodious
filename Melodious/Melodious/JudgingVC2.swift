@@ -74,16 +74,30 @@ class JudgingVC2: UIViewController {
                 
                 judgedGame.gameState = 2
                 
-                // Adding to winner win count
-                PFCloud.callFunctionInBackground("editUser", withParameters: ["userId" : judgedGame.winner!], block: { (result: AnyObject?, error: NSError?) -> Void in
-                    
-                    if (error == nil) {
+                if judgedGame.winner != nil && judgedGame.loser != nil {
+                    // Adding to winner win and loser loss count
+                    PFCloud.callFunctionInBackground("addWinsLosses", withParameters: ["winnerUserId" : judgedGame.winner!, "loserUserId" : judgedGame.loser!], block: { (result: AnyObject?, error: NSError?) -> Void in
                         
-                    } else {
+                        if (error == nil) {
+                            
+                        } else {
+                            print(error)
+                        }
+                    })
+                }
+               
+                if judgedGame.winner == nil && judgedGame.loser == nil {
+                    // Adding to tie count
+                    PFCloud.callFunctionInBackground("addTie", withParameters: ["player1" : judgedGame.player1!, "player2" : judgedGame.player2!], block: { (result: AnyObject?, error: NSError?) -> Void in
                         
-                    }
-                })
-                
+                        if (error == nil) {
+                            
+                        } else {
+                            print(error)
+                        }
+                    })
+                }
+            
 
             } else {
                 
