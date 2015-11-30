@@ -21,7 +21,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
 //        User.currentUser()?.wins = 0
 //        User.currentUser()?.losses = 0
 //        User.currentUser()?.ties = 0
