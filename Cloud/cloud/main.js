@@ -14,12 +14,15 @@ Parse.Cloud.define('addWinsLosses', function(request,responce) {
 
 	winner.set('wins', 1)
 
-	winner.Save().then(function(winner) {
-		responce.success(winner);
-	}, 
-
-	function(error) {
-		responce.error(error)
+	winner.save(null, {
+	    success: function (winner) {
+	        response.success();
+	        console.log("Save ok");
+	    },
+	    error: function (error) {
+	        response.error(error);
+	        console.log("Save ko");
+    	}
 	});
 
 	var User = Parse.Object.extend('_User'),
@@ -27,12 +30,15 @@ Parse.Cloud.define('addWinsLosses', function(request,responce) {
 
 	loser.set('losses', 1)
 
-	loser.Save().then(function(loser) {
-		responce.success(loser);
-	}, 
-
-	function(error) {
-		responce.error(error)
+	loser.save(null, {
+	    success: function (loser) {
+	        response.success();
+	        console.log("Save ok");
+	    },
+	    error: function (error) {
+	        response.error(error);
+	        console.log("Save ko");
+    	}
 	});
 });
 
@@ -48,12 +54,15 @@ Parse.Cloud.define('addTie', function(request,responce) {
 
 	player1.set('ties', 1)
 
-	player1.Save().then(function(player1) {
-		responce.success(player1);
-	}, 
-
-	function(error) {
-		responce.error(error)
+	player1.save(null, {
+	    success: function (player1) {
+	        response.success();
+	        console.log("Save ok");
+	    },
+	    error: function (error) {
+	        response.error(error);
+	        console.log("Save ko");
+    	}
 	});
 
 	var User = Parse.Object.extend('_User'),
@@ -61,12 +70,15 @@ Parse.Cloud.define('addTie', function(request,responce) {
 
 	player2.set('ties', 1)
 	
-	player2.Save().then(function(player2) {
-		responce.success(player2);
-	}, 
-
-	function(error) {
-		responce.error(error)
+	player2.save(null, {
+	    success: function (player2) {
+	        response.success();
+	        console.log("Save ok");
+	    },
+	    error: function (error) {
+	        response.error(error);
+	        console.log("Save ko");
+    	}
 	});
 
 });
