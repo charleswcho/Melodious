@@ -76,7 +76,7 @@ class JudgingVC2: UIViewController {
                 
                 if judgedGame.winner != nil && judgedGame.loser != nil {
                     // Adding to winner win and loser loss count
-                    PFCloud.callFunctionInBackground("addWinsLosses", withParameters: ["winnerUserId" : judgedGame.winner!, "loserUserId" : judgedGame.loser!], block: { (result: AnyObject?, error: NSError?) -> Void in
+                    PFCloud.callFunctionInBackground("addWinsLosses", withParameters: ["winnerUserId" : (judgedGame.winner?.objectId)!, "loserUserId" : (judgedGame.winner?.objectId)!], block: { (result: AnyObject?, error: NSError?) -> Void in
                         
                         if (error == nil) {
                             
@@ -88,7 +88,7 @@ class JudgingVC2: UIViewController {
                
                 if judgedGame.winner == nil && judgedGame.loser == nil {
                     // Adding to tie count
-                    PFCloud.callFunctionInBackground("addTie", withParameters: ["player1" : judgedGame.player1!, "player2" : judgedGame.player2!], block: { (result: AnyObject?, error: NSError?) -> Void in
+                    PFCloud.callFunctionInBackground("addTie", withParameters: ["player1" : (judgedGame.player1?.objectId)!, "player2" : (judgedGame.player2?.objectId)!], block: { (result: AnyObject?, error: NSError?) -> Void in
                         
                         if (error == nil) {
                             
