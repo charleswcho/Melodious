@@ -21,12 +21,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        User.currentUser()?.wins = 0
-//        User.currentUser()?.losses = 0
-//        User.currentUser()?.ties = 0
-//        User.currentUser()?.points = (User.currentUser()?.points.integerValue)! + 200
-//        User.currentUser()?.saveEventually()
-        
         if (PFUser.currentUser() == nil) {
             
             // Implement PFLogin
