@@ -43,6 +43,14 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             
         } else {
             
+            User.currentUser()?.fetchInBackgroundWithBlock({ (user: PFObject?, error: NSError?) -> Void in
+                if (error != nil) {
+                    print("Error: \(error)")
+                } else {
+                    print(User.currentUser())
+                }
+            })
+            
             print("\(User.currentUser()) already logged in")
         }
         

@@ -16,12 +16,6 @@ class ProfileTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        User.currentUser()?.fetchIfNeededInBackgroundWithBlock({ (user: PFObject?, error: NSError?) -> Void in
-            if (error != nil) {
-                print("Error: \(error)")
-            }
-        })
-        
         Game.fetchData { (gameObjects, error) -> Void in
             if error == nil {
                 self.games = gameObjects!

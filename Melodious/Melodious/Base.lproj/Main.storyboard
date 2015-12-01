@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Friends-->
@@ -780,31 +781,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cLm-oc-wRO">
-                                <rect key="frame" x="37" y="102" width="300" height="515"/>
+                                <rect key="frame" x="37" y="128" width="300" height="489"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7z-BR-yAE" customClass="FBSDKProfilePictureView">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <rect key="frame" x="30" y="0.0" width="240" height="240"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="7dZ-2l-fCe"/>
                                             <constraint firstAttribute="height" constant="300" id="H9J-gc-iuV"/>
+                                            <constraint firstAttribute="width" constant="240" id="R2s-Th-ifx"/>
                                             <constraint firstAttribute="width" secondItem="c7z-BR-yAE" secondAttribute="height" multiplier="1:1" id="oNQ-0Z-F9V"/>
                                             <constraint firstAttribute="width" constant="300" id="u4o-aK-p2z"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="H9J-gc-iuV"/>
+                                                <exclude reference="oNQ-0Z-F9V"/>
                                                 <exclude reference="u4o-aK-p2z"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-As-Qis">
-                                        <rect key="frame" x="57" y="300" width="188" height="140"/>
+                                        <rect key="frame" x="57" y="240" width="188" height="174"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                         <color key="textColor" red="0.2901960784" green="0.56470588239999997" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mkz-Yg-2YC">
-                                        <rect key="frame" x="0.0" y="440" width="300" height="75"/>
+                                        <rect key="frame" x="0.0" y="414" width="300" height="75"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OqG-Zi-iaD">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="75"/>
@@ -884,12 +888,18 @@
                                     <constraint firstAttribute="trailing" secondItem="c7z-BR-yAE" secondAttribute="trailing" id="rro-yf-nKt"/>
                                     <constraint firstAttribute="trailing" secondItem="mkz-Yg-2YC" secondAttribute="trailing" id="wPR-GJ-9SL"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SIY-UY-rNX"/>
+                                        <exclude reference="rro-yf-nKt"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2eC-Xq-73m" firstAttribute="top" secondItem="cLm-oc-wRO" secondAttribute="bottom" constant="50" id="HQ6-lx-80W"/>
-                            <constraint firstItem="cLm-oc-wRO" firstAttribute="top" secondItem="WnA-fm-Rhv" secondAttribute="bottom" constant="38" id="IEK-8h-2a3"/>
+                            <constraint firstItem="cLm-oc-wRO" firstAttribute="top" secondItem="WnA-fm-Rhv" secondAttribute="bottom" multiplier="2:1" id="IEK-8h-2a3"/>
                             <constraint firstItem="cLm-oc-wRO" firstAttribute="leading" secondItem="wtH-XV-ByH" secondAttribute="leading" constant="37" id="SIO-Jq-8gr"/>
                             <constraint firstAttribute="trailing" secondItem="cLm-oc-wRO" secondAttribute="trailing" constant="38" id="xvn-Kw-0wC"/>
                         </constraints>
@@ -1147,7 +1157,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="0791B1A1-F204-4139-BA5D-EE1027894865" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="BA3CA003-7FF4-4756-88AB-E31F4D8DEE8B" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1639,7 +1649,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0791B1A1-F204-4139-BA5D-EE1027894865" width="33" height="33">
+        <image name="BA3CA003-7FF4-4756-88AB-E31F4D8DEE8B" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
