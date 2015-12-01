@@ -1157,7 +1157,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="BA3CA003-7FF4-4756-88AB-E31F4D8DEE8B" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="654410F4-BAD7-40AF-9C12-362D51163B73" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1649,7 +1649,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BA3CA003-7FF4-4756-88AB-E31F4D8DEE8B" width="33" height="33">
+        <image name="654410F4-BAD7-40AF-9C12-362D51163B73" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1776,7 +1776,7 @@ BBsHGwwbFBsXGykbLBsxAAAAAAAAAgEAAAAAAAAAQgAAAAAAAAAAAAAAAAAAGzM
         <image name="Profile" width="33" height="33"/>
         <image name="checkmark_filled" width="50" height="50"/>
         <image name="delete_sign_filled" width="50" height="50"/>
-        <image name="energy" width="100" height="100"/>
+        <image name="energy" width="50" height="50"/>
         <image name="waste" width="50" height="50"/>
         <image name="waste_filled" width="50" height="50"/>
     </resources>

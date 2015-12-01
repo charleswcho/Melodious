@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "audio_wave_filled.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "audio_wave_filled.png",
       "scale" : "2x"
     },
     {
