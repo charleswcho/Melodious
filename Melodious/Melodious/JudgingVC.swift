@@ -28,23 +28,23 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        player1Video.delegate = self
+        player1Video.delegate = self
         getGames()
         
-//        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
+        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
 
     }
     
-//    // Can submit song?
-//    
-//    var canSubmitSong : Bool = false
-//
-//    func submitSongEnabled() {
-//        
-//        print("Can press submit")
-//        canSubmitSong = true
-//        
-//    }
+    // Can submit song?
+    
+    var canSubmitSong : Bool = false
+
+    func submitSongEnabled() {
+        
+        print("Can press submit")
+        canSubmitSong = true
+        
+    }
     
     func checkIfGameNeedsJudge() {
         
@@ -125,14 +125,14 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
 
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-//        if canSubmitSong == false {
-//            
-//            let alertController = AlertHelper.waitForTimerAlert()
-//            presentViewController(alertController, animated: true, completion: { () -> Void in
-//                print("Alert was shown")
-//            })
-//            
-//        } else {
+        if canSubmitSong == false {
+            
+            let alertController = AlertHelper.waitForTimerAlert()
+            presentViewController(alertController, animated: true, completion: { () -> Void in
+                print("Alert was shown")
+            })
+            
+        } else {
         
             if judgedGame.player1Scores.isEmpty {
                 judgedGame.player1Scores.append(PointsFromViewCount.calculate(judgedGame.player1SongDetails[2]))
@@ -144,7 +144,7 @@ class JudgingVC: UIViewController, YTPlayerViewDelegate {
             judgedGame.saveEventually()
             
             performSegueWithIdentifier("judgedPlayer1", sender: self)
-//        }
+        }
     }
     
     // MARK: Get Games from Parse

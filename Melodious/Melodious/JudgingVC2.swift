@@ -28,33 +28,33 @@ class JudgingVC2: UIViewController {
         player2ChannelNameLabel.text = judgedGame.player2SongDetails[1]
         player2VideoViewCountLabel.text = judgedGame.player2SongDetails[2]
         
-//        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
+        _ = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "submitSongEnabled", userInfo: nil, repeats: false)
 
         self.navigationItem.hidesBackButton = true
         
     }
     
-//    // Can submit song?
-//    
-//    var canSubmitSong : Bool = false
-//    
-//    func submitSongEnabled() {
-//        
-//        print("Can press submit")
-//        canSubmitSong = true
-//        
-//    }
+    // Can submit song?
+    
+    var canSubmitSong : Bool = false
+    
+    func submitSongEnabled() {
+        
+        print("Can press submit")
+        canSubmitSong = true
+        
+    }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         
-//        if canSubmitSong == false {
-//            
-//            let alertController = AlertHelper.waitForTimerAlert()
-//            presentViewController(alertController, animated: true, completion: { () -> Void in
-//                print("Alert was shown")
-//            })
-//            
-//        } else {
+        if canSubmitSong == false {
+            
+            let alertController = AlertHelper.waitForTimerAlert()
+            presentViewController(alertController, animated: true, completion: { () -> Void in
+                print("Alert was shown")
+            })
+            
+        } else {
         
         // Give Judge 1 point for judging a game
             
@@ -120,7 +120,7 @@ class JudgingVC2: UIViewController {
         
             performSegueWithIdentifier("judgedPlayer2", sender: self)
             
-//        }
+        }
         
     }
     
