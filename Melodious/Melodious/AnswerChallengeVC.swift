@@ -29,7 +29,7 @@ class AnswerChallengeVC: UIViewController {
         opponentProfilePic.profileID = game.opponent?.facebookID
         
         // Add corners and border
-        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 2
+        opponentProfilePic.layer.cornerRadius = opponentProfilePic.frame.size.width / 1.75
         opponentProfilePic.layer.borderColor = UIColor.lightGrayColor().CGColor
         opponentProfilePic.layer.borderWidth = 1.0
         opponentProfilePic.clipsToBounds = true
