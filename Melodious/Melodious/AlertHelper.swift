@@ -54,12 +54,8 @@ class AlertHelper: NSObject {
                 game.deleteInBackgroundWithBlock({ (success, error) -> Void in
                     if error == nil {
                         
-                        print("Did delete game? \(success)")
-                        
-                        // Create notification that homeTVC needs to be reloaded
-                        
-                        print("Home Table needs to reload")
-                        
+//                        // Create notification that homeTVC needs to be reloaded
+
                         NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
                         
                     } else {

@@ -47,6 +47,7 @@
 		BAB165451BBF3A420078C280 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB165441BBF3A420078C280 /* NewGameCell.swift */; };
 		BABED5751BEBF784001F1958 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABED5741BEBF784001F1958 /* FBSDKCoreKit.framework */; };
 		BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0A0F71BC2FA6F00A114E2 /* Game.swift */; };
+		BAC2266F1C0D63E3003FAE0B /* DebugOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2266E1C0D63E3003FAE0B /* DebugOptions.swift */; };
 		BAC591A91BE8318E00D3C8CC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC591A81BE8318E00D3C8CC /* LoginVC.swift */; };
 		BAC591AB1BE83B5900D3C8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC591AA1BE83B5900D3C8CC /* Images.xcassets */; };
 		BAC591AD1BE8567000D3C8CC /* RatingControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */; };
@@ -115,6 +116,7 @@
 		BAB165441BBF3A420078C280 /* NewGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
 		BABED5741BEBF784001F1958 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Documents/FacebookSDKs-iOS-20151026/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		BAC0A0F71BC2FA6F00A114E2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BAC2266E1C0D63E3003FAE0B /* DebugOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugOptions.swift; sourceTree = "<group>"; };
 		BAC591A81BE8318E00D3C8CC /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BAC591AA1BE83B5900D3C8CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BAC591AC1BE8567000D3C8CC /* RatingControlVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControlVC.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				BAE640531BFAA2AB00A5CCF2 /* PointsFromViewCount.swift */,
 				BA90B2041BFCFCF7008A77D2 /* ReachabilityHelper.swift */,
 				BA60F00A1C04F4AD00456701 /* Colors.swift */,
+				BAC2266E1C0D63E3003FAE0B /* DebugOptions.swift */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				BAC591A91BE8318E00D3C8CC /* LoginVC.swift in Sources */,
 				BAE6683C1BCECC6700C3FFE2 /* SongsCell.swift in Sources */,
 				BAC0A0F81BC2FA6F00A114E2 /* Game.swift in Sources */,
+				BAC2266F1C0D63E3003FAE0B /* DebugOptions.swift in Sources */,
 				BAD1C9DF1BCDED3F00A49E72 /* AnswerChallengeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,7 +633,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -668,6 +672,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -690,6 +695,8 @@
 				INFOPLIST_FILE = Melodious/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.charleswesleycho.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -715,6 +722,7 @@
 				INFOPLIST_FILE = Melodious/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.charleswesleycho.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -47,7 +47,6 @@ class AnswerChallengeVC: UIViewController {
         game.deleteInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             
             // Create notification that homeTVC needs to be reloaded
-            print("Home Table needs to reload")
             
             NSNotificationCenter.defaultCenter().postNotificationName(homeTableNeedsReloadingNotification, object: self)
             

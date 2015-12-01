@@ -118,7 +118,18 @@ class JudgingVC2: UIViewController {
                 }
             })
         
-            performSegueWithIdentifier("judgedPlayer2", sender: self)
+            let alertController = UIAlertController(title: "Alert", message: "You earned 1 energy!", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                self.performSegueWithIdentifier("judgedPlayer2", sender: self)
+
+            }
+            
+            alertController.addAction(OKAction)
+            
+            presentViewController(alertController, animated: true, completion: { () -> Void in
+                print("Alert was shown")
+            })
             
         }
         

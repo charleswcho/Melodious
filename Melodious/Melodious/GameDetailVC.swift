@@ -56,8 +56,6 @@ class GameDetailVC: UIViewController {
         
         opponentProfilePic.profileID = game.opponent?.facebookID
         
-//        print(game.opponent.facebookID)
-        
         opponentTotalScore.text = String(game.opponentTotalScore)
 
         if game.opponent?.name != nil {
@@ -83,8 +81,6 @@ class GameDetailVC: UIViewController {
         } else {
             
             opponentStackView.alignment = .Center
-            print("Opponent hasn't picked a video yet")
-            
         }
     }
     
@@ -92,7 +88,7 @@ class GameDetailVC: UIViewController {
         
         currentUserProfilePic.profileID = game.currentUser.facebookID
         
-//        print(game.currentUser.facebookID)
+        print(game.currentUser.facebookID)
         
         currentUserTotalScore.text = String(game.myTotalScore)
         currentUserVideo.loadWithVideoId(game.mySongID)

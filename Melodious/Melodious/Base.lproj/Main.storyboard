@@ -375,7 +375,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xKc-sM-J3k">
-                                <rect key="frame" x="20" y="90" width="335" height="408"/>
+                                <rect key="frame" x="20" y="114" width="335" height="408"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="rw2-hj-Iah">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="408"/>
@@ -610,7 +610,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xKc-sM-J3k" firstAttribute="top" secondItem="2UG-LF-s6k" secondAttribute="bottom" multiplier="1.4:1" id="0gh-ps-lFo"/>
+                            <constraint firstItem="xKc-sM-J3k" firstAttribute="top" secondItem="2UG-LF-s6k" secondAttribute="bottom" constant="50" id="0gh-ps-lFo"/>
                             <constraint firstItem="xKc-sM-J3k" firstAttribute="leading" secondItem="lqR-2K-KKb" secondAttribute="leading" constant="20" id="MrI-vF-b35"/>
                             <constraint firstAttribute="trailing" secondItem="xKc-sM-J3k" secondAttribute="trailing" constant="20" id="h1e-A9-mX2"/>
                         </constraints>
@@ -1161,7 +1161,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" image="C870BD97-F8AB-4931-806F-105F71BF6EB8" id="Kca-FW-dCE">
+                    <tabBarItem key="tabBarItem" image="BF2D7AFD-FA3E-4466-86AA-D56E5C2733FA" id="Kca-FW-dCE">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Songs" id="h8J-7A-FMf"/>
@@ -1653,7 +1653,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C870BD97-F8AB-4931-806F-105F71BF6EB8" width="33" height="33">
+        <image name="BF2D7AFD-FA3E-4466-86AA-D56E5C2733FA" width="33" height="33">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

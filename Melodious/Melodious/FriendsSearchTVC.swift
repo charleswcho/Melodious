@@ -47,9 +47,7 @@ class FriendSearchTVC: UITableViewController, UISearchBarDelegate, UISearchResul
         self.filtered = self.friendsArray.filter({( friend: User) -> Bool in
             let stringMatch = friend.name.lowercaseString.rangeOfString(searchText.lowercaseString)
             
-            print(friend.name)
             return (stringMatch != nil)
-
         })
     }
     

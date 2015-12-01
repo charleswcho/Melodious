@@ -52,6 +52,7 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             })
             
             print("\(User.currentUser()) already logged in")
+            
         }
         
         fetchData()
@@ -200,7 +201,6 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
     
     @IBAction func trashButtonPressed(sender: UIButton) {
         print("Button pressed")
-        
         let alertController = AlertHelper.trashButtonPressedAlert(self.games[3])
         
         presentViewController(alertController, animated: true, completion: { () -> Void in
