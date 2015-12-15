@@ -17,6 +17,48 @@ Parse.Cloud.define('addWinsLosses', function(request,response) {
     winner.increment('wins');
     loser.increment('losses');
     
+    var pushQuery = new Parse.Query(Parse.Installation);
+    
+    pushQuery.equalTo('user', winner)
+
+    Parse.Push.send({
+    	where: pushQuery
+    	data: {
+    		aps: {
+    			alert: "You Won!",
+    			badge: 'increment'
+    		}
+    	}
+    }, {
+    	success: function () {
+    		response.success();
+    	},
+    	error: function (error) {
+    		response.error(error);
+    	}
+    })
+
+    var pushQuery = new Parse.Query(Parse.Installation);
+    
+    pushQuery.equalTo('user', loser)
+
+    Parse.Push.send({
+    	where: pushQuery
+    	data: {
+    		aps: {
+    			alert: "You lost.",
+    			badge: 'increment'
+    		}
+    	}
+    }, {
+    	success: function () {
+    		response.success();
+    	},
+    	error: function (error) {
+    		response.error(error);
+    	}
+    })
+
     Parse.Promise.when([winner.save(), loser.save()]).then(function () {
         // both saves have completed
         response.success();
