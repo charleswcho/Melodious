@@ -457,6 +457,11 @@
 					BA8482A51BA338EF00A3CE99 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = K622334C2L;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BA8482BC1BA338EF00A3CE99 = {
 						CreatedOnToolsVersion = 6.4;
