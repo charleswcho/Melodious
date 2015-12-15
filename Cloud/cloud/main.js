@@ -24,10 +24,8 @@ Parse.Cloud.define('addWinsLosses', function(request,response) {
     Parse.Push.send({
     	where: pushQuery
     	data: {
-    		aps: {
-    			alert: "You Won!",
-    			badge: 'increment'
-    		}
+			alert: "You Won!",
+			badge: "increment"
     	}
     }, {
     	success: function () {
@@ -45,10 +43,8 @@ Parse.Cloud.define('addWinsLosses', function(request,response) {
     Parse.Push.send({
     	where: pushQuery
     	data: {
-    		aps: {
-    			alert: "You lost.",
-    			badge: 'increment'
-    		}
+			alert: "You lost.",
+			badge: 'increment'
     	}
     }, {
     	success: function () {

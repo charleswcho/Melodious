@@ -43,6 +43,11 @@ class HomeTVC: UITableViewController, PFLogInViewControllerDelegate {
             
         } else {
             
+            // Create relation between device and currentUser
+            let installation = PFInstallation.currentInstallation()
+            installation["user"] = PFUser.currentUser()
+            installation.saveEventually()
+            
             User.currentUser()?.fetchInBackgroundWithBlock({ (user: PFObject?, error: NSError?) -> Void in
                 if (error != nil) {
                     print("Error: \(error)")
