@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         Game.registerSubclass()
         User.registerSubclass()
-        Parse.setApplicationId("ert9Xm9hkX0xlUbo0bQaeK7mMfvQCB9P3Ey4e8iN",
-            clientKey: "01Z4UwEwCwOerop9KwJmNkJXeTwGcVMC1PxhnObz")
+        Parse.setApplicationId("QqyRZ70gq41q1oVAgMOh3b73NTNFC4a01lBEsXjn",
+            clientKey: "nxoThlws6Dh6B2BKbnYBe5P5U8R1qq676xB2mawN")
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
